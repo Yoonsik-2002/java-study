@@ -47,7 +47,6 @@ Java 에서는 배열의 길이를 자바 가상머신 JVM(**J**ava **V**irtual 
 
 ```java
 int[] student_score = new int[27];
-
 int arr_length = student_score.length;
 ```
 
