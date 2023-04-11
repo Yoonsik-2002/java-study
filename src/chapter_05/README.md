@@ -39,9 +39,22 @@
     ```java
     int[] student_score = new int[27];
     ```
-    이런식으로 배열의 선언과 생성을 동시에 하면 코드를 간략히 한 줄로 나타낼 수 있다. 
-    
-    
+    이런식으로 배열의 선언과 생성을 동시에 하면 코드를 간략히 한 줄로 나타낼 수 있다.<br><br>
+
+### 배열의 길이(배열이름.length)
+Java 에서는 배열의 길이를 자바 가상머신 JVM(**J**ava **V**irtual **M**achine)이 별도로 관리해준다.<br>
+배열의 길이는 `배열이름.length`를 통해서 얻을 수 있다.<br>
+
+```java
+int[] student_score = new int[27];
+```
+
+```java
+student_score.length;
+```
+
+
+
     
     
   
