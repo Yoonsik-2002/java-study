@@ -47,11 +47,15 @@ Java 에서는 배열의 길이를 자바 가상머신 JVM(**J**ava **V**irtual 
 
 ```java
 int[] student_score = new int[27];
+
+int arr_length = student_score.length;
 ```
 
-```java
-student_score.length;
-```
+다음 코드를 보면, 길이가 27인 배열 `student_score`가 생성되고, `student_score.length;`를 통해 해당 배열의 길이를 얻어와 변수 `arr_length`에 저장한 것을 알 수 있다.<br>
+
+이때, 배열은 한번 생성하면 해당 배열의 길이를 변경할 수 없기 때문에, 이미 생성된 배열의 길이(`배열이름.length`)는 바뀌지 않는다. <br>
+**즉, 배열의 길이는 상수 이다.** 결론적으로 배열의 길이는 `배열이름.length`를 통해서 읽어올 수만 있으며, 변경할 수는 없다.<br>
+
 
 
 
