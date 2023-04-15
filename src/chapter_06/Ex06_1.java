@@ -23,6 +23,6 @@ public class Ex06_1 {
         oled_tv.channelUp();
         oled_tv.channelDown();
     
-        System.out.println("현재 채널은" + oled_tv.channel + "입니다.");
+        System.out.println("현재 채널은 " + oled_tv.channel + " 입니다.");
     }
 }
