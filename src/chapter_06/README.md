@@ -258,8 +258,3 @@ public class Car {
      // 배열의 초기화 블럭 사용 시, new Car[] 생략 가능(단, 배열의 선언과 초기화를 동시에 하는 경우에만 가능)
      Car[] car_arr = {new Car("porsche 911", "149,900,000"), new car("mclaren 720s", "359,000,000"), new Car[]("lamborghini huracan evo", "299,000,000")};
      ```
-   
-
-
-
-
