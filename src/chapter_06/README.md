@@ -241,23 +241,6 @@ public class Car {
    (`car_arr[0]`, `car_arr[1]`, `car_arr[2]`)이 만들어지는 것이지, 객체가 생성되어 각 요소들에 저장되지는 않는다.<br>
    때문에 우리는 **객체배열을 생성한 뒤, 객체를 생성하여 해당 객체배열의 각 요소(참조변수)에 저장해 주어야 한다!**<br>
    
-   - #### 객체배열의 요소 하나하나에 객체를 생성하여 저장하기
-     ```java
-     Car[] car_arr = new Car[3]; // 객체배열 car_arr 생성(기본값 null 로 자동 초기화 된 객체를 다루는 참조변수 3개가 생성됨 car_arr[0], car_arr[1], car_arr[2])
-   
-     // 객체를 생성하여 객체배열의 각 요소(참조변수)에 저장 (참조변수 = new 클래스(생성자의 매개변수) 형식)
-     car_arr[0] = new Car("porsche 911", "149,900,000");
-     car_arr[1] = new Car("mclaren 720s", "359,000,000");
-     car_arr[2] = new Car("lamborghini huracan evo", "299,000,000");
-     ```
-   
-   - #### 배열의 초기화 블럭을 사용하여 객체 저장하기
-     ```java
-     Car[] car_arr = new Car[]{new Car("porsche 911", "149,900,000"), new car("mclaren 720s", "359,000,000"), new Car[]("lamborghini huracan evo", "299,000,000")};
-     
-     // 배열의 초기화 블럭 사용 시, new Car[] 생략 가능(단, 배열의 선언과 초기화를 동시에 하는 경우에만 가능)
-     Car[] car_arr = {new Car("porsche 911", "149,900,000"), new car("mclaren 720s", "359,000,000"), new Car[]("lamborghini huracan evo", "299,000,000")};
-     ```
    
    
 
