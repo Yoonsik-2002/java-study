@@ -10,7 +10,7 @@ public class Ex06_3 {
         car_arr[2] = new Car("audi R8", "280,000,000");
         
         // car_arr에 저장된 내용 출력
-        System.out.println("----- List of cars -----");
+        System.out.println("------ List of cars ------");
         for (int i = 0; i < car_arr.length; i++) {
             System.out.println("[" + car_arr[i].name + " , " + car_arr[i].price + "]");
         }
