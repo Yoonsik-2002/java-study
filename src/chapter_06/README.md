@@ -258,3 +258,18 @@ public class Car {
      // 배열의 초기화 블럭 사용 시, new Car[] 생략 가능(단, 배열의 선언과 초기화를 동시에 하는 경우에만 가능)
      Car[] car_arr = {new Car("porsche 911", "149,900,000"), new car("mclaren 720s", "359,000,000"), new Car[]("lamborghini huracan evo", "299,000,000")};
      ```
+     
+   - #### for문을 이용하여 객체 저장하기 
+     다뤄야할 객체의 수가 많은 경우, for문을 사용하여 저장이 가능하다.<br>
+     ```java
+     Car car_arr = new Car[30];
+     
+     for (int i = 0; i < car_arr.length; < i++) {
+       System.out.println("Input the name of the car : ");
+       String name = scanner.nextLine();
+       System.out.println("Input the price of the car : ");
+       String price = scanner.nextLine();
+       
+       car_arr[i] = new Car(name, price);
+     }
+     ```
