@@ -50,5 +50,7 @@ public class Ex06_6 {
         for (int i = 0; i < std_arr.length; i++) {
             System.out.println("[" + std_arr[i].student_num + " -- " + std_arr[i].name + " -- " + std_arr[i].score + "]");
         }
+        
+        scanner.close();
     }
 }
