@@ -23,5 +23,7 @@ public class Ex06_5{
         for (int i = 0; i < car_arr.length; i++) {
             System.out.println("[" + car_arr[i].name + " , " + car_arr[i].price + "]");
         }
+        
+        scanner.close();
     }
 }
