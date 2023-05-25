@@ -121,6 +121,9 @@ int arr_length = student_score.length;
   int[] ex_arr;
   ex_arr = new int[] {50, 60, 70, 80, 90};
   ```
+<br>
+
+### 배열의 출력
   
   
   
