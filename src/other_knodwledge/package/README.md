@@ -35,3 +35,16 @@
   즉, 데이터를 저장하는 자료구조와 저장된 데이터를 처리하는 알고리즘을 클래스로 구현해 놓은 것이다.<br>
   이러한 컬렉션 프레임워크는 Java의 인터페이스(Interface)를 사용하여 구현한다.<br>
 <br>
+
+- #### `java.util`패키지에 속한 클래스들
+  `java.util` 패키지에 속한 클래스들을 정리해보면 다음과 같다.<br>
+
+  ```
+  AbstractCollection, 
+  AbstractList, AbstractSequentialList, LinkedList, ArrayList, Vector, Stack, 
+  AbstractSet, HashSet, LinkedHashSet, TreeSet, 
+  AbstractMap, HashMap, LinkedHashMap, TreeMap, 
+  Arrays, BitSet, Calendar, GregorianCalendar, 
+  Collection, Date, Dictionary, Hashtable, Properties, 
+  EventObject, Locale, Observable, Random, Scanner, StringTokenizer
+  ```
