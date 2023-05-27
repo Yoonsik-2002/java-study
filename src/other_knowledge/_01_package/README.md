@@ -9,7 +9,7 @@
   같은 경우, 클래스의 패키지 이름으로 각 클래스를 구분할 수 있다.<br>
   결론적으로 클래스 명이 동일하더라도 패키지 이름이 다르면 충돌없이 해당 클래스를 가져와 사용이 가능하다.<br>
   따라서, 배포용으로 작성하는 자바 클래스는 반드시 패키지 명을 포함해야 한다.<br>
-<br>
+<br><br>
 
 ### `import`문
 위에서 설명했듯이, 패키지란 서로 비슷한 성격의 클래스들을 모아둔 하나의 단위(디렉토리)이다.<br>
@@ -23,6 +23,81 @@
 따라서, `import`문을 사용하면 다른 패키지에 속해있는 클래스를 가져와 사용할 때, 패키지 경로를 제외한 클래스 이름만으로 가져와<br>
 사용할 수 있게 된다.<br>
 <br>
+
+- #### `import`문에 대한 추가적인 설명 (`Scanner`예시)
+  응용 프로그램에서 다른 패키지에 있는 클래스를 사용하기 위해서는 패키지 이름을 포함한 경로명을 사용하여야 한다고 위에서 설명하였다.<br>
+  이러한, 사용하고자 하는 클래스와 해당 클래스의 패키지 이름까지 포함한 경로명을 **완전 경로명** 이라고 하겠다.<br>
+  
+  이런식으로 다른 패키지에 속해있는 클래스를 사용할 때 완전 경로명을 사용하는 이유는 컴파일러가 사용하고자 하는 클래스 파일의 위치를<br>
+  정확히 찾을 수 있도록 하기 위해서이다.<br>
+  <br>
+  
+  **다음은 `java.util`패키지(`JDK`의 `java.base`모듈의 `java.util`패키지)의 `Scanner`클래스 사용 예시이다.**<br>
+  ```java
+  public class ImportExample {
+    public static void main(String[] args) {
+      java.util.Scanner scanner = new java.util.Scanner(System.in);
+      String name = scanner.nextLine();
+      
+      System.out.println(name);
+    }
+  }
+  ```
+  해당 예시처럼 `Scanner`를 사용할 때 마다 완전 경로명을 사용할 경우, 코드가 길어지고, 그만큼 오타가 날 가능성도 높아진다.<br>
+  한마디로 비효율적이다.<br>
+  
+  이러한 문제를 해결하기 위해 `Java`에서는 `import`라는 키워드를 제공한다. 해당 키워드는 위에서 설명했듯이, 사용하고자 하는 클래스의 경로를<br>
+  컴파일러에게 미리 제공해 주는 역할을 한다.<br>
+  
+  때문에, `import`문을 사용하면, 사용하고자 하는 다른 패키지의 클래스의 이름만 가지고 해당 클래스를 사용할 수 있다.<br>
+  <br>
+  
+  **다음은 `import`문을 이용하여 `Scanner`클래스를 사용하는 예시 코드이다.**<br>
+  ```java
+  import java.util.Scanner;
+  
+  public class ImportExample {
+    public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      String name = scanner.nextLine();
+      
+      System.out.println(name);
+    }
+  }
+  ```
+  `import`문을 사용할 때 주의할 점은 *`import`문은 반드시 소스 코드의 앞 부분에 작성되어야 한다는 것이다.*<br>
+  또, 위 예시코드가 `import`문을 통해서 `java.util`패키지에 속해있는 `Scanner`클래스의 경로명을 딱 찍어서 컴파일러에게 알려준 것이라면,<br>
+  
+  한 패키지에 속해있는 여러 클래스를 사용하고 싶을 때에는 일일이 클래스마다 `import`문을 사용하는 것이 아니라, `*`를 사용하여, 한 패키지의<br>
+  모든 클래스들을 대상으로 지정해 줄 수 있다.<br>
+  > 일반적으로, 프로그래밍에서 `*`는 모든 것(everything)이라는 의미로 통용된다.<br>
+  <br>
+  
+  **`java.util`패키지를 예로 들면 다음과 같다.**<br>
+  ```java
+  import java.util.*;
+  ```
+  해당 코드를 통해, `java.util`패키지에 속해 있는 모든(`*`) 클래스들의 경로를 컴파일러에게 알려주게 되고,<br>
+  결과적으로, `java.util`패키지에 속해 있는 클래스라면, 완전 경로명을 사용하지 않고, 해당 클래스의 이름만으로 사용이 가능하게 된다.<br>
+  <br>
+  
+  **다음은 `*`을 이용한 `import`문을 통해 `java.util`패키지의 `Scanner`클래스와 `Arrays`클래스를 사용하는 예시 코드이다.**<br>
+  ```java
+  import java.util.*;
+  
+  public class ImportExample {
+    public static void main(String[] args) {
+      Scanner scanner = new Scanner(System.in);
+      String name = scanner.nextLine();
+      
+      System.out.println(name);
+      
+      char[] char_arr = {'y', 'o', 'o', 'n', 's', 'i', 'k'};
+      System.out.pritnln(Arrays.toString(char_arr);
+    }
+  }
+  ```
+  <br><br>
 
 ### `java.util`패키지
 `java.util`패키지(package)는 말 그대로 Java 프로그래밍에 있어, 유용한 클래스들을 모아둔 것으로,<br>
