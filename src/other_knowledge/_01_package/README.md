@@ -62,7 +62,6 @@
   이런식으로 다른 패키지에 속해있는 클래스를 사용할 때 완전 경로명을 사용하는 이유는 컴파일러가 사용하고자 하는 클래스 파일의 위치를<br>
   정확히 찾을 수 있도록 하기 위해서이다.<br>
   <br>
-  
   **다음은 `java.util`패키지(`JDK`의 `java.base`모듈의 `java.util`패키지)의 `Scanner`클래스 사용 예시이다.**<br>
   ```java
   public class ImportExample {
@@ -82,7 +81,6 @@
   
   때문에, `import`문을 사용하면, 사용하고자 하는 다른 패키지의 클래스의 이름만 가지고 해당 클래스를 사용할 수 있다.<br>
   <br>
-  
   **다음은 `import`문을 이용하여 `Scanner`클래스를 사용하는 예시 코드이다.**<br>
   ```java
   import java.util.Scanner;
@@ -102,7 +100,6 @@
   한 패키지에 속해있는 여러 클래스를 사용하고 싶을 때에는 일일이 클래스마다 `import`문을 사용하는 것이 아니라, `*`를 사용하여, 한 패키지의<br>
   모든 클래스들을 대상으로 지정해 줄 수 있다.<br>
   > 일반적으로, 프로그래밍에서 `*`는 모든 것(everything)이라는 의미로 통용된다.<br>
-  <br>
   
   **`java.util`패키지를 예로 들면 다음과 같다.**<br>
   ```java
@@ -111,7 +108,6 @@
   해당 코드를 통해, `java.util`패키지에 속해 있는 모든(`*`) 클래스들의 경로를 컴파일러에게 알려주게 되고,<br>
   결과적으로, `java.util`패키지에 속해 있는 클래스라면, 완전 경로명을 사용하지 않고, 해당 클래스의 이름만으로 사용이 가능하게 된다.<br>
   <br>
-  
   **다음은 `*`을 이용한 `import`문을 통해 `java.util`패키지의 `Scanner`클래스와 `Arrays`클래스를 사용하는 예시 코드이다.**<br>
   ```java
   import java.util.*;
@@ -142,10 +138,11 @@
   이러한 컬렉션 프레임워크는 Java의 인터페이스(Interface)를 사용하여 구현한다.<br>
 <br>
 
-- #### `java.util`패키지에 속한 클래스들
-  `java.util` 패키지에 속한 클래스들을 정리해보면 다음과 같다.<br>
-
-  ```
+#### `java.util`패키지에 속한 클래스들
+  `java.util` 패키지에 속한 클래스들을 정리해보면 다음과 같다.
+  <br>
+  
+  ```java
   AbstractCollection, 
   AbstractList, AbstractSequentialList, LinkedList, ArrayList, Vector, Stack, 
   AbstractSet, HashSet, LinkedHashSet, TreeSet, 
@@ -154,3 +151,48 @@
   Collection, Date, Dictionary, Hashtable, Properties, 
   EventObject, Locale, Observable, Random, Scanner, StringTokenizer
   ```
+<br>
+  
+### `java.lang` 패키지
+`java.lang`패키지는 자바에서 가장 기본적인 동작을 수행하는 클래스들의 집합이다.<br>
+따라서, Java에서는 이 `java.lang`패키지에 속해있는 클래스들은 따로 `import`문을 사용하지 않아도, 클래스 이름만으로도<br>
+사용할 수 있게 하고있다.<br>
+<br>
+
+#### `Math`클래스
+  `java.lang` 패키지의 `Math`클래스는 이름 그대로 수학에서 자주 사용하는 상수들과 함수들을 미리 구현해 놓은 클래스이다.<br>
+
+#### `random()`메소드
+임의의 정수, 난수를 만들때, Java에서 우리는 `Math.random()`메소드를 사용할 수 있다.<br>
+
+`Math`클래스의 `random()`메소드는 0.0과 1.0 사이의 범위에 속하는 (0.0 <= `Math.random()` < 1.0)<br>
+임의의 double 값을 반환한다.<br>
+즉, Math.random()`메소드가 기본적으로 반환하는 double 값은 0.0 ~ 0.999999999... 가 될 것이다.<br>
+
+하지만, 우리가 원하는 것은 난수, 즉 임의의 정수이다. 때문에, 해당 값을 `Math.random()`메소드를 통해 반환받기 위해서는<br>
+기본적으로 0.0 ~ 1.0미만의 double 값을 반환하는 해당 메서드를 어느정도 손봐줄 필요가 있다.<br>
+
+#### `Math.random()`메소드로 1 ~ 7중, 임의의 정수 구하기
+`Math.random()`메소드로 1 ~ 7 중 임의의 정수를 구하기 위한 과정을 정리해 보겠다.<br>
+
+- #### 1) 각 변에 7을 곱해준다.
+  ```java 
+  0.0 * 7 <= Math.random() * 7 < 1.0 * 7
+  0.0 <= Math.random() * 7 < 7.0   // 나올 수 있는 값의 범위 : 0.0 ~ 6.99999....
+  ```
+  
+- #### 2) 각 변을 int형으로 형변환 한다. 
+  ```java
+  (int)0.0 <= (int)(Math.random() * 7) < 7.0
+  0 <= (int)(Math.random() * 7) < 7   // 나올 수 있는 값의 범위 : 0 ~ 6
+  ```
+  
+- #### 3) 각 변에 1을 더해준다. 
+  ```java
+  0 + 1 <= (int)(Math.random() * 7) < 7 + 1
+  1 <= (int)(Math.random() * 7) < 8   // 나올 수 있는 값의 범위 : 1 ~ 7
+  ```
+  
+  
+  
+
