@@ -10,12 +10,12 @@ public class Ex05_2 {
         int[] ex_arr3 = {100, 90, 80, 70, 60};
         char[] ex_char_arr = {'a', 'b', 'c', 'd', 'e'};
         
-        for (int i = 0; i <= ex_arr1.length ; i++) {
+        for (int i = 0; i < ex_arr1.length ; i++) {
             ex_arr1[i] = i + 1;
         }
         
         for (int i = 0; i < ex_arr2.length ; i++) {
-            ex_arr2[i] = (int)(Math.random()*10) + 1;
+            ex_arr1[i] = ((int)(Math.random() * 10) + 1);
         }
         
         for (int i = 0; i < ex_arr1.length ; i++) {
