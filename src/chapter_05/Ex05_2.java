@@ -15,12 +15,13 @@ public class Ex05_2 {
         }
         
         for (int i = 0; i < ex_arr2.length ; i++) {
-            ex_arr1[i] = ((int)(Math.random() * 10) + 1);
+            ex_arr2[i] = ((int)(Math.random() * 10) + 1);
         }
         
         for (int i = 0; i < ex_arr1.length ; i++) {
-            System.out.println(ex_arr1[i] + ",");
+            System.out.print(ex_arr1[i] + ",");
         }
+        System.out.println();
         
         System.out.println(Arrays.toString(ex_arr2));
         System.out.println(Arrays.toString(ex_char_arr));
