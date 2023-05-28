@@ -50,7 +50,9 @@ public class Ex05_2 {
 ```
 <br>
 
-```
+그리고, 아래는 해당 코드를 실행시켰을 때 나타나는 에러메세지이다.<br>
+```java
 Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 10
         at chapter_05.Ex05_2.main(Ex05_2.java:14)
 ```
+
