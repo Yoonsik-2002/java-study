@@ -297,7 +297,48 @@ int arr_length = student_score.length;
   > 배열의 첫 번째 인덱스(index 0)에 저장되어 있는 값과 0 ~ 9 까지의 인덱스 중 무작위로 하나를 골라, 해당 인덱스에 저장되어 있는 값을 <br>
   > 교환한다. 이 동작을 100번 반복한다.<br><br>
   > 그러면, 결론적으로, 첫 번째 인덱스(index 0)는 고정된 상태로, 이 첫 번째 인덱스에 저장되어 있는 값과 for문을 통해 반복할 때 마다, <br>
-  > 0 ~ 9 까지의 인덱스 중, 무작위로 뽑힌 인덱스에 저장된 값이 교환되게 되어, 배열 `arr`의 요소들이 뒤섞이게 된다.<br>
+  > 0 ~ 9 까지의 인덱스 중, 무작위로 뽑힌 인덱스에 저장된 값이 교환되며, 배열 `arr`의 요소들이 뒤섞이게 된다.<br>
+  
+  해당 방식을 그림으로 표현하면 다음과 같다.<br>
+  <br>
+  
+  ![51DEF8E1-7F59-4B2A-A11B-A4EAA7964F21](https://github.com/Yoonsik-2002/java-study/assets/83572199/b928bfcc-d52d-411d-bf93-f2dc4da30b23)<br>
+  ![5DC27379-B6A8-4982-8990-342A0A346263](https://github.com/Yoonsik-2002/java-study/assets/83572199/aef638fe-21d8-4f1d-8696-fbfd077cdc47)<br>
+  ![E9E3A699-F0B7-430C-88E0-12EE330BED68](https://github.com/Yoonsik-2002/java-study/assets/83572199/6f06b914-a5f2-4ae5-9f6c-a8ef32b8cbc1)<br>
+  ![7DBCAB6E-3912-4C46-8A16-0870746D170E](https://github.com/Yoonsik-2002/java-study/assets/83572199/2d6e837f-9150-4c23-b626-ac0230033a81)<br>
+  <br>
+  위 과정이 for문을 통해 100번 반복되며, 배열의 요소들이 골고루 뒤섞이게 되는 것이다!<br>
+  
+  개인적으로 생각해본 해당 부분을 코드로 구현할 시, 중요하게 생각해야 할 부분은 고정된 대상 `arr[0]`과 `arr`의 0 ~ 9 까지의 인덱스중, 하나를<br>
+  무작위로 뽑은 값(인덱스)에 해당하는 값인 `arr[rand] (이때, rnad 는 (int)(Math.random() * 10)의 결과값)`의 교환을 여러번 반복하면,<br>
+  해당 배열의 요소들을 골고루 섞어줄 수 있다는 것 인것같다.<br>
+  
+  그럼, 위 for문에 들어갈 부분을 채워서 해당 코드를 완성해 보겠다.<br>
+  ```java
+  import java.util.Arrays;
+  
+  class Ex05_5 {
+    public static void main(String[] args) {
+      int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+  
+      for (int i = 0; i < 100; i++) {
+        int rand = (int)(Math.rand() * 10);
+    
+        int temp = arr[0];
+        arr[0] = arr[rand];
+        arr[rand] = temp;
+      }
+  
+      System.out.println(Arrays.toString(arr));
+    }
+  }
+  ```
+  
+  
+
+
+
+  
 
 
   
