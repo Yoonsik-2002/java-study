@@ -273,6 +273,8 @@ b = temp  // a는 현재 20을 저장하고 있기 때문에, 기존에 a에 저
 클래스 명으로 사용이 가능하게 해 주었기 때문에, 따로 `import`를 하지 않아도 된다!<br>
 
 이 `java.lang` 패키지와 `Math.random()`메서드에 대한 설명은 다음 링크에 자세히 설명해 놓았다.<br>
+[패키지 (Package)](https://github.com/Yoonsik-2002/java-study/blob/main/src/other_knowledge/_01_package/README.md)<br>
+<br>
 
 
 
