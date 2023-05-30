@@ -385,7 +385,7 @@ String 클래스를 사용하는 것이 문자열을 다루는데 더욱 편리�
   
   #### `equals` 메서드
   이 메서드에 관한 설명은 내가 이전에 velog에 자세히 정리해놓은게 있어서 해당 링크를 첨부하도록 하겠다.<br>
-  [[Java] 문자열(String)의 생성과 문자열의 비교 equals(), ==의 차이점](https://velog.io/@yoonsik123/TIL-38-Java-%EB%AC%B8%EC%9E%90%EC%97%B4String%EC%9D%98-%EC%83%9D%EC%84%B1%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EB%B9%84%EA%B5%90-equals-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)<br>
+    [[Java] 문자열(String)의 생성과 문자열의 비교 equals(), ==의 차이점](https://velog.io/@yoonsik123/TIL-38-Java-%EB%AC%B8%EC%9E%90%EC%97%B4String%EC%9D%98-%EC%83%9D%EC%84%B1%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EB%B9%84%EA%B5%90-equals-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)<br>
   
   
   
