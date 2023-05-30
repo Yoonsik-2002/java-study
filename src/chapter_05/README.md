@@ -4,8 +4,12 @@
 - #### 배열의 선언
   Java 에서 **배열을 선언하는 방법**은 다음과 같다. 먼저, 원하는 자료형의 변수를 생성하고, 해당 변수 또는 자료형에 배열임을 의미하는 <br>
   대괄호`[]` 를 붙여주면 된다.<br>
-  이렇게 배열을 선언하면 생성된 배열을 다루기 위한 참조변수를위한 공간이 만들어지게 된다. <br>
-  (배열의 선언과 배열을 다루기 위한 참조변수 선언은 같은 의미)
+  
+  이렇게 배열을 선언하면 생성된 배열을 다루기 위한 참조변수를위한 공간이 만들어지게 된다.<br>
+  (배열의 선언과 배열을 다루기 위한 참조변수 선언은 같은 의미)<br>
+  
+  또, 이러한 배열의 참조변수는 해당 배열의 첫 번째 요소의 주소값을 저장한다.<br>
+  
   - #### 배열의 선언 예시
     |선언방법|선언 예|
     |---|---|
@@ -396,10 +400,13 @@ String클래스에 대해 알아보았으니, 이제 String배열에 대해 알�
 ```java
 String[] str_arr = new String[3];
 ```
+<br>
 
 다음 코드의 결과는 아래 그림과 같이 나타낼 수 있다.<br>
 ![ACD40224-4D1F-4081-AFFB-86CC7F07944B](https://github.com/Yoonsik-2002/java-study/assets/83572199/ecb8269c-fe9c-47e9-bdda-cf54bf36d8bf)<br>
-다음과 같이 3개의 참조변수 (`str_arr[0]`, `str_arr[1]`, `str_arr[2]`)를 저장하기 위한 공간이 마련되고,<br>
+<br>
+
+다음과 같이 3개의 String 타입의 참조변수 (`str_arr[0]`, `str_arr[1]`, `str_arr[2]`)를 저장하기 위한 공간이 마련되고,<br>
 이 참조변수들은 해당 시점에서는 아무것도 가리키고 있지 않기 때문에, 참조형의 기본값인 `Null`로 초기화 되게 된다.<br>
 
 추가로, 변수의 타입에 따른 기본값을 정리해보면, 다음과 같다.<br>
@@ -412,7 +419,29 @@ String[] str_arr = new String[3];
 |float|0.0f|
 |double|0.0d 또는 0.0|
 |참조형|Null|
+<br>
 
+다시 본론으로, 이 String 타입의 배열을 초기화 하기 위해선, 원래는 아래 코드와 같이 배열의 각 참조변수에 `new`연산자를 이용하여<br>
+객체를 생성해야 한다.<br>
+왜냐하면 String은 클래스이기 때문이다.<br>
+```java
+String[] str_arr = new String[3];
+str_arr[0] = new String("Cho");
+str_arr[1] = new String("Yoon");
+str_arr[2] = new String("Sik");
+```
+하지만, 특별히 String 클래스의 경우 위 내용을 간략히 큰 따옴표(`""`)만을 사용하여 표현이 가능하다.<br>
+```java
+String[] str_arr = new String[3];
+str_arr[0] = "Cho";
+str_arr[1] = "Yoon";
+str_arr[2] = "Sik";
+```
+또 아래와 같이 String 타입의 배열을 생성과 동시에 초기화 할 수도 있다.<br>
+```java
+String[] str_arr = new String[] {"Cho", "Yoon", "Sik"};
+String[] str_arr = {"Cho", "Yoon", "Sik"};
+```
 
 
   
