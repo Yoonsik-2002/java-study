@@ -348,12 +348,50 @@ char배열(문자열)과 그에 관련된 기능들을 함께 묶어서 하나�
 
 이렇게 Java처럼 문자열을 다룰 때, String클래스를 사용하면 좋은 점은, String클래스 자체가 char배열(문자열)과 관련된 기능들을 추가하여 확장한<br>
 것이기 때문에, C언어처럼 달랑 데이터의 개념인 char배열을 사용하는 것보다 데이터와 해당 데이터와 관련된 기능들을 하나로 묶은 개념인<br>
-String 클래스를 사용하는 것이 문자열을 다루는데 더욱 편리하고 용이하다는 점이다.<br>
+String 클래스를 사용하는 것이 문자열을 다루는데 더욱 편리하고 용이하다는 점이다.<br><br>
 
 - #### String 클래스의 주요 메서드
   String 클래스는 수많은 문자열 관련 메서드들을 제공하지만, 지금은 이 중, 가장 기본적인 메서드 몇 가지만 다뤄보고자 한다.<br>
   
-
+  |메서드|설명|
+  |:---:|:-:|
+  |char charAt(int index)|문자열에서 해당 위치(index)에 있는 문자를 반환한다.|
+  |int length()|문자열의 길이를 반환한다.|
+  |String substring(int from, int to)|문자열에서 해당 범위(from ~ to)의 문자열을 반환한다.(to는 포함 안됨)|
+  |boolean equals(Object obj)|문자열의 내용이 같은지 확인한다. 같으면 결과는 true, 다르면 false|
+  |char[] toCharArray()|문자열을 문자배열(char[])로 변환해서 반환한다.|
+  
+  #### `charAt`메서드
+  `charAt`메서드는 문자열에서 지정한 index에 해당하는 한 문자를 가져와준다. 배열에서 `배열이름[index]`를 통해 index에 위치한 값을 가져오는 것과<br>
+  같은 개념이라 생각하면 된다.<br>
+  
+  배열과 마찬가지로 `charAt`메서드의 index는 0부터 시작한다.<br>
+  ```java
+  String name = "ChoYoonsik";
+  char ch = name.charAt(0);   // 문자열 name의 첫 번째 문자 'C'를 char형 변수 ch에 저장
+  ```
+  
+  #### `substring`메서드
+  `substring`메서드는 문자열의 원하는 일부분을 뽑아낼 수 있다. 이때, 주의할 점은 범위의 끝은 포함되지 않는다는 것이다.<br>
+  예를 들어, index의 범위가 2 ~ 4 라고 하면, 4는 범위에서 포함되지 않는다.(2 <= x < 4)<br>
+  ```java
+  String name = "ChoYoonsik";
+  String first_name = name.substring(3, 11);
+  String last_name = name.substring(0, 3);
+  
+  System.out.println("성 : " + last_name);
+  System.out.println("이름 : " + first_name);
+  ```
+  
+  #### `equals` 메서드
+  이 메서드에 관한 설명은 내가 이전에 velog에 자세히 정리해놓은게 있어서 해당 링크를 첨부하도록 하겠다.<br>
+  [[Java] 문자열(String)의 생성과 문자열의 비교 equals(), ==의 차이점](https://velog.io/@yoonsik123/TIL-38-Java-%EB%AC%B8%EC%9E%90%EC%97%B4String%EC%9D%98-%EC%83%9D%EC%84%B1%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EB%B9%84%EA%B5%90-equals-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)<br>
+  
+  
+  
+  
+  
+ 
   
   
   
