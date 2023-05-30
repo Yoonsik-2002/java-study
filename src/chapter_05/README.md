@@ -386,7 +386,35 @@ String 클래스를 사용하는 것이 문자열을 다루는데 더욱 편리�
   #### `equals` 메서드
   이 메서드에 관한 설명은 내가 이전에 velog에 자세히 정리해놓은게 있어서 해당 링크를 첨부하도록 하겠다.<br>
     [[Java] 문자열(String)의 생성과 문자열의 비교 equals(), ==의 차이점](https://velog.io/@yoonsik123/TIL-38-Java-%EB%AC%B8%EC%9E%90%EC%97%B4String%EC%9D%98-%EC%83%9D%EC%84%B1%EA%B3%BC-%EB%AC%B8%EC%9E%90%EC%97%B4%EC%9D%98-%EB%B9%84%EA%B5%90-equals-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90)<br>
-  
+<br>
+
+### String 배열
+String클래스에 대해 알아보았으니, 이제 String배열에 대해 알아보도록 하겠다.<br>
+
+배열의 타입이 String이라고 해도, 선언과 생성 방법은 int형 배열과 다르지 않다.<br>
+다음은 3개의 문자열을 저장할 수 있는 String 타입의 배열을 생성하는 코드이다.<br>
+```java
+String[] str_arr = new String[3];
+```
+
+다음 코드의 결과는 아래 그림과 같이 나타낼 수 있다.<br>
+![ACD40224-4D1F-4081-AFFB-86CC7F07944B](https://github.com/Yoonsik-2002/java-study/assets/83572199/ecb8269c-fe9c-47e9-bdda-cf54bf36d8bf)<br>
+다음과 같이 3개의 참조변수 (`str_arr[0]`, `str_arr[1]`, `str_arr[2]`)를 저장하기 위한 공간이 마련되고,<br>
+이 참조변수들은 해당 시점에서는 아무것도 가리키고 있지 않기 때문에, 참조형의 기본값인 `Null`로 초기화 되게 된다.<br>
+
+추가로, 변수의 타입에 따른 기본값을 정리해보면, 다음과 같다.<br>
+|자료형|기본값|
+|:---:|:---:|
+|boolean|false|
+|char|'\u0000'|
+|byte, short, int|0|
+|long|0L|
+|float|0.0f|
+|double|0.0d 또는 0.0|
+|참조형|Null|
+
+
+
   
   
   
