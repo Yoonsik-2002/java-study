@@ -24,6 +24,7 @@ class Ex05_7 {
         for (int i = 0; i < str_arr.length; i++) {
             System.out.println("str_arr[" + i + "] : " + str_arr[i]);
         }
+        System.out.println();
         
         for (int i = 0; i < 100; i++) {
             int rand = (int)(Math.random() * 3);
@@ -31,8 +32,8 @@ class Ex05_7 {
             str_arr[0] = str_arr[rand];
             str_arr[rand] = temp;
         }
-        
         System.out.println(Arrays.toString(str_arr));
+        System.out.println();
         
         /*
         String 클래스의 메서드 charAt과 subString으로 문자열을 다루는 코드.
