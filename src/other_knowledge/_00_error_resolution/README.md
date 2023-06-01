@@ -90,11 +90,121 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 10
 14      ex_arr1[i] = i + 1;
 15  }
 ```
+<br>
+
 for문의 루프제어변수 `i`를 0으로 초기화 하고, 1부터 10까지의 정수를 `ex_arr1`에 저장하기 위한 `ex_arr[i] = i + 1`도 그대로 유지한 상태에서<br>
 `i`가 9일 때까지만 for문을 반복하도록 해당 for문의 조건식을 `i < ex_arr1.length`로 변경해 주었다.<br>
 <br>
 
 ---
+<br><br>
+
+## `no suitable method found for println(String,int,int,int)` 에러
+해당 에러를 다루기 전에 `Formatting`이라는 개념에대해 한번 짚고 넘어가도록 하겠다.<br>
+`Formatting`이란, 우리가 C, C++, C#에서 문자열을 출력 시, 해당 문자열 중간중간에 숫자(int, float, double)나 또 다른 문자열을 <br>
+대입하여 출력하기 위해 흔히 사용하던 방법이다.<br>
+
+예시코드를 작성해보면 다음과 같다.<br>
+
+```C
+int military_discharge = 390;
+
+printf("전역까지 %d일 남았다.", military_discharge);
+```
+<br>
+
+원래 Java에서 문자열을 출력하기 위해서는 `println()`메서드를 사용하였다. 해당 메서드를 사용할 때는 위의 예시코드의 경우,<br>
+다음과 같이 `+`를 사용하여 문자열 사이에 숫자(int)를 대입해주어야 한다.<br>
+
+```java
+int military_discharge = 390;
+
+System.out.println("전역까지 " + military_discharge + "일 남았다.");
+```
+<br>
+
+그렇다면, Java에서 C, C++, C#에서와 같이 `Formatted Printing`을 하기 위해서는 어떻게 해야 할까? 다음 두 가지 방법을 통해 <br>
+`Formatted Printing`이 가능하다.<br>
+
+- #### `printf`메서드 사용하기
+  `printf`메서드는 C, C++, C#과 같이 Java에서도 `Formatted Printing`을 할 수 있게 해준다.<br>
+  해당 메서드를 적용한 예시코드는 다음과 같다.<br>
+  ```java
+  int military_discharge = 390;
+  
+  System.out.printf("전역까지 %d일 남았다.", military_discharge);
+  ```
+ 
+- #### `String.format()`메서드 사용하기
+  `java.lang`의 `String`클래스의 `format()`메서드를 통해서도 Java에서의 `Formatted Printing`이 가능하다.<br> 
+  해당 메서드를 적용한 예시코드는 다음과 같다.<br>
+  ```java
+  int military_dischage = 390;
+  
+  System.out.println(String.format("전역까지 %d일 남았다.", military_discharge));
+  ```
+  <br>
+
+마지막으로, 에러가 난 코드를 한번 살펴보도록 하겠다.<br>
+
+```java
+package chapter_05;
+
+class Ex05_8 {
+    public static void main(String[] args) {
+        int[][] score = {
+                         {100, 90, 70},
+                         {80, 60, 100}, 
+                         {100, 90, 80},
+                         {98, 77, 100},
+        };
+        int sum = 0;
+        
+        for(int i = 0; i < score.length; i++) {
+            for(int j = 0; j < score[0].length; j++) {
+                System.out.println("score[%d][%d] = %d\n", i, j, score[i][j]);
+                
+                sum += score[i][j];
+            }
+        }
+        
+        System.out.println("총합 : " + sum);
+    }
+}
+```
+<br>
+
+아래는 해당 코드를 실행시켰을 때 발생하였던 에러메세지이다.<br>
+
+```java
+chapter_05/Ex05_8.java:15: error: no suitable method found for println(String,int,int,int)
+```
+<br>
+
+해당 에러 메세지에 나타나있는대로, 15번째 라인의 코드를 보면 왜 해당 에러가 발생하였는지 알 수 있다.<br>
+다음은 문제의 15번째 라인의 코드이다.<br>
+```java
+System.out.println("score[%d][%d] = %d\n", i, j, score[i][j]);
+```
+에러가 발생한 이유는 `println`메서드를 이용해서 다음과 같이 `Formatted Printing`을 하려면, `printf`메서드를 사용하거나<br>
+`String.format()`메서드를 통해 숫자나 문자,문자열을 출력하고자 하는 문자열 사이에 끼워넣어주어야 하는데 그러지 않았다.<br>
+
+해당 에러를 해결하려면 15번째 라인의 코드를 다음과 같이 변경해 주어야 한다.<br>
+
+```java
+System.out.printf("score[%d][%d] = %d\n", i, j, score[i][j]);
+```
+or
+```java
+System.out.println(String.format("score[%d][%d] = %d\n", i, j, score[i][j]));
+```
+<br>
+
+---
+  
+  
+
+
 
 
 
