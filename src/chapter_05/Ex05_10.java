@@ -15,7 +15,7 @@ class Ex05_10 {
         int kor_score = 0, eng_score = 0, math_score = 0;
         
         System.out.println("번호 국어 영어 수학 총점 평균");
-        System.out.println("=================================");
+        System.out.println("==================================");
         
         for(int i = 0; i < score.length; i++) {
             int sum = 0;
@@ -34,7 +34,7 @@ class Ex05_10 {
             avg = sum / (float)score[i].length;
             System.out.println(String.format("%5d %6.2f", sum, avg));
         }
-        System.out.println("=================================");
+        System.out.println("==================================");
         System.out.println(String.format("%8d %4d %4d", kor_score, eng_score, math_score));
     }
 }
