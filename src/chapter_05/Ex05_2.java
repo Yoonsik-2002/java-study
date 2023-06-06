@@ -7,7 +7,7 @@ public class Ex05_2 {
         int[] ex_arr1 = new int[10];
         int[] ex_arr2 = new int[10];
         // int[] ex_arr3 = new int[] {100, 90, 80, 70, 60};
-        int[] ex_arr3 = {100, 90, 80, 70, 60};
+        float[] ex_arr3 = {100, 90, 80, 70, 60};
         char[] ex_char_arr = {'a', 'b', 'c', 'd', 'e'};
         
         for (int i = 0; i < ex_arr1.length ; i++) {
@@ -23,7 +23,7 @@ public class Ex05_2 {
         }
         System.out.println();
         
-        int[] ex_arr3_cp = Arrays.copyOf(ex_arr3, 7);
+        float[] ex_arr3_cp = Arrays.copyOf(ex_arr3, 7);
         System.out.println(Arrays.toString(ex_arr3_cp));
         System.out.println(Arrays.toString(ex_arr2));
         System.out.println(Arrays.toString(ex_char_arr));
