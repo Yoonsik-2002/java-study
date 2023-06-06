@@ -23,6 +23,8 @@ public class Ex05_2 {
         }
         System.out.println();
         
+        int[] ex_arr3_cp = Arrays.copyOf(ex_arr3, 7);
+        System.out.println(Arrays.toString(ex_arr3_cp));
         System.out.println(Arrays.toString(ex_arr2));
         System.out.println(Arrays.toString(ex_char_arr));
         System.out.println(ex_arr3);
