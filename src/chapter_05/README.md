@@ -639,8 +639,20 @@ int[][] ex_arr = {
   Arrays.sort(ex_arr);   // 배열 ex_arr을 정렬함
   System.out.println(Arrays.toString(ex_arr));   // [0, 1, 2, 3, 4, 5] 출력
   ```
+<br>
+
+- #### String을 char배열로 - `toCharArray()`
+  String 클래스는 char배열과 관련된 메서드들을 하나로 묶은 개념이라고 앞서 소개하였다. String클래스에서는 String을 char배열로 변환해주는<br>
+  메서드를 제공하는데,<br>
+  바로, `toCharArray()`메서드이다. 사용 방식은 아래 예시코드를 보도록 하자.<br>
   
+  ```java
+  String[] ex_arr = {"television", "computer", "mouse", "phone"};
   
+  char[] cpt = ex_arr[1].toCharArray();   // String 배열의 두 번째 인자인 computer를  char배열로 변환하여 char배열의 레퍼런스 변수 cpt에 저장
+  
+  System.out.println(Arrays.toString(cpt)); // computer 출력
+  ```
   
   
   
