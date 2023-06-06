@@ -653,8 +653,8 @@ int[][] ex_arr = {
   
   System.out.println(Arrays.toString(cpt)); // computer 출력
   ```
-  참고로, 이름이 비슷해서 헷갈릴 수도 있는데, 배열에 저장된 요소들을 문자열형태로 출력해주는 메서드 `toString()`은 `java.util`패키지의 `Arrays`클래스<br>
-  에 속한 메서드이고, 방금 사용한 `toCharArray()`메서드는 `java.lang`패키지의 `String`클래스에 속한 메서드이다. 
+  참고로, 이름이 비슷해서 헷갈릴 수도 있는데, 배열에 저장된 요소들을 문자열형태로 출력해주는 메서드 `toString()`은 `java.util`패키지의<br>
+  `Arrays`클래스에 속한 메서드이고, 방금 사용한 `toCharArray()`메서드는 `java.lang`패키지의 `String`클래스에 속한 메서드이다. 
   
   
 
