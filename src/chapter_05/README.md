@@ -585,7 +585,65 @@ int[][] ex_arr = {
 이 메서드들 중, 자주 사용되는 메서드 몇 가지를 정리해 보도록 하겠다. (더욱 자세한 내용은 chapter_11에서 ...)<br>
 
 - #### 1차원 배열, 2차원 배열의 비교와 모든 요소 문자열로 출력 - `equals()` `deepEquals()`, `toString()` `deepToString()`
+  `toString()`메서드는 배열의 모든 요소들을 문자열로 출력해주는 메서드이다. 하지만, 이 `toString()`메서드는 1차원 배열에만 사용이 가능하다.<br>
+  
+  2차원 배열의 모든 요소들을 문자열로 출력하기 위해서는 `deepToString()`메서드를 사용한다. 해당 메서드는 배열의 모든 요소를 재귀적으로 접근해서<br>
+  문자열을 구성하기 때문에, 2차원 상의 다차원 배열에도 사용이 가능하다.<br>
+  
+  ```java
+  int[][] ex_arr = {
+      {1, 2, 3, 4, 5},
+      {6, 7, 8, 9, 10}
+     };
+     
+  System.out.println(Arrays.deepToString(ex_arr));   // 출력결과 : [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]
+  ```
 
+  `equals()`메서드는 두 배열에 저장되어 있는 모든 요소들을 비교하여, 일치하면 `true`, 일치하지 않으면 `false`를 반환해주는 메서드이다.<br>
+  이때, `equals()`메서드는 1차원 배열에만 사용이 가능하다.<br>
+  때문에, 다차원 배열의 비교에는 `deepEquals()`메서드를 사용해야 한다.<br>
+  
+  ```java
+  String[][] ex_arr_1 = {{"aaa", "bbb"}, {"AAA", "BBB"}};
+  String[][] ex_arr_2 = {{"aaa", "bbb"}, {"AAA", "BBB"}};
+  
+  System.out.println(Arrays.deepEquals(ex_arr_1, ex_arr_2);   // true 반환
+  System.out.println(Arrays.equals(ex_arr_1, ex_arr_2);   // false 반환(정상 작동 x)
+  ```
+<br>
+
+- #### 배열의 복사 - `copyOf()`, `copyOfRange()`
+  `copyOf()`메서드는 배열 전체를, `copyOfRange()`메서드는 배열의 일부를 복사하여 새로운 배열을 만들어 반환해준다.<br>
+  이때, 두 메서드에 지정되는 범위의 끝은 포함되지 않는다.<br>
+  두 메서드를 사용하는 방식은 다음과 같다.<br>
+  ```java
+  Arrays.copyOf(복사할 배열의 이름, 범위);
+  Arrays.copyOfRange(복사할 배열의 이름, 시작과 끝 범위);
+  ```
+  
+  ```java
+  int[] ex_arr = {0, 1, 2, 3, 4};
+  
+  int[] ex_arr_cp1 = Arrays.copyOf(ex_arr, ex_arr.length);   // ex_arr_cp1 = [0, 1, 2, 3, 4] 
+  int[] ex_arr_cp2 = Arrays.copyOf(ex_arr, 3);   // ex_arr_cp2 = [0, 1, 2]
+  int[] ex_arr_cp3 = Arrays.copyOf(ex_arr, 7);   // ex_arr_cp3 = [0, 1, 2, 3, 4, 0, 0] 기존 배열의 범위를 넘어가면, 해당 배열의 타입의 기본값으로 초기화 되어 복사됨
+  int[] ex_arr_cp4 = Arrays.copyOfRange(ex_arr, 1, 5);   // ex_arr_cp4 = [1, 2, 3]
+  int[] ex_arr_cp5 = Arrays.copyOfRange(ex_arr, 0, 7);   // ex_arr_cp5 = [0, 1, 2, 3, 4, 0, 0] 
+  ```
+<br>
+
+- #### 배열의 정렬 - `sort()`
+  `sort()`메서드는 배열을 정렬할 때 사용하는 메서드로, 아래와 같이 사용이 가능하다.<br>
+  ```java
+  int[] ex_arr = {1, 3, 0, 4, 5, 2};
+  Arrays.sort(ex_arr);   // 배열 ex_arr을 정렬함
+  System.out.println(Arrays.toString(ex_arr));   // [0, 1, 2, 3, 4, 5] 출력
+  ```
+  
+  
+  
+  
+  
 
 
 
