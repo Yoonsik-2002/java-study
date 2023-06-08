@@ -654,9 +654,36 @@ int[][] ex_arr = {
   System.out.println(Arrays.toString(cpt)); // computer 출력
   ```
   참고로, 이름이 비슷해서 헷갈릴 수도 있는데, 배열에 저장된 요소들을 문자열형태로 출력해주는 메서드 `toString()`은 `java.util`패키지의<br>
-  `Arrays`클래스에 속한 메서드이고, 방금 사용한 `toCharArray()`메서드는 `java.lang`패키지의 `String`클래스에 속한 메서드이다. 
+  `Arrays`클래스에 속한 메서드이고, 방금 사용한 `toCharArray()`메서드는 `java.lang`패키지의 `String`클래스에 속한 메서드이다.<br>
+<br>
+
+### 메소드에서 배열 리턴
+메소드에서 어떤 배열이든 리턴할 경우, 해당 배열 전체가 아닌, 배열의 레퍼런스를 리턴하게 된다.<br>
+
+배열을 생성하고 해당 배열을 리턴하는 메소드 `makeArray()`메소드를 만들어 보겠다. `makeArray()`메소드를 만드는데 있어,<br>
+주의할 점은 다음과 같다.<br>
+
+- 메소드는 레퍼런스만 리턴하기 때문에, `makeArray()`메소드의 리턴타입을 선언할 때, [] 안에<br>
+  배열의 크기를 지정하지 않는다.<br>
   
-  
+- `makeArray()`메소드에서 리턴하는 배열의 타입이 리턴받는 레퍼런스 변수의 타입과 일치해야 한다.<br>
+
+다음은 배열을 생성하여 리턴하는 `makeArray()`메소드와 `makeArray()`로부터 생성된 배열을 리턴받는<br>
+코드이다.<br>
+```java
+int[] makeArray() {
+  int[] temp = new int[4];
+  return temp;
+}
+
+... 
+
+int[] newIntArray = makeArray();
+```
+`makeArray()` 메소드가 return하고 나면, 지역변수인 `temp`는 사라지게 된다. 하지만, `temp`가 가리키고 있는,<br>
+(`temp`가 `new`키워드를 통해 할당받은) 배열 메모리는 사라지지 않는다.<br>
+
+
 
 
 
