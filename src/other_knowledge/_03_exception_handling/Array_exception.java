@@ -2,7 +2,7 @@ package _03_exception_handling;
 
 public class Array_exception {
     public static void main(String[] args) {
-        int int_arr = new int[5];
+        int[] int_arr = new int[5];
         int_arr[0] = 0;
         
         try {
