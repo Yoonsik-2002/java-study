@@ -22,7 +22,7 @@ Java에서 오작동이나 결과에 악영향을 미칠 수 있는 **실행 중
 
 ### 예외 처리, `try-catch-finally`문
 예외처리는 이름 그대로, 프로그램 실행 중 발생하는 예외를 처리(대응) 하는 작업이다. 예외 발생 시, 해당 예외에 알맞게 대응하는<br>
-예외처리가 존재한다면, 자바 플랫폼은 해당 프로그램을 종료하지 않는다.<br>
+예외처리가 존재한다면, 자바 플랫폼은 해당 프로그램을 종료하지 않고, 발생한 예외와 타입이 일치하는 `catch`블록을 실행한다.<br>
 
 자바에서는 이러한 예외처리 작업을 위해 `try-catch-finally`문을 사용한다.<br>
 사용법은 다음과 같다.<br>
@@ -50,6 +50,46 @@ finally {
 - #### `finally`블록
   예외발생 여부와는 상관없이 반드시 마지막에 실행되는 문장이다. 생략이 가능하며, 실제로, 많은 경우 생략한다.<br>
 <br>
+
+### 자바의 예외 클래스
+응용 프로그램 에서는 자바 플랫폼에서 제공하는 예외 클래스를 이용하여 예외 발생을 탐지할 수 있다.<br>
+자주 활용되는 예외 클래스는 다음과 같다.<br>
+|예외 타입(예외 클래스)|예외 발생 경우|패키지|
+|:------|:---|---|
+|`ArithmeticException`|정수를 0으로 나눌 때 발생한다. |`java.lang`|
+|`NullPointerException`|`null`레퍼런스를 참조할 때 발생한다. |`java.lang`|
+|`ClassCastException`|변환할 수 없는 타입으로 객체를 변환(Casting)할 때 발생한다.|`java.lang`|
+|`OutOfMemoryError`|메모리가 부족한 경우 발생한다.|`java.lang`|
+|`ArrayIndexOutOfBoundsException`|배열의 범위를 벗어난 접근 시 발생한다.|`java.lang`|
+|`IllegalArgumentException`|잘못된 인자 전달 시 발생한다ㅏ.|`java.lang`|
+|`IOException`|입출력 동작 실패 또는 인터럽트 시 발생한다.|`java.io`|
+|`NumberFormatException`|문자열이 나타내는 숫자와 일치하지 않는 타입의 숫자로 변환 시 발생한다.|`java.lang`|
+|`InputMissmatchException`|`Scanner`클래스의 `nextInt()`를 호출하여 정수를 입력 받으려 했으나, `'a'`와 같은 문자를 입력한 경우 발생한다.|`java.util`|
+<br>
+
+프로그램 실행 중, `try`블록의 예외 가능성이 있는 실행문에서 예외가 발생하면, Java플랫폼은 `catch()`문의<br>
+`처리할 예외 타입(예외 클래스) 선언`부(`catch()`문의 `()`부분)에 객체로 만들어 전달한다.<br>
+이렇게 전달된 예외 객체는 발생한 예외에 대한 정보를 제공한다.<br>
+
+```java
+int[] ex_arr = new int[4];
+
+try {
+  ex_arr[3] = 2;
+  ex_arr[6] = 3; // 예외 발생
+}
+catch (ArrayIndexOutOfBoundsException e) { // 에러 타입(예외 클래스) : ArrayIndexOutOfBoundsException , 예외 객체 : e 
+  System.out.println("배열의 범위에 벗어나는 접근 입니다.");
+}
+```
+<br>
+
+`try`블록의 예외 발생 가능성이 있는 실행문 `ex_arr[6] = 3;` 에서 예외가 발생하자, Java플랫폼을 통해 예외 정보가<br>
+발생한 예외의 타입(예외 클래스)과 일치하는 예외 객체 `e`에 전달되었다.<br>
+
+여러개의 예외를 처리하고자 하는 경우에는, 여러개의 `catch`블록을 작성할 수 있다. `try`문의 예외 발생 가능성이 있는<br>
+실행문에서 예외가 발생하면, 발생한 예외와 예외 타입이 일치하는 `catch`블록이 실행된다.<br>
+`catch`블록을 예외마다 하나씩 정의해 주어야 하는 이유도 여기에 있다.<br>
 
 
 
