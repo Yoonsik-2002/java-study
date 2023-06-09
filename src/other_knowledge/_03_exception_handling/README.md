@@ -61,7 +61,7 @@ finally {
 |`ClassCastException`|변환할 수 없는 타입으로 객체를 변환(Casting)할 때 발생한다.|`java.lang`|
 |`OutOfMemoryError`|메모리가 부족한 경우 발생한다.|`java.lang`|
 |`ArrayIndexOutOfBoundsException`|배열의 범위를 벗어난 접근 시 발생한다.|`java.lang`|
-|`IllegalArgumentException`|잘못된 인자 전달 시 발생한다ㅏ.|`java.lang`|
+|`IllegalArgumentException`|잘못된 인자 전달 시 발생한다.|`java.lang`|
 |`IOException`|입출력 동작 실패 또는 인터럽트 시 발생한다.|`java.io`|
 |`NumberFormatException`|문자열이 나타내는 숫자와 일치하지 않는 타입의 숫자로 변환 시 발생한다.|`java.lang`|
 |`InputMissmatchException`|`Scanner`클래스의 `nextInt()`를 호출하여 정수를 입력 받으려 했으나, `'a'`와 같은 문자를 입력한 경우 발생한다.|`java.util`|
