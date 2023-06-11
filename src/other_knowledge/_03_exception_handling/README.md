@@ -63,7 +63,7 @@ finally {
 |`ArrayIndexOutOfBoundsException`|배열의 범위를 벗어난 접근 시 발생한다.|`java.lang`|
 |`IllegalArgumentException`|잘못된 인자 전달 시 발생한다.|`java.lang`|
 |`IOException`|입출력 동작 실패 또는 인터럽트 시 발생한다.|`java.io`|
-|`NumberFormatException`|(정수가 아닌)문자열을 정수로 변환할 때 발생한다. ex) "3.141592"를 정수로 변환하는 경우|`java.lang`|
+|`NumberFormatException`|(정수가 아닌)문자열을 정수로 변환할 때 발생한다. <br>ex) "3.141592"를 정수로 변환하는 경우|`java.lang`|
 |`InputMissmatchException`|`Scanner`클래스의 `nextInt()`를 호출하여 정수를 입력 받으려 했으나, `'a'`와 같은 문자를 입력한 경우 발생한다.|`java.util`|
 <br>
 
