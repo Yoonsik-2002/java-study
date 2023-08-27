@@ -355,3 +355,4 @@ class variables
 
 - #### 클래스 변수 (class variable)
     - 선언 위치 : 클래스 영역
+    - 
