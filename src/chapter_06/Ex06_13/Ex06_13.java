@@ -15,8 +15,8 @@ class Ex06_13 {
         c2.kind = "Spade";
         c2.number = 4;
         
-        System.out.println("c1의 종류는 " + c1.kind + "이며", "숫자는 " + c1.number + "이다. 크기는 (" + c1.width + "," + c1.height + ")");
-        System.out.println("c1의 종류는 " + c1.kind + "이며", "숫자는 " + c1.number + "이다. 크기는 (" + c1.width + "," + c1.height + ")");
+        System.out.println("c1의 종류는 " + c1.kind + "이며, 숫자는 " + c1.number + "이다. 크기는 (" + Card.width + "," + Card.height + ")");
+        System.out.println("c2의 종류는 " + c2.kind + "이며, 숫자는 " + c2.number + "이다. 크기는 (" + Card.width + "," + Card.height + ")");
         System.out.println();
         System.out.println("c1의 width와 height를 각각 50과 80으로 변경합니다.");
         System.out.println();
@@ -25,8 +25,8 @@ class Ex06_13 {
         c1.height = 80;
         
         // static 변수인 width와 height를 변경하였기 때문에, 이는 c1과 같은 클래스의 인스턴스인 c2에도 적용된다. 
-        System.out.println("c1의 종류는 " + c1.kind + "이며", "숫자는 " + c1.number + "이다. 크기는 (" + c1.width + "," + c1.height + ")");
-        System.out.println("c1의 종류는 " + c1.kind + "이며", "숫자는 " + c1.number + "이다. 크기는 (" + c1.width + "," + c1.height + ")");
+        System.out.println("c1의 종류는 " + c1.kind + "이며, 숫자는 " + c1.number + "이다. 크기는 (" + c1.width + "," + c1.height + ")");
+        System.out.println("c2의 종류는 " + c1.kind + "이며, 숫자는 " + c2.number + "이다. 크기는 (" + c2.width + "," + c2.height + ")");
         
     }
 }
