@@ -201,8 +201,48 @@ System.out.println(String.format("score[%d][%d] = %d\n", i, j, score[i][j]));
 <br>
 
 ---
-  
-  
+<br><br>
+
+## `Integer number too large`, `Type mismatch: cannot convert from double to float` 에러 - long, float 타입 변수 초기화 시, 값 뒤에 L, F를 붙여야 하는 이유
+해당 에러를 다뤄보기 전에, 기본적인 Java의 데이터 타입을 다음 표로 정리해 보았다.<br><br>
+
+### Java의 데이터 타입
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/a6ca708d-b8b8-4fc4-ad12-0d7f87eeca2e)
+
+#### `long` 타입이란 무엇인가?
+`long` 타입은 8byte(64bit)의 크기를 가지고 있는, 정수형 타입 중에서 가장 큰 타입이다.<br>
+우리가 흔히 알고 있는 정수형 타입인 `int`의 범위에 해당하는 수 는 -2,147,483,648 ~ 2,147,283,647로,<br>
+`int`형의 경우, 대략 ±21억 정도의 범위의 정수값을 저장하는 것이 가능하다.<br>
+(해당 `int`형 자료형의 크기는 4byte)<br>
+
+이러한 이유로, -2,147,483,648 ~ 2,147,283,647 의 범위를 벗어나는 값을 저장해야 하는 경우에는, `int` 형보다 큰<br>
+`long` 타입에 해당 값을 저장하여야 한다.<br><br>
+
+### 에러 발생 코드
+자, 이렇게 Java의 기본적인 데이터 타입과 개인적으로 명확하게 이해하고 있지 않았던 `long` 타입에 정리해 보았다.<br>
+다음은 해당 에러가 발생했던 문제의 코드이다.<br>
+
+```java
+public class Ex_literal {
+    public static void main(String[] args) {
+        long ex_long = 12345678912;
+        float ex_float = 1199.80;
+    }
+}
+```
+<br>
+
+#### 리터럴(literal)이란?
+위 코드의 `long ex_long = 12345678912;` 에서 **`12345678912`** 와 `float ex_float = 1199.80;` 에서 **`1199.80`** 과 같이<br>
+변수에 넣는 변하지 않는 데이터, 즉, 데이터(값) 그 자체를 두고, **리터럴(literal)이라고 한다.<br>
+(해당 코드에서의 리터럴 = `12345678912`, `1199.80`)<br>
+
+
+
+
+
+
+
 
 
 
