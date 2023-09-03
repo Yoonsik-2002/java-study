@@ -384,6 +384,28 @@ Java와 같은 객체지향 언어에서는 '클래스'가 바로 사용자 정�
   메서드가 수행을 마치고나면(종료되면), 사용했던 메모리를 반환하고, 스택에서 소멸된다.<br>
 <br>
 
-다음은 호출스택이 할당되고 소멸되는 과정을 나타낸 간단한 예시이다.<br>
+### 호출스택의 작동과정
+```java
+class Ex_call_stack {
+  public static void main(String[] args) {
+    System.out.println("Call Stack!");
+  }
+}
+```
+<br>
+
+위 예시코드가 실행되는데 있어, 호출스택의 작동과정을 나타내 보도록 하겠다.<br><br>
+![스크린샷(20)](https://github.com/Yoonsik-2002/java-study/assets/83572199/e4116eb0-e90d-4405-b4bb-c8952608dda0)
+<br>
+
+1) 위, `Ex_call_stack` 예시코드를 실행시키면, Java 언어를 실행시키는 JVM에 의해, main 메서드가 호출됨으로써 프로그램이<br>
+시작된다. 이때, main 메서드가 '호출' 되었으므로, 해당 메서드의 작업에 필요한 메모리 공간이 호출스택에 할당되게 되고,<br>
+main 메서드의 코드가 수행되기 시작한다.<br>
+
+2) 
+
+
+
+
 
 
