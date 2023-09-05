@@ -598,6 +598,65 @@ Java 에서는 하나의 클래스 내에 같은 이름을 가진 메서드가 �
 **"`println()`메서드를 호출할 때 매개변수로 넘겨주는 값의 타입에 따라서 `PrintStream` 클래스에 오버로딩 된 메서드 중, 하나가<br>
 선택되어 실행되는 것이다!"**<br>
 
+다음은 메서드 오버로딩의 예시코드이다.<br>
+
+```java
+package chapter_06;
+
+class Ex06_11 {
+    public static void main(String[] args) {
+        MyMath3 mm = new MyMath3(); // MyMath3 클래스에 속해있는 인스턴스 메서드들을 사용하기 위해 인스턴스를 생성 
+        
+        System.out.println("mm.add(3, 3) = " + mm.add(3, 3));
+        System.out.println("mm.add(3, 3L) = " + mm.add(3, 3L));
+        System.out.println("mm.add(3L, 3L) = " + mm.add(3L, 3L));
+        System.out.println("mm.add(3L, 3) = " + mm.add(3L, 3));
+        
+        int[] arr = {100, 200, 300};
+        
+        System.out.println("mm.add(arr) = " + mm.add(arr));
+    }
+}
+
+class MyMath3 {
+    int add(int a, int b) {
+        System.out.print("int add(int a, int b) - ");
+        return a + b;
+    }
+    
+    long add(int a, long b) {
+        System.out.print("long add(int a, long b) - ");
+        return a + b;
+    }
+    
+    long add(long a, long b) {
+        System.out.print("long add(long a, long b) - ");
+        return a + b;
+    }
+    
+    long add(long a, int b) {
+        System.out.print("long add(long a, int b) - ");
+        return a + b;
+    }
+    
+    int add(int[] arr) {
+        int a = 0;
+        
+        for (int i = 0; i < arr.length; i++) {
+            a = a + arr[i];
+        }
+        
+        System.out.print("int add(int[] arr) - ");
+        return a;
+    }
+}
+```
+<br>
+
+`MyMath3` 클래스에 서로 이름은 같지만, 매개변수의 타입이 다른 메서드들을 정의하였다.<br>
+서로 이름은 같지만, 호출 시 매개변수에 전달되는 값의 타입이 다르므로, 각기 다른 메서드로 구분 되어 호출된다는 것을 알 수 있었다.<br>
+
+
 
 
 
