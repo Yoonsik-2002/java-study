@@ -705,11 +705,83 @@ public 클래스 이름() {}이 추가되게 된다.*/
 <br><br>
 
 ## 생성자 내에서 다른 생성자 호출하기 - `this()`
-같은 클래스의 멤버들 간에, 서로 호출이 가능할 것 처럼, 생성자들 또한 서로 호출하는 것이 가능하다.<br>
+같은 클래스의 멤버들 간에, 서로 호출이 가능할 것처럼, 생성자들 또한 서로 호출하는 것이 가능하다.<br>
 단, 이는 아래 조건을 만족시켜야 한다.<br>
 
 > 1) 생성자 내에서 다른 생성자를 호출할 경우에는 생성자 이름으로, 클래스 이름 대신 `this`를 사용해야 한다.<br>
 > 2) 한 생성자 내에서 다른 생성자를 호출할 때에는 반드시 첫 줄에서만 가능하다.<br>
+
+<br>
+
+### this()를 이용한 생성자 내에서의 다른 생성자 호출
+`this()`를 이용한 생성자 내에서의 다른 생성자 호출에 대해 설명해 보았으니, 실제 해당 내용을 적용한 예시코드를 작성해 보도록<br>
+하겠다. <br>
+
+```java
+package chapter_06;
+
+class Car2 {
+    String color;
+    String gearType;
+    int door;
+    
+    Car2() { 
+        this("white", "auto", 4);  // 생성자 Car2(String color, String gearType, int door) 호출
+    }
+    
+    /* Car2() {
+      color = white;
+      gearType = auto;
+      door = 4;
+    }
+    
+    생성자 Car2() 내에서 생성자 Car2(String color, String gearYpe, int door)을 호출하는 방법을 통해
+    코드를 더욱 간략히 하였다. 
+    */
+    
+    Car2(String color) {
+        this(color, "manual", 2);  // 생성자 Car2(String color, String gearType, int door) 호출
+    }
+    
+    Car2(String color, String gearType, int door) {
+        this.color = color;
+        this.gearType = gearType;
+        this.door = door;
+    }
+}
+
+public class Ex06_14{
+    public static void main(String[] args) {
+        // 인스턴스 생성
+        Car2 c1 = new Car2();
+        Car2 c2 = new Car2("orange");
+        
+        System.out.println("c1의 color : " + c1.color + "gearType : " + c1.gearType + "door : " + c1.door);
+        System.out.println("c2의 color : " + c2.color + "gearType : " + c2.gearType + "door : " + c2.door);
+        
+    }
+}
+```
+<br>
+
+해당 코드를 보면, `Car2`라는 클래스 내에 `Car2()`, `Car2(String color)`, `Car2(String color, String gearType, int door)`<br>
+이렇게 3개의 생성자들이 정의 되어있는것을 알 수 있다.<br>
+
+이렇게, **같은 클래스 내의 생성자들은 일반적으로 서로 관계가 깊은 경우가 많아서, 서로 호출하도록 하여 유기적으로 연결해주면<br>
+더 좋은 코드를 얻을 수 있다.** <br>
+
+`Car2`클래스를 보면, 생성자 `Car2()`와 `Car2(String color)` 내부에서, 클래스의 멤버변수들을 매개변수에 입력받은 값으로 초기화<br>
+해주는 생성자 `Car2(String color, String gearType, int door)`을 호출하고 있는 것을 볼 수 있다.<br>
+
+이를 통해, 다음 그림과 같이 코드를 간략히 하는것이 가능하게 된다.<br><br>
+
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/317f56a5-764e-4fe9-9b0b-2c4eb50b83a3)<br>
+
+이렇게, 동일한 클래스 내의 생성자들을 서로 호출하도록 하면, 코드를 더욱 간략하게 만들 수 있고, 수정이 필요한 경우에는 보다 적은<br>
+코드만을 수정해주면 되므로, 유지보수에 있어서도 용이하게 만들수가 있게 된다.<br>
+
+
+
 
 
 
