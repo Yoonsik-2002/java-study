@@ -898,7 +898,7 @@ Car2(String color, String gearType, int door) {
 - #### 지역변수
   멤버변수처럼 자동적으로 초기화가 되지 않기 때문에, 사용하기 전에 초기화가 필수이다!<br>
 
-다음 간단한 예시코드를 보도록 하자<br>
+다음 간단한 예시코드를 보도록 하자<br><br>
 
 ```java
 class InitTest {
