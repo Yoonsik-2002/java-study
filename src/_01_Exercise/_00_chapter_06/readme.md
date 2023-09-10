@@ -173,6 +173,7 @@ public class Exercise6_2 {
     return  name + "," + ban + "," + no + "," + kor + "," + eng + "," + math + "," + total() + "," + average();
   }
   ```
+---
   
   
   
