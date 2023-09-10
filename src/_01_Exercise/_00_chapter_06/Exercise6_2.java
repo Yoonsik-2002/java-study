@@ -25,7 +25,9 @@ class Student {
 
     // 점수의 평균을 출력하는 메서드 average()
     float average() {
-        return Math.round((total() / 3f) * 10) / 10.0f;
+        //return total() / 3f;
+        return Math.round((total() / 3f) * 10) / 10f;
+        
     }
     
     // 모든 정보를 출력해주는 메서드 info()
