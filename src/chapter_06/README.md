@@ -966,7 +966,46 @@ class Car {
 초기화 블럭 작성은 클래스 내에 초기화 블럭(`{}`)을 이용하여 작성하는 것이 가능하다.<br>
 인스턴스 변수의 초기화 블럭의 경우, 그냥 클래스 내에 초기화블럭(`{}`)을 만들고, 그 안에 코드를 작성하면 된다.<br>
 클래스 변수의 초기화 블럭은 인스턴스 초기화 블럭 앞에 `static`을 덧붙여 주면 된다.<br>
+<br>
 
+다음은 이러한 초기화 순서와 관련된 예시코드이다. 해당 코드를 통해 클래스 초기화, 인스턴스 초기화, 생성자 순의 초기화를<br>
+확인해 볼 수 있을 것이다.<br>
+
+```java
+class Ex_14 {
+  static {  // 스태틱 초기화 블럭
+    System.out.println("static {}");
+  }
+
+  {  // 인스턴스 초기화 블럭
+    System.out.println("{}");
+  }
+
+  public Ex6_14() {  // 생성자
+    System.out.println("생성자");
+  }
+
+  public static void main(String[] args) {
+    System.out.println("Ex6_14 bt = new Ex6_14();");
+    Ex6_14 bt = new Ex6_14();
+
+    System.out.pritnln("Ex6_14 bt2 = new Ex6_14();");
+    Ex6_14 bt2 = new Ex6_14();
+  }
+}
+```
+<br>
+
+```
+[실행결과]
+static {}
+Ex6_14 bt = new Ex6_14();
+{}
+생성자
+Ex6_14 bt2 = new Ex6_14(0;
+{}
+생성자
+```
 
 
 
