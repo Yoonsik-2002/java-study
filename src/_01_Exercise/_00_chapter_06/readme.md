@@ -49,16 +49,31 @@ public class Exercise6_2 {
 <br>
 
 ### 📑 Review
-- #### `average()` 메서드 구현하기
+- ### `average()` 메서드 구현하기
   해당 문제를 풀면서, 가장 고민을 많이 하였던 부분은 점수의 평균을 출력하는 메서드 `average()`를 구현하는 부분이었다.<br>
   
   해당 메서드는 `total()`메서드를 통해 리턴된 국어, 영어, 수학 점수의 총 합을 3으로 나눈 뒤, 해당 값을 반올림 하여<br>
   소수점 첫 번째 자리수까지 구한 뒤, 해당 값을 `return`하는 기능을 담당한다.<br>
   (국어, 영어, 수학 점수의 평균을 소수점 첫번째 자리까지 반올림 한 값을 리턴해야 함)<br>
 
-  해당 기능을 구현하면서 새롭게 알게 된 메서드는 `java.lang`패키지의 `Math`클래스의 `round()`메서드이다.<br>
+  해당 기능을 구현하면서 새롭게 알게 된 메서드는 `java.lang`패키지의 `Math`클래스의 `round()`메서드이다.<br><br>
 
-  #### `Math.round()` 메서드
+  ### `Math.round()` 메서드
+  `Math.round()` 메서드는 실수의 소수점 첫 번째 자리수를 반올림하여, 정수로 리턴시켜준다.<br>
+  해당 메서드를 활용하면, 소수점 몇 번째까지 표현이 가능하다.<br>
+
+  다음 예시코드를 한번 보도록 하자.<br>
+
+  ```java
+  double pie = 3.14159265358979;
+
+  System.out.println(Math.round(pie));  // 결과 : 3 출력
+  System.out.println(Math.round(pie * 100) / 100.0;  // 결과 : 3.14 출력
+  System.out.println(Math.round(pie * 100) / 1000.0; // 결과 : 3.142 출력
+  ```
+  <br>
+
+  
   
   
   
