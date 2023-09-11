@@ -163,7 +163,7 @@ public class Exercise6_2 {
   ```
 <br>
 
-- ### `info()`메서드 구현하기
+- ### `info()` 메서드 구현하기
   해당 메서드는 `Sring`과 `int`, `float` 타입이 혼합되어 있는 학생정보(학생이름, 반, 번호, 국어점수, 영어점수, 수학점수, 총점,<br>
   평균)을 하나의 문장으로 리턴해주는 동작을 하는 메서드이다.<br>
 
@@ -174,6 +174,37 @@ public class Exercise6_2 {
   }
   ```
 ---
+
+<br><br>
+
+## 💻 6-3
+```java
+package _01_Exercise._00_chapter_06;
+
+public class Exercise6_3 {
+    static double getDistance(int x, int y, int x1, int y1) {
+        double distance = Math.pow(x1 - x, 2) + Math.pow(y1 - y, 2); // 특정 값의 제곱을 구해주는 java.lang 패키지의 Math.pow()메서드
+        return Math.sqrt(distance); // 특정 값의 제곱근을 구해주는 java.lang 패키지의 Math.sqrt()메서드
+    }
+    
+    public static void main(String[] args) {
+        System.out.println(getDistance(1, 1, 2, 2));
+    }
+}
+```
+<br>
+
+### 📑 Review
+- ### `getDistance()` 메서드 구현하기
+  `getDistance()` 메서드는 두 점의 거리를 계산하여 반환해주는 메서드이다.<br>
+  
+  해당 메서드의 매개변수로는 두 점의 x, y 좌표의 값이 전달되는데, 해당 두 점 사이의 거리는 피타고라스 정리를 적용하면<br>
+  구할 수 있다.<br>
+
+  피타고라스 정리를 활용한 두 점 사이의 거리는, `(좌표의 차)의 제곱` + `(y좌표의 차)의 제곱`의 제곱근을 구하면 되는데,<br>
+  Java에서는 이러한 특정 값의 제곱을 구해주는 메서드와 특정 값의 제곱근을 구해주는 메서드를 `java.lang`패키지 내의 `Math`<br>
+  클래스에서 제공해준다.<br>
+
   
   
   
