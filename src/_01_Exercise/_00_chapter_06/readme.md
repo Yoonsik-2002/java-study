@@ -210,6 +210,53 @@ public class Exercise6_3 {
   > 또, 이런식으로 자바에서 제공하는 기본 클래스 들을 **자바 API** 라고 한다.<br>
   > 자세한 설명은 다음 링크로.. `->`  [자바 JDK란?](https://github.com/Yoonsik-2002/java-study/tree/main/src/_00_other_knowledge/_01_package)<br>
 
+  <br>
+
+  ### `Math.pow()` 메서드
+  특정 값의 제곱을 구하기 위해서는 `java.lang`패키지 내의 `Math.pow()`메서드를 사용하면 된다.<br>
+
+  해당 메서드는 입력값과 출력값이 모두 `double`형이며, 다음 코드와 같이, 대상이 되는 값과, 몇 번 제곱할지에 대한<br>
+  지수값을 전달해주는 식으로 사용이 가능하다.<br>
+  ```java
+  Math.pow(대상숫자, 지수);
+  ```
+  <br>
+
+  ### `Math.sqrt()` 메서드
+  특정 값의 제곱을 구해주는 메서드가 `Math.pow()`였다면, 특정 값의 제곱근을 구해주는 메서드 또한 존재한다.<br>
+
+  바로, `Math.sqrt()` 메서드이다.<br>
+
+  해당 메서드 또한, 입력값과 출력값이 모두 `double`형이며, 아래 코드와 같이, 대상이 되는 값을 전달해주기만 하면<br>
+  해당 값의 제곱근을 리턴 받을 수 있다.<br>
+  ```java
+  Math.sqrt(대상숫자);
+  ```
+  <br>
+
+  ### `getDistance()` 메서드 구현하기
+  자, 이렇게 두 점 사이의 거리를 구하는데 필요한 자바 API, `Math`클래스의 `Math.pow()`메서드와 `Math.sqrt()`메서드에 대해<br>
+  알아보았다.<br>
+
+  이를 활용하여 인자로, 각 `x 좌표값`, `y 좌표값`을 전달받은 두 점 사이의 거리를 구하여 리턴해주는 메서드 `getDistance()`를 <br>
+  완성해 보도록 하겠다.<br>
+
+  ```java
+  //...
+
+  public class Exercise6_3 {
+    static double getDistance(int x, int y, int x1, int y1) {
+        double distance = Math.pow(x - x, 2) + Math.pow(y1 - y, 2); 
+        return Math.sqrt(distance);
+    }
+  
+    // ...
+  
+  }
+  ```
+  <br>
+
+  먼저, 
   
   
   
