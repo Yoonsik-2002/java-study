@@ -242,21 +242,43 @@ public class Exercise6_3 {
   완성해 보도록 하겠다.<br>
 
   ```java
-  //...
-
   public class Exercise6_3 {
     static double getDistance(int x, int y, int x1, int y1) {
-        double distance = Math.pow(x - x, 2) + Math.pow(y1 - y, 2); 
-        return Math.sqrt(distance);
+      // ...
     }
-  
-    // ...
-  
   }
   ```
   <br>
 
-  먼저, 
+  먼저, `getDistance()`메서드의 반환형은 `double`로 해 주었다. 일단은, 해당 문제에서 요구하는 결과값이 최대 소수점 16자리의<br>  
+  `double`형 이었고, 해당 메서드에서 활용할 `Math.pow()`메서드와 `Math.sqrt()`메서드의 기본 반환형 또한, `double`이여서 해당<br>
+  자료형을 `getDistance()`메서드의 반환형으로 지정해 주었다.<br>
+
+  그리고, 해당 메서드를 인스턴스를 생성하지 않아도 사용할 수 있도록, 앞에 `static`을 붙여, 클래스 메서드로 선언하여 주었다.<br>
+
+  ```java
+  public calss Exervise6_3 {
+    static double getDistance(int x, int y, int x1, int y1) {
+      double distance = Math.pow(x1 - x, 2) + Math.pow(y2 - y, 2);
+      return Math.sqrt(distance);
+    }
+
+    public static void main(String[] args) {
+      System.out.println(getDistance(1, 1, 2, 2));
+    }
+  }
+  ```
+  <br>
+
+  마지막으로, 특정 값의 제곱을 반환해주는 `Math.pow()`메서드를 이용하여, 피타고라스 정리에 필요한 x, y 각 좌표의 차의 제곱을<br>
+  구해 주었고, 두 값의 합의 제곱근을 `Math.sqrt()`메서드를 이용하여 구해 주었다.<br>
+
+  이렇게 구해진 값을 리턴해주는 것이 바로, `getDistance()`메서드의 기능이다.<br>
+  
+  ---
+  
+  
+  
   
   
   
