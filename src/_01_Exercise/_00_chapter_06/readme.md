@@ -279,7 +279,47 @@ public class Exercise6_3 {
 
   <br><br>
 
-  ## 
+## 💻 6-4
+```java
+package _01_Exercise._00_chapter_06;
+
+class MyPoint {
+    int x;
+    int y;
+
+    // 생성자
+    MyPoint(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    // 인스턴스 메서드 getDistance()
+    double getDistance(int x1, int y1) {
+        double distance = Math.pow(x1 - this.x, 2) + Math.pow(y1 - this.y, 2);
+        return Math.sqrt(distance);
+    }
+}
+
+public class Exercise6_4 {
+    public static void main(String[] args) {
+        // 인스턴스 생성
+        MyPoint p = new MyPoint(1, 1);
+
+        // MyPoint클래스의 인스턴스 p와 (2, 2)좌표의 점의 거리를 구해 반환하는 인스턴스 메서드 getDistance()메서드 호출
+        System.out.println(getDistance(2, 2);
+    }
+}
+```
+<br>
+
+### 📑 Review
+- ### 6-3문제의 `getDistance()`메서드를 `MyPoint`클래스의 인스턴스 메서드로 정의하기
+  생성자를 통해 x좌표 1로, y좌표 1로 초기화 되어있는 `MyPoint`인스턴스 `p`와, (2, 2)좌표에 해당하는 점의 거리를 구해 반환<br>
+  하는 인스턴스 메서드 `getDistance()`를 정의하고, 해당 코드를 완성해 보도록 하겠다.<br>
+
+  인스턴스 멤버인 인스턴스 메서드는 인스턴스 변수가 생성되는 시기인 '자신이 속한 클래스의 인스턴스가 생성된 뒤'에 사용이 가능하다.<br>
+    
+    
   
   
   
