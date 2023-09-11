@@ -204,6 +204,11 @@ public class Exercise6_3 {
   피타고라스 정리를 활용한 두 점 사이의 거리는, `(좌표의 차)의 제곱` + `(y좌표의 차)의 제곱`의 제곱근을 구하면 되는데,<br>
   Java에서는 이러한 특정 값의 제곱을 구해주는 메서드와 특정 값의 제곱근을 구해주는 메서드를 `java.lang`패키지 내의 `Math`<br>
   클래스에서 제공해준다.<br>
+  
+  > 개발자들이 자바를 설치하면 자바에서 제공하는 기본 클래스들이 패키지, 모듈에 걸쳐 분류된 형태로 되는 것을 두고,<br>
+  > 자바 개발자 도구, **JDK(Java Development Kit)** 라고 한다.<br>
+  > 또, 이런식으로 자바에서 제공하는 기본 클래스 들을 **자바 API** 라고 한다.<br>
+  > 자세한 설명은 다음 링크로.. `->`  [자바 JDK란?](https://github.com/Yoonsik-2002/java-study/tree/main/src/_00_other_knowledge/_01_package)<br>
 
   
   
