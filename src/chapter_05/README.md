@@ -278,7 +278,7 @@ int arr_length = student_score.length;
   하지 않더라도, 클래스 명으로 사용이 가능하게 해 주었기 때문에, 따로 `import`를 하지 않아도 된다!<br>
 
   이 `java.lang` 패키지와 `Math.random()`메서드에 대한 설명은 다음 링크에 자세히 설명해 놓았다.<br>
-  [패키지 (Package)](https://github.com/Yoonsik-2002/java-study/blob/main/src/other_knowledge/_01_package/README.md)<br><br>
+  [패키지 (Package)](https://github.com/Yoonsik-2002/java-study/tree/main/src/_00_other_knowledge/_01_package)<br><br>
   
   먼저, 여기 1 ~ 10까지의 숫자가 저장되어 있는 배열 `arr`이 있다고 해 보자.<br>
   ```java
