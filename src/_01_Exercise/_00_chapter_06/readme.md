@@ -294,8 +294,8 @@ class MyPoint {
     }
 
     // 인스턴스 메서드 getDistance()
-    double getDistance(int x1, int y1) {
-        double distance = Math.pow(x1 - this.x, 2) + Math.pow(y1 - this.y, 2);
+    double getDistance(int x, int y) {
+        double distance = Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2);
         return Math.sqrt(distance);
     }
 }
@@ -318,7 +318,48 @@ public class Exercise6_4 {
   하는 인스턴스 메서드 `getDistance()`를 정의하고, 해당 코드를 완성해 보도록 하겠다.<br>
 
   인스턴스 멤버인 인스턴스 메서드는 인스턴스 변수가 생성되는 시기인 '자신이 속한 클래스의 인스턴스가 생성된 뒤'에 사용이 가능하다.<br>
+  인스턴스 메서드 `getDistance()`는 x좌표 1, y좌표 1에 위치하는 점과, (2, 2) 좌표에 해당하는 점의 거리를 구해 반환해주는 메서드<br>
+  이다.<br>
+  <br>
 
+  ### 인스턴스 메서드 `getDistance()` 구현하기
+  ```java
+  double getDistance(int x, int y) {
+      double distacne = Math.pow(x - this.x, 2) + Math.pow(y - this.y, 2);
+      return Math.sqrt(distance);
+  }
+  ```
+  <br>
+
+  매개변수에, 인스턴스 `p`와의 거리를 계산할 점의 x, y좌표값(2, 2)가 전달되면, 그 값을 가지고, 피타고라스 정리를 통해 거리를 구하<br>
+  는 메서드이다.<br>
+
+  `Math.pow()`메서드를 통해, 각 점의 x좌표값의 차의 제곱, y좌표값의 차의 제곱을 구해준다.<br>
+  이때, 각각 1로 초기화 되어있는 인스턴스 `p`의 멤버변수 `x`와 `y`를 사용하기 위해 `this`를 사용하였는데, 이 `this`는 객체 자신을<br>
+  가리키는 참조변수로, 우리가 `인스턴스이름.멤버변수이름`을 통해 해당 인스턴스의 멤버변수에 접근하듯이, 객체(인스턴스)자신을 가리키는<br>
+  `this`를 이용하여, 해당 인스턴스의 멤버변수에 접근하는 것이 가능하다.<br>
+
+  이렇게 `Math.pow()`메서드를 통해 구한 작 점의 x좌표값의 차의 제곱, y좌표값의 차의 제곱을 더해준 뒤, 해당값을 특정값의 제곱근을<br>
+  구해주는 `Math.sqrt()`메서드에 전달해주면, `getDistance()`메서드에 좌표값이 전달된 점과 `p`의 거리를 구할 수 있게된다.<br>
+  <br>
+  
+  ### 동작 과정
+
+  먼저, `getDistance()`메서드를 사용하기 위해서는, 우선적으로 해당 메서드가 속한 `MyClass`클래스의 인스턴스를 생성해 주어야 한다.<br>
+  ```java
+  MyPoint p = new MyPoint(1, 1);
+  ```
+  <br>
+
+  해당 인스턴스`p`가 생성되면서, 생성자에 의해 `p`의 좌표를 나타내는 멤버변수 `x`와 `y`가 각각 1로 초기화 된다.<br>
+
+  (1, 1) 위치에 있는 점 `p`와 (2, 2) 위치에 있는 점의 거리를 구하여 리턴해주는 `getDistance()` 인스턴스 메서드를 호출하여, 그 리턴값을<br>
+  화면에 출력해 준다.<br>
+  ```java
+   System.out.println(getDistance(2, 2);
+  ```
+  <br>
+  
 ---
   
   
