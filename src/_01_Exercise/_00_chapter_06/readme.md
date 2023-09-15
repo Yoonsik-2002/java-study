@@ -356,11 +356,45 @@ public class Exercise6_4 {
   (1, 1) 위치에 있는 점 `p`와 (2, 2) 위치에 있는 점의 거리를 구하여 리턴해주는 `getDistance()` 인스턴스 메서드를 호출하여, 그 리턴값을<br>
   화면에 출력해 준다.<br>
   ```java
-   System.out.println(getDistance(2, 2);
+   System.out.println(getDistance(2, 2));
   ```
   <br>
   
 ---
+
+<br><br>
+
+## 6-5 
+```java
+package _01_Exercise._00_chapter_06;
+
+import java.util.Arrays;
+
+public class Exercise6_5 {
+   static int[] shuffle(int[] arr) {
+        for(int i = 0; i < 100; i++){
+            // 배열 arr의 인덱스인, 0에서 9까지의 수 중, 무작위로 하나 선택하여 rand에 저장
+            int rand = (int)(Math.random() * 10);
+
+            // arr의 0번째 인덱스에 저장된 값과 무작위로 선택되어 저장된 rand 인덱스에 저장된 값을 서로 교환
+            int temp = arr[0];
+            arr[0] = arr[rand];
+            arr[rand] = temp;
+        }
+        return arr;
+    }
+
+public static void main(String[] args) {
+    int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    System.out.println(Arrays.toString(arr));
+
+    int[] rand_arr = shuffle(arr);
+    System.out.pritnln(Arrays.toString(arr));
+}
+```
+
+
+
   
   
   
