@@ -364,7 +364,7 @@ public class Exercise6_4 {
 
 <br><br>
 
-## 6-5 
+## 💻 6-5 
 ```java
 package _01_Exercise._00_chapter_06;
 
@@ -392,6 +392,57 @@ public static void main(String[] args) {
     System.out.pritnln(Arrays.toString(arr));
 }
 ```
+<br>
+
+### 📑 Review
+- ### `shuffle()`메서드 구현하기
+  이 `shuffle()`메서드는 인자로 전달받은 배열 `arr`의 0번째 인덱스에 저장되어있는 값(`arr[0]`)과, `arr`의 인덱스인 0 ~ 9 까지의 수 중, 무작<br>
+  위로 하나를 선택하여 저장한 `rand`에 해당하는 인덱스에 저장되어있는 값(`arr[rand]`)를 교환하는 과정을 여러번 반복하여 배열 내부에 저장되어<br>
+  있는 값의 순서를 뒤섞은 뒤, 리턴해주는 메서드이다.<br>
+
+  먼저, 해당 메서드를 인스턴스 생성을 하지 않아도 사용이 가능할 수 있도록, 클래스 메서드로 정의한다.<br>
+  ```java
+  public class Exercise6_5 {
+      static int[] shuffle(int[] arr) {
+          // ...
+      }
+  }
+  ```
+  <br>
+
+  그리고, `arr[0]`과 `arr[rand]`를 서로 교환하는 과정을 여러번 반복하여 배열에 저장되어 있는 데이터들을 뒤섞어주는 기능을 구현해<br>
+  보도록 하겠다.<br>
+
+  해당 기능을 구현해보기 위해서는, `java.lang`패키지 내의 `Math.random()`메서드를 사용해야 한다.<br>
+  <br>
+  
+  ### `Math.random()` 메서드
+  `Math`클래스가 속해있는 `java.lang`패키지는 Java프로그래밍에 필요한 가장 기본적인 클래스들이 모여있는 패키지이다.<br>
+  때문에, Java 에서는,  `import`구문을 통해 호출해 주어야 하는 다른 패키지들과는 달리, `lang`패키지는 `import`구문을 사용하여 호출해주지<br>
+  않아도 사용이 가능도록 하였다.<br>
+
+  자, 이 `java.lang`패키지의 `Math.random()`메서드를 이용하여, 0 ~ 9 까지의 인덱스 중, 무작위로 하나를 선택하여 int형 변수 `rand`에<br>
+  저장하는 코드를 `shuffle()`메서드에 추가해 보도록 하겠다.<br>
+  ```java
+  public class Exercise6_5{
+      static int[] shuffle(int[] arr) {
+          int rand = (int)(Math.random() * 10);
+          // ...
+      }
+  }
+  ```
+  <br>
+
+  
+  
+
+  
+
+  
+  
+  
+  
+  
 
 
 
