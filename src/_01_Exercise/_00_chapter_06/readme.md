@@ -426,13 +426,62 @@ public static void main(String[] args) {
   ```java
   public class Exercise6_5{
       static int[] shuffle(int[] arr) {
-          int rand = (int)(Math.random() * 10);
-          // ...
+          for(int i = 0; i < 100; i++) {
+              int rand = (int)(Math.random() * 10);
+              // ...
+          }
       }
   }
   ```
   <br>
 
+  이, `Math.random()`메서드에 대해 간단히 설명하자면, 해당 메서드는 기본적으로, 0 에서 1미만의 실수(double형)값을 무작위로 반환 해주는<br>
+  메서드이다.<br>
+  (0 에서 0.999999999999999 까지의 실수를 무작위로 반환. 반환형은 double 자세한 설명은 -> [java.lang 패키지](https://github.com/Yoonsik-2002/java-study/tree/main/src/_00_other_knowledge/_01_package#javalang-%ED%8C%A8%ED%82%A4%EC%A7%80))<br>
+
+  이러한 `Math.random()`메서드를 통해 우리가 얻고자 하는 값은 int형의 0 ~ 9까지의 난수이다.<br>
+
+  기본적인 `Math.random()`메서드의 값의 범위는 다음과 같다.<br>
+  `0 ≤ Math.random() < 1  // 반환형은 double`
+
+  하지만, 우리가 얻고자 하는 값의 범위는 0 ~ 9까지의 난수이다. 해당 값의 범위를 설정해 주기 위해서는, 각 변에 10을 곱해주면 해당 범위를 정해줄 수가 있다.<br>
+  
+  `0 * 10 ≤ (Math.random() * 10) < 1 * 10`
+  `0 ≤ (Math.random() * 10) < 10`
+
+  그 다음으로, 기본 반환형이 double인 해당 메서드를 통해 int형의 값을 리턴받기 위해서는, 아래와 같이 int형으로 형변환을 해주어야 한다.<br>
+  ```java
+  int rand = (int)(Math.random() * 10);
+  ```
+  <br>
+
+  자, 해당 코드를 통해 0 ~ 9 까지의 인덱스 값 중 하나를 뽑아, int 형 변수 `rand`에 저장할 수 있게 되었다.<br>
+
+  이를 활용하여, `shuffle()`메서드를 마저 완성해 보면 다음과 같다.<br>
+  ```java
+  public class Exercise6_5{
+      static int[] shuffle(int[] arr) {
+          for(int i = 0; i < 100; i++) {
+              int rand = (int)(Math.random() * 10);
+
+              int temp = arr[0];
+              arr[0] = arr[rand];
+              arr[rand] = temp;
+          }
+          return arr;
+      }
+  }
+  ```
+  <br>
+
+  ### `Array.toString()` 메서드
+  
+
+
+  
+
+
+  
   
   
 
