@@ -475,7 +475,39 @@ public static void main(String[] args) {
   <br>
 
   ### `Array.toString()` 메서드
-  
+  Java에서 배열 내용을 출력해 보기 위해, 바로 `Object`클래스의 `toString()`메서드를 사용해버리면, 우리가 기대하는 배열의 내용이 아닌,<br>
+  배열의 주소값이 출력되게 된다.<br>
+
+  배열의 내용을 출력하기 위해서는 `java.util`패키지의 `Arrays.toString()`메서드를 사용해야 한다.<br>
+  `shuffle()`메서드를 통해 배열 `arr`의 내용을 뒤섞은 뒤, 이를 출력해주는 기능까지 모두 마저 구현해 보도록 하겠다.<br>
+
+  ```java
+  import java.util.Arrays;
+
+  public class Exercise6_5 {
+      static int[] shuffle(int[] arr) {
+          for(int i = 0; i < 100; i++) {
+              int rand = (int)(Math.random() * 10);
+
+              int temp = arr[0];
+              arr[0] = arr[rand];
+              arr[rand] = temp;
+          }
+          return arr;
+      }
+  }
+
+  public static void main(String[] args) {
+      int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+      System.out.println(Arrays.toString(arr));
+
+      int[] rand_arr = shuffle(arr);
+      System.out.println(Arrays.toString(rand_arr));
+  }
+  ```
+  <br>
+
+  ---
 
 
   
