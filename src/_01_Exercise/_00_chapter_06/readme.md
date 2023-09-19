@@ -517,7 +517,7 @@ package _01_Exercise._00_chapter_06;
 
 public class Exercise6_6 {
     static boolean isNumber(String str) {
-        // str이 비어있는 경우 
+        // str이 null 이거나, 빈 문자열인 경우
         if(str == null || str.equals("")){
             return false;
         }
@@ -559,20 +559,56 @@ public class Exercise6_6 {
   ```
   <br>
 
-  먼저, 조건 중 하나인 `str`이 비어있는 경우, `false`를 리턴하는 기능을 구현해 보도록 하겠다.<br>
-  여기서, 조건을 `(str == null || str.equals(""))`로 지정해 주었는데, `str == null` 또는, `str.equals("")`인 경우 `false`<br>
-  를 리턴하게 된다.<br>
-
-  String 변수를 비교하는데 있어서, 주소를 비교하는 경우에는 `==`을 사용하고, 값이 같은지를 비교하는 경우에는 `String`클래스의<br>
-  `equals()`메서드를 사용한다.<br>
+  ### 조건 1) `str`이 `null`이거나 빈 문자열(`""`)인 경우, `false` 리턴
+  먼저, 조건 중 하나인 `str`이 `null`이거나 빈 문자열(`""`)인 경우, `false`를 리턴하는 기능을 구현해 보도록 하겠다.<br>
+  여기서, 조건을 `(str == null || str.equals(""))`로 지정해 주었는데, 값이 `null`(`str == null`) 이거나,<br>
+  빈 문자열(`str.equals("")`)인 경우, `false`를 리턴한다.<br>
+  <br>
   
-  이처럼, `str == null`과 `str.equals("")`는 서로 다른 의미를 가지는데, 이를 간단히 설명해 보도록 하겠다.<br>
+  ### 빈 문자열(`""`)과, `null`의 차이
+  빈 문자열(`""`)과 `null`의 차이는 다음과 같다.<br>
+  - 빈 문자열은 값이 할당되었지만, 길이는 0인 경우이다.<br>
+  - null은 값이 없는 상태이다. 즉, String 객체를 가리키는 String 변수가 아무런 값도 가리키고 있지 않은 상태를 의미한다.<br>
+  <br>
+  
+  값이 할당되었지만, 길이는 0인 경우와, 값이 없는 상태.. 어쨋든 문자열이 비어있다는 의미 아닌가? 왜 구지 두 조건을 사용<br>
+  하는 것일까?<br>
 
-  - ##### `str == null`
-    String 타입의 변수는 문자열 객체를 참조한다. String 타입 변수 `str`이 `null`(빈값)을 참조하고 있는 경우, 해당 문자열이<br>
-    비어있다고 할 수 있다고 할 수 있다.<br>
+  해당 질문에 대한 답은 `NullPointerException`에러가 발생할 수 있기 때문이라 할 수 있다.<br>
+  해당 에러는 실제 값이 아닌, `null`을 가지고 있는 객체 혹은 변수를 호출할 때 발생하는 에러이다.<br>
 
-  - ##### `str.equals("")`
+  만약, String 변수 `str`에 `null`이 저장된 상태로, 해당 변수가 `isNumber()`메서드의 매개변수로 전달되었다고 생각해 보자.<br>
+  만약, 조건문이 `if(str.equals(""))`로만 이루어져 있다면, `equals()`메서드를 호출하면서, `null`값을 가지고 있는 변수,<br>
+  `str`을 호출한 꼴이 된다.<br>
+  때문에 다음과 같이 `NullPointerException`에러가 발생하게 된다.<br>
+  <br>
+  ![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/6a33ec3f-48fc-455f-a0a6-e4ffb4e09643)<br>
+  <br>
+  ![스크린샷(3)](https://github.com/Yoonsik-2002/java-study/assets/83572199/64e68ba5-8d21-40ed-8d8e-1738a86baa96)<br>
+  <br>
+  
+  때문에, 해당 조건문의 or연산자(`||`)의 첫 번째 조건에서, 먼저, `null`을 체크해 주어야 한다.<br>
+  (`if(str == null || str.equals(""))`에서 먼저 `null`을 체크한 뒤, `str == null`일 경우, `return false`)<br>
+
+  이를 반영하여, 첫 번째 조건에 해당하는 코드를 완성해 보면, 다음과 같다.<br>
+
+  ```java
+  package _01_Exercise._00_chapter_06;
+
+  public class Exercise6_6 {
+    static boolean isNumber(String str) {
+        // str이 null 이거나, 빈 문자열인 경우
+            if(str == null || str.equals("")){
+                return false;
+            }
+    // ...
+  ```
+  <br>
+
+
+
+
+    
     
     
   
