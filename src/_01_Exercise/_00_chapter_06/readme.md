@@ -522,7 +522,7 @@ public class Exercise6_6 {
             return false;
         }
         
-        // str이 숫자로만 이루어져 있는경우 / 아닌경우
+        // str이 숫자로만 이루어져 있는 경우 / 아닌 경우
         for(int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
             
@@ -559,7 +559,7 @@ public class Exercise6_6 {
   ```
   <br>
 
-  ### 조건 1) `str`이 `null`이거나 빈 문자열(`""`)인 경우, `false` 리턴
+  ### 조건 1) `str`이 `null`이거나 빈 문자열(`""`)인 경우, `return false`
   먼저, 조건 중 하나인 `str`이 `null`이거나 빈 문자열(`""`)인 경우, `false`를 리턴하는 기능을 구현해 보도록 하겠다.<br>
   여기서, 조건을 `(str == null || str.equals(""))`로 지정해 주었는데, 값이 `null`(`str == null`) 이거나,<br>
   빈 문자열(`str.equals("")`)인 경우, `false`를 리턴한다.<br>
@@ -598,57 +598,60 @@ public class Exercise6_6 {
   public class Exercise6_6 {
     static boolean isNumber(String str) {
         // str이 null 이거나, 빈 문자열인 경우
-            if(str == null || str.equals("")){
-                return false;
-            }
+        if(str == null || str.equals("")) {
+        return false;
+        }
+        // ...
+    }
     // ...
   ```
   <br>
 
+  ### 조건 2) `str`이 숫자로만 이루어져 있으면, `return true` 아닌경우, `return false`
+  `str`이 저장하고 있는 문자열이 숫자로만 이루어져있는 경우와, 아닌 경우를 구분하는 기능을 구현하는데 있어, 먼저 생각한 방법은<br>
+  다음과 같다.<br>
+  
+  `str`이 저장하고 있는 문자열을 하나하나 숫자인지 문자인지 구분하여, 해당 문자열을 이루는 문자가 모두 숫자인 경우, `true`를<br>
+  반환하고, 아닌 경우, `false`를 반환하는 방법.<br>
 
+  해당 방법을 구현하기 위해서는, 먼저, `for`문을 이용하여, 문자열 `str`의 길이만큼 반복하여, `str`을 이루는 문자 중 하나를<br>
+  순서대로 선택하여, 숫자인지 아닌지 구분하는 작업을 해 주어야 한다.<br>
 
+  먼저, 해당 작업을 이루는 `for`문과 `str`을 이루는 문자 중 하나를 순서대로 선택하는 기능을 구현해 보도록 하겠다.<br>
 
-    
-    
-    
-  
+  ```java
+  package _01_Exercise._00_chapter_06;
 
+  static boolean isNumber(String str) {
+         /* str이 null 이거나, 빈 문자열인 경우
+         if(str == null || str.equals("")) {
+              return false;
+          }
+         */
   
+          // str이 숫자로만 이루어져 있는 경우 / 아닌 경우
+          for(int i = 0; i < str.length(); i++) {
+              char ch = str.charAt(i);
+          // ...
+          }
+      // ...
+  ```
+  <br>
 
+  해당 코드를 보면, 문자열 `str`의 길이만큼 반복하여, 한번 반복 할 때마다, 해당 문자열을 이루는 문자들 중 첫 번째 문자열<br> 
+  (`str.charAt(0)`) 부터 순서대로 뽑는 기능을 담당한다는 것을 알 수 있다.<br>
+  (String 클래스의 `charAt(int index)` 메서드 - 문자열 내에서 지정된 index의 문자를 꺼내올 때 사용)<br>
 
-
-  
-
-
-  
-  
-  
-
-  
-
-  
-  
-  
-  
-  
-
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-   
+  자, 이렇게 `str`문자열을 이루는 문자 중에서, index 0에 해당하는 첫번째 문자부터 순차적으로 뽑아내는 기능까지 구현해 보았다.<br>
+  이제, 이렇게 뽑은 문자가 숫자인지, 문자인기 구분하는 기능을 구현해야 한다.<br>
 
   
   
   
   
 
+
+
+
+
+  
