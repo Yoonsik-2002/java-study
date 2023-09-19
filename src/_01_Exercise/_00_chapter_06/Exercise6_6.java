@@ -7,7 +7,7 @@ public class Exercise6_6 {
             return false;
         }
         
-        // str이 숫자로만 이루어져 있는경우 / 아닌경우
+        // str이 숫자로만 이루어져 있는 경우 / 아닌 경우
         for(int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
             
