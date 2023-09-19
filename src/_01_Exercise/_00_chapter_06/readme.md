@@ -542,6 +542,42 @@ public class Exercise6_6 {
     }
 }
 ```
+<br>
+
+### 📑 Review
+- ### `isNumber()` 메서드 구현하기
+  `isNumber()`메서드는 인자로 전달받은 문자열이 모두 숫자로 이루어져 있으면, `true`를 리턴하고, 비어있거나, 문자가 섞여있는<br>
+  경우, `false`를 리턴해주는 메서드이다.<br>
+
+  먼저, 해당 메서드를 인스턴스를 생성하지 않아도 사용할 수 있게 해주기 위해, `static`을 붙여, 클래스 메서드로 정의해보도록<br>
+  하겠다.<br>
+
+  ```java
+  static boolean isNumber(String str) {
+      // ...
+  }
+  ```
+  <br>
+
+  먼저, 조건 중 하나인 `str`이 비어있는 경우, `false`를 리턴하는 기능을 구현해 보도록 하겠다.<br>
+  여기서, 조건을 `(str == null || str.equals(""))`로 지정해 주었는데, `str == null` 또는, `str.equals("")`인 경우 `false`<br>
+  를 리턴하게 된다.<br>
+
+  String 변수를 비교하는데 있어서, 주소를 비교하는 경우에는 `==`을 사용하고, 값이 같은지를 비교하는 경우에는 `String`클래스의<br>
+  `equals()`메서드를 사용한다.<br>
+  
+  이처럼, `str == null`과 `str.equals("")`는 서로 다른 의미를 가지는데, 이를 간단히 설명해 보도록 하겠다.<br>
+
+  - ##### `str == null`
+    String 타입의 변수는 문자열 객체를 참조한다. String 타입 변수 `str`이 `null`(빈값)을 참조하고 있는 경우, 해당 문자열이<br>
+    비어있다고 할 수 있다고 할 수 있다.<br>
+
+  - ##### `str.equals("")`
+    
+    
+  
+
+  
 
 
 
