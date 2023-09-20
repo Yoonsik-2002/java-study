@@ -8,7 +8,7 @@ public class Exercise6_6 {
         }
         
         // str이 숫자로만 이루어져 있는 경우 / 아닌 경우
-        for(int i = 0; i < str.length(); i++) {  // 문자열의 길이를 구할 때는 String 클래스의 length() 메서드 사용, 배열의 길이를 구할 때는 length 사용
+        for(int i = 0; i < str.length(); i++) {  // 문자열의 길이를 구할 때는 String 클래스의 length() 메서드 사용, 배열의 길이를 구할 때는 length 사용!
             char ch = str.charAt(i);
             
             if(ch < 48 || ch > 57) {
