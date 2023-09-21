@@ -21,5 +21,23 @@
 > **자바로 작성된 애플리케이션(application program, 응용 프로그램)은 모두 이 가상 컴퓨터(JVM)에서만 실행되기 때문에,<br>
 > 자바 애플리케이션이 실행되기 위해서는 반드시 이 JVM이 필요하다!**
 
+<br>
+
+## Write once, run anywhere
+**'한번 작성하면, 어디서든 실행된다'** 자바의 중요한 장점 중 하나이다.<br>
+자바가 이러한 장점을 지니게 된 이유는 [JVM](https://github.com/Yoonsik-2002/java-study/edit/main/src/_00_other_knowledge/_00_JVM/README.md#jvmjava-virtual-machine)에 있다.<br>
+<br>
+
+##### 자바 애플리케이션과 일반 애플리케이션의 비교
+![스크린샷(4)](https://github.com/Yoonsik-2002/java-study/assets/83572199/8dc6ec32-179d-4b89-8c6b-42e34e7fedc6)<br>
+
+- #### 일반 애플리케이션
+  그림에서 볼 수 있듯이, 일반 애플리케이션은 OS와 맞붙어 있기 때문에, **OS종속적이다.** <br>
+
+
+
+
+
+
 
 
