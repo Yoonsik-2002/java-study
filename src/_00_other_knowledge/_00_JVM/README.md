@@ -28,12 +28,36 @@
 자바가 이러한 장점을 지니게 된 이유는 [JVM](https://github.com/Yoonsik-2002/java-study/edit/main/src/_00_other_knowledge/_00_JVM/README.md#jvmjava-virtual-machine)에 있다.<br>
 <br>
 
-##### 자바 애플리케이션과 일반 애플리케이션의 비교
+#### 자바 애플리케이션과 일반 애플리케이션의 비교
+<br>
+
 ![스크린샷(4)](https://github.com/Yoonsik-2002/java-study/assets/83572199/8dc6ec32-179d-4b89-8c6b-42e34e7fedc6)<br>
+<br>
 
 - #### 일반 애플리케이션
-  그림에서 볼 수 있듯이, 일반 애플리케이션은 OS와 맞붙어 있기 때문에, **OS종속적이다.** <br>
+  그림에서 볼 수 있듯이, 일반 애플리케이션은 OS와 맞붙어 있기 때문에, **OS 종속적이다.** <br>
+  때문에 다른 OS에서 실행시키기 위해서는, 애플리케이션을 해당 OS에 맞게 변경해 주어야 한다는 번거로움이 존재한다.<br>
+<br>
 
+- #### Java 애플리케이션
+  반면에, Java 애플리케이션은 JVM하고만 상호작용을 하기 때문에, **OS와 하드웨어에 독립적이다.** <br>
+  때문에, 다른 OS에서도 프로그램의 변경없이 실행이 가능하다.<br>
+  
+  단, OS와 맞붙어 있는 JVM은 OS에 종속적이기 때문에, 해당 OS에서 실행 가능한 JVM이 필요하다.<br>
+  <br>
+  
+  ##### 다양한 OS용 JVM
+  ![스크린샷(6)](https://github.com/Yoonsik-2002/java-study/assets/83572199/599bb196-d6e8-4562-84df-123316b1bfae)<br>
+  
+  그래서 썬(Sun Microsystems)에서는 위와 같이, 일반적으로 많이 사용되는 주요 OS용 JVM을 제공하고 있고, 이를 통해<br>
+  **"Write once, run anywhere"** 이 가능하게 되는 것이다.<br>
+  <br>
+
+
+
+  
+  
+  
 
 
 
