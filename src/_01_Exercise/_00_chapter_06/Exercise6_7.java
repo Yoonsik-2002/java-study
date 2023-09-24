@@ -3,7 +3,7 @@ package _01_Exercise._00_chapter_06;
 class MyTv {
     
     /* 멤버변수(클래스 변수, 인스턴스 변수) - 
-    직접 초기화 해주지 않아도 해당 자료혀의 기본값으로 자동 초기화 된다.
+    직접 초기화 해주지 않아도 해당 자료형의 기본값으로 자동 초기화 된다.
     */
     boolean isPowerOn;
     int channel;
@@ -15,10 +15,14 @@ class MyTv {
     final int MIN_CHANNEL = 1;
     
     void turnOnOff() {
+        /*
         if(isPowerOn == false) 
             isPowerOn = true;
         else 
             isPowerOn = false;
+        */
+        
+        isPowerOn = !isPowerOn;
     }
     
     void volumeUp() {
