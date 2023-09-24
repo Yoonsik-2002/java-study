@@ -726,9 +726,174 @@ public class Exercise6_6 {
 <br><br>
 
 ## 💻 6-7
+```java
+package _01_Exercise._00_chapter_06;
+
+class MyTv {
+    
+    /* 멤버변수(클래스 변수, 인스턴스 변수) - 
+    직접 초기화 해주지 않아도 해당 자료형의 기본값으로 자동 초기화 된다.
+    */
+    boolean isPowerOn;
+    int channel;
+    int volume;
+    
+    final int MAX_VOLUME = 100;
+    final int MIN_VOLUME = 0;
+    final int MAX_CHANNEL = 100;
+    final int MIN_CHANNEL = 1;
+    
+    void turnOnOff() {
+        /*
+        if(isPowerOn == false) 
+            isPowerOn = true;
+        else 
+            isPowerOn = false;
+        */
+        
+        isPowerOn = !isPowerOn;
+    }
+    
+    void volumeUp() {
+        if(volume < MAX_VOLUME)
+            volume ++;
+    }
+    
+    void volumeDown() {
+        if(volume > MIN_VOLUME)
+            volume --;
+    }
+    
+    void channelUp() {
+        if (channel == MAX_CHANNEL) 
+            channel = MIN_CHANNEL;
+        else
+            channel ++;
+    }
+    
+    void channelDown() {
+        if (channel == MIN_CHANNEL)
+            channel = MAX_CHANNEL;
+        else
+            channel --;
+    }
+    
+} // class MyTv
+
+public class Exercise6_7 {
+    public static void main(String[] args) {
+        MyTv tv = new MyTv();
+        
+        tv.channel = 100;
+        tv.volume = 0;
+        System.out.println("CH: " + tv.channel + "," + "VO: " + tv.volume);
+        
+        tv.channelDown();
+        tv.volumeDown();
+        System.out.println("CH: " + tv.channel + "," + "VO: " + tv.volume);
+        
+        tv.volume = 100;
+        tv.channelUp();
+        tv.volumeUp();
+        System.out.println("CH: " + tv.channel + "," + "VO: " + tv.volume);
+    }
+}
+```
+<br>
+
+### 📑 Review
+- ### `final` 키워드에 대해 - `final` : 마지막의, 변경될 수 없는
+  위 코드의 `MyTv`클래스를 보면, 인스턴스 변수 앞에 `final`키워드가 붙어있는 변수의 선언문을 볼 수 있다.<br>
+
+  ```java
+    final int MAX_VOLUME = 100;
+    final int MIN_VOLUME = 0;
+    final int MAX_CHANNEL = 100;
+    final int MIN_CHANNEL = 1;
+  ```
+  <br>
+
+  `final`키워드의 의미와, 이러한 `final`키워드가 붙은 변수의 용도에 대해 정리해 보도록 하겠다.<br>
+
+  `final`은 '마지막의', '변경될 수 없는'의 의미를 가지고 있으며, 거의 모든 대상(변수, 메서드, 클래스)에 사용될 수 있다.<br>
+
+  > **`final`이 사용될 수 있는 곳 -** 클래스, 메서드, 멤버변수, 지역변수
+  
+  이러한 모든 대상에 사용되는 `final`키워드에 대해서는 chapter07에서 자세히 정리하고, 지금은 해당 코드에 쓰이는 변수에 사용되는<br>
+  `final`키워드에 대해 정리해 보도록 하겠다.<br>
+  <br>
+
+  ### 변수에 `final`키워드를 사용한 경우
+  변수에 `final`을 붙이면, '이 변수는 수정할 수 없다.'라는 의미를 가지게 된다. **즉, 값을 변경할 수 없는 상수가 되는 것이다.**<br>
+
+  `final`키워드가 붙은 변수의 경우, 값을 변경할 수 없기 때문에, 이에 따른 초기화 값이 필수적이다.<br>
+  보통 상수의 경우에는, 선언과 초기화를 동시에 하지만, 인스턴스 변수의 경우, 생성자에서 초기화 되도록 할 수 있다.<br>
+
+  ```java
+  package _01_Exercise._00_chapter_06;
+
+  class MyTv {
+    
+    /* 멤버변수(클래스 변수, 인스턴스 변수) - 
+    직접 초기화 해주지 않아도 해당 자료형의 기본값으로 자동 초기화 된다.
+    */
+    boolean isPowerOn;
+    int channel;
+    int volume;
+    
+    //final int MAX_VOLUME = 100;
+    //final int MIN_VOLUME = 0;
+    //final int MAX_CHANNEL = 100;
+    //final int MIN_CHANNEL = 1;
+
+    // 생성자를 이용한 final키워드가 붙은 인스턴스 변수(상수)의 초기화
+    MyTv(int max_volume, int min_volume, int max_channel, int min_channel) {
+        MAX_VOLUME = max_volume;
+        MIN_VOLUME = min_volume;
+        MAX_CHANNEL = max_channel;
+        MIN_CHANNEL = min_channel;
+    }
+  ```
+  <br>
+
+  ```java
+  public class Exercise6_7 {
+      public static void main(String[] args) {
+          MyTv tv1 = new MyTv(100, 0, 100, 1);
+          MyTv tv2 = new MyTv(200, 0, 234, 1);
+          MyTv tv3 = new MyTv(10, 1, 2342, 0);
+          /* 생성자를 통해, final키워드가 붙은 인스턴스 변수를 초기화 해주면,
+          각 인스턴스 별로, final 키워드가 붙은 인스턴스 변수를 서로 다른 값으로 초기화 해주는 것이 가능하다.*/
+  ```
+  <br>
+  
+  이렇게 `final`키워드가 붙은 인스턴스 변수의 초기화가 생성자를 통해 이루어지는 것이 허용되는 이유는 무엇일까?<br>
+
+  해당 질문의 답은 생성자의 역할을 생각해보면 나온다. 생성자는 한 클래스에서 생성되는 인스턴스들의 인스턴스 변수들을 초기화<br>
+  해주는 작업을 담당하는 메서드이다.<br>
+
+  인스턴스 변수들은 각 인스턴스별로 별도의 저장공간을 가지기 때문에, 하나의 클래스에서 생성된 인스턴스라도, 서로 다른 속성값을<br>
+  이 인스턴스 변수를 통해 저장하는 것이 가능하다.<br>
+  (인스턴스별로, 서로 다른 각, 인스턴스의 고유한 속성은 인스턴스 변수로 정의해준다.)<br>
+
+  `final`키워드가 붙은 인스턴스 변수를 생성자를 통해 초기화 해주는 것이 불가능 하다면, 해당 클래스에서 생성되는 인스턴스의<br>
+  `final`이 붙은 인스턴스 변수들은 모두 같은 값을 가질 수 밖에 없게된다.<br>
+
+  아래와 같이, 클래스 내의 선언문에서, 선언과 동시에 초기화 해주는 경우, 이미 해당 값으로 초기화 되었기 때문에, 그 뒤에,<br>
+  인스턴스가 생성되고 나서, `인스턴스이름.인스턴스변수이름 = 변경할 값`을 통한 값의 변경이 불가능하다.<br>
+  ```java
+  final int MAX_VOLUME = 100;
+  // ...
+  MyTv.MAX_VOLUME = 200; // 에러발생
+  ```
+  <br>
+---
+
+<br><br>
+
+
 
   
-
   
 
   
