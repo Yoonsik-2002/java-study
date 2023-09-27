@@ -982,7 +982,8 @@ public class Exercise6_9 {
 
   ![스크린샷(12)](https://github.com/Yoonsik-2002/java-study/assets/83572199/5a943e39-8bf7-43a9-a24d-6068d9269ede)
   <br>
-    
+
+  이처럼, `abs()`메서드에 `long`타입의 최소값(`-9223372036854775808`)을 전달하게 될 경우, 해당 값이 그대로 리턴된다.<br>
   
   
 
