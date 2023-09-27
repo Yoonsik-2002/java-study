@@ -893,6 +893,30 @@ public class Exercise6_7 {
 
 ## 💻 6-8
 ```java
+package _01_Exercise._00_chapter_06;
+
+public class Exercise6_9 {
+    static int abs(int value) {
+        if(value < 0) 
+            value = value * -1;
+        
+        return value;
+    }
+    
+    public static void main(String[] args) {
+        int value = 5;
+        System.out.println(value + "의 절대값 : " + abs(value));
+        
+        value = -10;
+        System.out.println(value + "의 절대값 : " + abs(value));
+    }
+}
+```
+<br>
+
+### 📑 Review
+인수로 전달받은 값의 절대값을 구해 리턴해주는 메서드 `abs()`를 구현하는 것이 해당 문제의 핵심 이였다.<br>
+`abs()`의 기능은 위 코드에서 볼 수 있듯이,  전달받은 값이 음수인 경우, 해당 값에 `-1`을 곱해주는 방법을 이용하여 구현하였다.<br>
 
 
   
