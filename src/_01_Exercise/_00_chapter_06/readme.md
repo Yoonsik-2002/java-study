@@ -977,6 +977,11 @@ public class Exercise6_9 {
 
   마찬가지로, `long`타입의 최소값인 `-9223372036854775808`을 `abs()`메서드의 인수로 전달해 보도록 하겠다.<br>
 
+  ![스크린샷(11)](https://github.com/Yoonsik-2002/java-study/assets/83572199/cb6bc1d6-ec83-4535-80df-64e7ba326a0e)
+  <br>
+
+  ![스크린샷(12)](https://github.com/Yoonsik-2002/java-study/assets/83572199/5a943e39-8bf7-43a9-a24d-6068d9269ede)
+  <br>
     
   
   
