@@ -9,10 +9,10 @@ public class Exercise6_9 {
     }
     
     public static void main(String[] args) {
-        int value = 5;
+        int value = -5;
         System.out.println(value + "의 절대값 : " + abs(value));
         
-        value = -10;
+        value = 10;
         System.out.println(value + "의 절대값 : " + abs(value));
     }
 }
@@ -21,7 +21,7 @@ public class Exercise6_9 {
 
 // public class Exercise6_9 {
 //     public static void main(String[] args) {
-//         int value = 5;
+//         long value = -9223372036854775808L; // long 타입의 최소값: -9,223,372,036,854,775,808
 //         System.out.println(value + "의 절대값 : " + Math.abs(value));
         
 //         value = -10;
