@@ -26,5 +26,9 @@ class Child extends Parant {
 이렇게 상속관계에 있는 두 클래스를 가리켜 사용할 수 있는 용어는 '조상 클래스', '자손 클래스' 외에도 아래와 같이 다양한 것들이 있다.<br>
 
 ![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/3982d9a0-7150-47e3-af81-c59f2f3cd892)<br>
-
 <br>
+
+### 클래스 간의 상속 관계
+
+
+
