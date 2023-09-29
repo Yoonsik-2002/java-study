@@ -62,7 +62,8 @@ class Child extends Parent{}
 
   이때, 조상 클래스인 `Parent`의 멤버에 변경사항이 생긴 경우와, 자손 클래스인 `Child`의 멤버에 변경사항이 생긴 경우 각각<br>
   서로에게 어떠한 영향을 미치는지 정리해 보도록 하겠다.<br>
-
+  <br>
+     
   - #### 조상 클래스(`Parent`)의 멤버에 변경사항이 생긴 경우
     ```java
     class Parent {
@@ -79,8 +80,40 @@ class Child extends Parent{}
     `Parent`의 멤버를 상속받는 관계에 있는 `Child`는 `Parent`로 부터 `age`를 상속받아, 자동적으로 해당 멤버변수가 추가된<br>
     것과 같은 효과를 얻게 된다.<br>
 
-    ![스크린샷(4)](https://github.com/Yoonsik-2002/java-study/assets/83572199/575505f8-7bc4-489f-8992-330b8c0deac9)
+    ![스크린샷(4)](https://github.com/Yoonsik-2002/java-study/assets/83572199/575505f8-7bc4-489f-8992-330b8c0deac9)<br>
+    <br>
+    
+  - #### 자손 클래스(`Child`)의 멤버에 변경사항이 생긴 경우
+    ```java
+    class Parent {
+      int age;
+    }
 
+    class Child extends Parent {
+      void play() {
+        System.out.println("Let's play~");
+      }
+    }
+    ```
+    <br>
+
+    위와 같이, `Child`클래스에 새로운 멤버로 `play()`메서드를 추가해 보았다. <br>
+    해당 변경사항은 조상 클래스인 `Parent`에게 영향을 미칠까? <br>
+
+    아니다. `Child`클래스에 새로운 코드가 추가되어도 조상 클래스인 `Parent`는 아무런 영향도 받지 않는다.<br>
+     
+    ![스크린샷(6)](https://github.com/Yoonsik-2002/java-study/assets/83572199/a1d32127-0880-44ad-b37f-62a5b8652947)<br>
+    <br>
+
+    조상 클래스의 변경사항은 자동적으로 해당 조상클래스를 상속받고 있는 자손 클래스는 영향을 받게 되지만, 자손 클래스가 변경되는<br>
+    것은 조상 클래스에 아무런 영향을 주지 못한다.<br>
+    <br>
+
+  자손 클래스는 조상 클래스의 모든 멤버들을 상속받기 때문에, 멤버의 수가 항상 조상 클래스의 멤버의 수와 같거나 더 많다.<br>
+  
+    
+
+  
 
     
   
