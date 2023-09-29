@@ -43,7 +43,7 @@ class Child extends Parent{}
 이러한 상속관계를 상속계층도를 이용하여 그림으로 표현할 수 있는데, 클래스는 타원으로, 클래스 간의 상속관계를 화살표를 이용하여<br>
 표현하는 방식이다. `Child`와 `Parent`의 상속관계도를 그려보면 다음과 같다.<br>
 
-![fsdf](https://github.com/Yoonsik-2002/java-study/assets/83572199/cb93f706-f2e6-4c88-be87-f0ca8f3baef1)<br>
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/009a1606-e9da-4d75-bd75-456b5540db80)<br>
 <br>
 
 이러한 상속관계도를 이용하면, 클래스 간의 관계를 보다 쉽게 이해할 수 있다.<br>
