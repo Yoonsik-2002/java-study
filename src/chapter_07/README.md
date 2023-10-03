@@ -217,7 +217,67 @@ class Child extends Parent{}
 
 > **전체 프로그램을 이루는 클래스들을 면밀히 설계 분석하여, 클래스들 간의 상속관계를 적절하게 맺어주는 것이 객체지향 프로그래밍의<br>
 > 핵심이다!** <br>
+<br>
+
+### 💻 예제 **`7-1`**
+예제 `7-1`에서 구현해볼 예제 `Ex07_1_CaptionTvTest.java`프로그램을 작성하기 전에, 해당 프로그램을 이루는 클래스들을 설계 분석하여<br>
+클래스들간의 상속관계를 맺어보도록 하겠다. <br>
+
+`CaptionTvTest.java`프로그램을 구성하는 클래스는 `Tv`와 `CaptionTv`이렇게 2개가 있다. 캡션이란, 송출되는 음성이나 음악을 기호 <br>
+혹을 자막으로 나타내주는 기능인데, 이 캡션 기능을 담당하는 `CaptionTv`클래스는 일반 Tv의 기능(Power on/off, Channel up/down)을<br>
+담당하는 `Tv`클래스에 캡션 기능을 추가한 형태이다. <br>
+
+그렇기 때문에, 두 클래스는 `CaptionTv`클래스가 `Tv`클래스를 상속받는 상속관계를 띄게 된다. <br>
+이를, 상속 계층도로 나타내면 다음과 같다. <br>
+
+![스크린샷(4)](https://github.com/Yoonsik-2002/java-study/assets/83572199/bd0f4c87-5b0c-4798-96ae-9c41952d4413) <br>
+ <br>
+
+ 이를 토대로, `Tv`, `CaptionTv`클래스를 작성해 보도록 하겠다. <br>
+
+ ```java
+class Tv {
+  boolean power; // 전원 상태(on/off) - boolean 타입의 멤버변수의 경우, 명시적 초기화를 해주지 않았을 시, 기본값인 (false)으로 자동 초기화 된다.
+  int channel; // 채널(up/down) - int 타입의 멤버변수의 경우, 명시적 초기화를 해주지 않았을 시, 기본값인 (0)으로 자동 초기화 된다.
+
+  void power() {power = !power;} // 현재 power의 값 -> 그 반대값 - 스위치 같은 기능(true or false)
+  void channelUp() {++channel;}
+  void channelDown() {--channel;}
+}
+
+class CaptionTv extends Tv {
+  boolean caption; // 캡션 기능(on/off)
+
+  void displayCaption(String text) {
+    if(caption) { // 캡션 상태가 on(true)일 경우에만 text를 출력
+      System.out.println(text);
+    }
+  }
+}
+
+public class Ex07_1_CaptionTvTest {
+  public static void main(String[] args) {
+    CaptionTv ctv = new CaptionTv();
+
+    ctv.channel = 10;
+    ctv.channelUp();
+    System.out.println(ctv.channel);
+
+    ctv.displayCaption("Hello, World"); // ctv의 caption이 기본값인 flase로 초기화 되어있기 때문에 작동X
+    ctv.caption = true;
+    ctv.displayCaption("Hello, World"); // caption을 true로 해주었기 때문에 작동O
+  }
+}
+```
+<br>
+
+    
+
+
+
   
+
+
 
   
 
