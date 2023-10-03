@@ -169,7 +169,61 @@ class Child extends Parent{}
   **이처럼 같은 내용의 코드를 하나 이상의 클래스에 중복적으로 추가해야하는 경우, 상속관계를 이용해서 최소화 해주어야 한다!** <br>
   <br>
 
-  ### 
+  ### 직접조상과 간접조상의 관계
+  아래 코드와 같이, `Child`클래스를 상속받는 `GrandChild`클래스를 생성하여 보았다.<br>
+  ```java
+  class Parent{}
+  class Child extends Parent{}
+  class Child2 extends Parent{}
+  class GrandChild extends Parent{}
+  ```
+  <br>
+
+  이러한 상속관계를 상속 계층도를 이용하여 나타내면 다음과 같다.<br>
+
+  ![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/fafeca4c-3fe8-476b-be11-11b9700fc0c9)<br>
+  <br>
+
+  자손 클래스는 조상 클래스의 모든 멤버를 물려받는다. 그렇기 때문에, `GrandChild`클래스는 `Child`클래스의 모든 멤버들과 `Child`<br>
+  클래스의 조상인 `Parent`로부터 상속받은 멤버들까지 모두 상속받게 된다.<br>
+
+  그렇기 때문에, `GrandChild`클래스는 `Child`클래스의 자손이기도 하며, `Parent`클래스의 자손이기도 하다.<br>
+  이를 더 정확하게 표현하면 다음과 같이 표현이 가능하다.<br>
+
+  - `Child`클래스는 `GrandChild`클래스의 **직접조상(직접적인 상속관계)** 이다.<br>
+  - `Parent`클래스는 `GrandChild`클래스의 **간접조상(간접적인 상속관계)** 이다.<br>
+  <br>
+
+  그렇다면, 아래와 같이, `Parent`클래스에 int형 멤버변수 `age`를 추가하면, 어떻게 될까?<br>
+  
+  ```java
+  class Parent{
+    int age;
+  }
+  class Child extends Parent{}
+  class Child2 extends Parent{}
+  class GrandChild extends Parent{}
+  ```
+  <br>
+
+  당연히 `Parent`를 상속받고 있는 자손 클래스 `Child`, `Child2`, `GrandChild(간접)` 모두에 해당 멤버변수가 추가될 것이다.<br>
+  반대로, `Parent`클래스에서 해당 멤버변수 `age`를 삭제하면, 해당 변경사항은 자손 클래스 `Child`, `Child2`, `GrandChild` <br>
+  모두에게 적용되어, 세 클래스 모두에서 삭제가 될 것 이다.<br>
+
+  이렇게 조상 클래스만 변경해 주어도, 모든 자손 클래스 그리고 자손의 자손클래스에게 영향까지 영향을 주기 때문에, 클래스간의<br>
+  상속관계를 맺어주면, 자손 클래스들의 공통정인 부분은 조상 클래스에 정의하여 한번에 관리하고, 자손 클래스 들은 각자에게<br>
+  정의된 멤버만 관리하면 되므로, 각 클래스의 코드가 적어지기 때문에 관리가 용이해진다.<br>
+<br>
+
+> **전체 프로그램을 이루는 클래스들을 면밀히 설계 분석하여, 클래스들 간의 상속관계를 적절하게 맺어주는 것이 객체지향 프로그래밍의<br>
+> 핵심이다!** <br>
+  
+
+  
+
+  
+
+
   
 
 
