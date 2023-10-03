@@ -220,10 +220,10 @@ class Child extends Parent{}
 <br>
 
 ### 💻 예제 **`7-1`**
-예제 `7-1`에서 구현해볼 예제 `Ex07_1_CaptionTvTest.java`프로그램을 작성하기 전에, 해당 프로그램을 이루는 클래스들을 설계 분석하여<br>
+예제 `7-1`에서 구현해볼 예제 `Ex07_01_CaptionTvTest.java`프로그램을 작성하기 전에, 해당 프로그램을 이루는 클래스들을 설계 분석하여<br>
 클래스들간의 상속관계를 맺어보도록 하겠다. <br>
 
-`CaptionTvTest.java`프로그램을 구성하는 클래스는 `Tv`와 `CaptionTv`이렇게 2개가 있다. 캡션이란, 송출되는 음성이나 음악을 기호 <br>
+`Ex07_01_CaptionTvTest.java`프로그램을 구성하는 클래스는 `Tv`와 `CaptionTv`이렇게 2개가 있다. 캡션이란, 송출되는 음성이나 음악을 기호 <br>
 혹을 자막으로 나타내주는 기능인데, 이 캡션 기능을 담당하는 `CaptionTv`클래스는 일반 Tv의 기능(Power on/off, Channel up/down)을<br>
 담당하는 `Tv`클래스에 캡션 기능을 추가한 형태이다. <br>
 
@@ -255,7 +255,7 @@ class CaptionTv extends Tv {
   }
 }
 
-public class Ex07_1_CaptionTvTest {
+public class Ex07_01_CaptionTvTest {
   public static void main(String[] args) {
     CaptionTv ctv = new CaptionTv();
 
@@ -271,7 +271,7 @@ public class Ex07_1_CaptionTvTest {
 ```
 <br>
 
-`Ex7_1_CaptionTvTest`프로그램을 구성하는 클래스인 `Tv`클래스와 `CaptionTv`클래스를 각자 멤버들과 함께 다이어그램으로<br>
+`Ex07_01_CaptionTvTest`프로그램을 구성하는 클래스인 `Tv`클래스와 `CaptionTv`클래스를 각자 멤버들과 함께 다이어그램으로<br>
 표현하면 다음과 같다.<br>
 <br>
 
@@ -297,6 +297,8 @@ ctv.channel = 10;
 사용하는 것이 가능하다. <br>
 
 <br>
+
+---
 
 
 
