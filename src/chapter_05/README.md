@@ -683,7 +683,7 @@ int[] newIntArray = makeArray();
 `makeArray()` 메소드가 return하고 나면, 지역변수인 `temp`는 사라지게 된다. 하지만, `temp`가 가리키고 있는,<br>
 (`temp`가 `new`키워드를 통해 할당받은) 배열 메모리는 사라지지 않는다.<br>
 
-
+---
 
 
 
