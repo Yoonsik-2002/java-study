@@ -27,4 +27,17 @@ class Deck {
         }
     }
     
+    // cardArr(덱)에서 카드를 뽑아 출력, - 1) 지정된 위치의 카드, 2) 랜덤 위치의 카드
+    
+    // 1) 지정된 위치의 카드
+    Card pick(int index) {
+        return cardArr[index];
+    }
+    
+    // 2) 랜덤 위치의 카드
+    Card pick() {
+        int index = (int)(Math.random() * CARD_NUM);
+        reutrn pick(index);
+    }
+    
 }
