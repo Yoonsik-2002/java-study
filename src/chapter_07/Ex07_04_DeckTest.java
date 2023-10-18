@@ -39,5 +39,4 @@ class Deck {
         int index = (int)(Math.random() * CARD_NUM);
         reutrn pick(index);
     }
-    
 }
