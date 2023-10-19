@@ -37,6 +37,6 @@ class Deck {
     // 2) 랜덤 위치의 카드
     Card pick() {
         int index = (int)(Math.random() * CARD_NUM);
-        reutrn pick(index);
+        return pick(index);
     }
 }
