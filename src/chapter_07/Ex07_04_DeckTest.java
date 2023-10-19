@@ -39,4 +39,19 @@ class Deck {
         int index = (int)(Math.random() * CARD_NUM);
         return pick(index);
     }
+    
+    // cardArr(덱)에 저장되어 있는 52개의 Card객체(카드)를 무작위로 섞음
+    void shuffle() {
+        for (int i = 0; i < cardArr.length; i++) {
+            int rand = (int)(Math.random() * CARD_NUM); // 0 ~ 51 까지의 정수 중 임의의 수를 뽑아 rand에 저장
+            
+            /* cardArr[0] 에 존재하는 데이터와 0 ~ 51 중 임의로 뽑힌 수에 해당하는 인덱스에 존재하는 
+            데이터(cardArr[rand])를 cardArr배열의 길이반큼 반복하여 교환하여 해당 객체배열에 저장되어
+            있는 Card 객체의 순서를 섞음*/
+            
+            Card temp = cardArr[0]; // 임시저장
+            cardArr[0] = cardArr[rand];
+            cardArr[rand] = temp;
+        }
+    }
 }
