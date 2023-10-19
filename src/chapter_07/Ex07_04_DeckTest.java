@@ -54,4 +54,26 @@ class Deck {
             cardArr[rand] = temp;
         }
     }
+} // Deck 클래스의 끝
+
+class Card {
+    final static int KIND_MAX = 4;
+    final static int NUM_MAX = 13;
+    
+    final static int SPADE = 4;
+    final static int DIAMOND = 3;
+    final static int HEART = 2;
+    final static int CLOVER = 1;
+    
+    int kind;
+    int number;
+    
+    Card(int kind, int number) {
+        this.kind = kind;
+        this.number = number;
+    }
+    
+    Card() {
+        this(SPADE, 1);
+    }
 }
