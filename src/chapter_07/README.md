@@ -453,36 +453,39 @@ class Point {
 다음 예시코드를 한번 보도록 하자.<br>
 
 ```java
-class Card {
+package chapter_07;
+
+class M_Card {
   int number;
 
-  Card(int number) {
+  M_Card(int number) {
     this.number = number;
   }
 }
 
-class Deck {
-  static int CARD_MAX = 5;
-  Card[] cardArr = new Card[CARD_MAX];
+class M_Deck {
+  final static int CARD_MAX = 5;
+  M_Card[] cardArr = new M_Card[CARD_MAX];
 
-  Deck() {
+  M_Deck() {
     for (int i = 0; i < CARD_MAX; i++) {
-      cardArr[i] = new Card(i + 1);
+      cardArr[i] = new M_Card(i + 1);
     }
   }
 
-  void show(Card[] cardArr) {
+  void show() {
     for (int i = 0; i < cardArr.length; i++) {
-      System.out.println(cardArr[i]);
+      System.out.println(cardArr[i].number);
     }
+  }
 }
 
-class MiniDeckTest {
-  public static void main(String[] args) {
-    Deck d = new Deck();
-
-    d.show();
-  }
+class Ex07_05_MiniDeckTest {
+    public static void main(String[] args) {
+        M_Deck d = new M_Deck();
+        
+        d.show();
+    }
 }
 ```
 
