@@ -432,7 +432,69 @@ class Point {
 
 > **상속관계 -** ⚪⚪은 ⚪⚪이다.(is-a)<br>
 > **포함관계 -** ⚪⚪은 ⚪⚪을 가지고 있다.(has-a)<br>
-  
+<br>
+
+## 💻 예제 | Chapter_07 `Ex07_04_DeckTest`
+다음은 `Card`클래스와 이 `Card`클래스의 객체(카드)의 묶음인 `Deck`클래스의 포함관계를 활용한 예제이다.<br> 
+[Ex07_04_DeckTest](https://github.com/Yoonsik-2002/java-study/blob/main/src/chapter_07/Ex07_04_DeckTest.java)<br>
+<br>
+
+해당 예제 프로그램을 작성하며, 되짚어보면 좋을 것 같은 부분들을 정리해 보도록 하겠다.<br>
+<br>
+
+### 📑 `pick()`메서드의 동작과 객체배열 `cardArr`
+> `pick()`메서드는 `Card`객체배열 `cardArr`에서 `Card`객체 하나를 뽑아, 리턴한다.
+<br>
+
+#### `Card` 객체배열(`cardArr`)
+객체배열이란, 각 인스턴스를 가리키는 참조변수를 묶어놓은 배열이다. 때문에, 해당 배열에 실제로 저장되는 것은 객체가 아니라, 해당<br>
+객체의 주소이다.<br>
+
+다음 예시코드를 한번 보도록 하자.<br>
+
+```java
+class Card {
+  int number;
+
+  Card(int number) {
+    this.number = number;
+  }
+}
+
+class Deck {
+  static int CARD_MAX = 5;
+  Card[] cardArr = new Card[CARD_MAX];
+
+  Deck() {
+    for (int i = 0; i < CARD_MAX; i++) {
+      cardArr[i] = new Card(i + 1);
+    }
+  }
+
+  void show(Card[] cardArr) {
+    for (int i = 0; i < cardArr.length; i++) {
+      System.out.println(cardArr[i]);
+    }
+}
+
+class miniDeckTest {
+  public static void main(String[] args) {
+    Deck d = new Deck();
+
+    d.show();
+  }
+}
+```
+
+
+
+
+    
+
+
+
+
+
 
 
 
