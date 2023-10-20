@@ -554,7 +554,11 @@ return cardArr[index];
 때문에, **최종적으로, `pick`메서드는 `index = 0`에 해당하는 객체배열의 참조변수 `carArr[0]`에 저장되어 있는 객체의 주소값인<br>
 `0x200`을 `Card`타입의 참조변수 `c`에게 리턴하게 된다.**<br>
 
+해당 과정을 그림으로 나타내면 다음과 같다.<br>
+<br>
 
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/8bf0792d-e574-4fe0-933e-f0e01023b1a6)
+<br>
 
     
 
