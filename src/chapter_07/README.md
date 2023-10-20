@@ -519,6 +519,40 @@ cardArr[i] = new M_Card(i + 1); // number의 값이 1 ~ 5인 M_Card객체가 순
 자체를 저장하는 것이 아니라, **`M_Card`클래스의 객체의 주소값을 저장하는 것을 알 수 있다.**<br>
 <br>
 
+자, 그럼 [Ex07_04_DeckTest](https://github.com/Yoonsik-2002/java-study/blob/main/src/chapter_07/Ex07_04_DeckTest.java) 프로그램의 `Deck`클래스의 `pick()`메서드의 동작을 한번 보도록 하자.<br>
+
+```java
+Card c = d.pick(0);
+
+// ...
+
+Card pick(int index) {
+  return cardArr[index];
+}
+```
+<br>
+
+`d.pick(0);`을 통해 `pick`메서드가 호출되면, 해당 메서드의 매개변수 `index`에는 인자로 전달한 `0`이라는 값이 전달되게 된다.<br>
+그럼, `pick`메서드는 해당 인덱스(`index = 0`)에 해당하는 객체배열의 데이터(cardArr[0])의 주소를 리턴해주고, 해당 주소값은<br>
+`Card`타입의 참조변수 `c`에 저장되게 된다.<br>
+
+##### Ex) 매개변수로 전달된 `index`값이 `0`이고, `cardArr[0]`의 값이 `0x200`인 경우, `pick(0)`메서드 호출 시 변화 - 
+```java
+return cardArr[index];
+/*->*/ return cardArr[0];
+/*->*/ reutrn 0x200;
+```
+<br>
+
+어떻게 이러한 변화가 일어나는 것일까?<br>
+위의 객체배열 그림을 잘 보면 이해가 가능하다. 먼저, `pick`메서드가 호출되고, 매개변수인 `index`에 전달된 값은 `0`이기 때문에,<br>
+`cardArr[index]` -> `cardArr[0]`이 된다.<br>
+
+이때, 참조변수 `cardArr`이 가리키고 있는 배열공간에 저장되어 있는 참조변수 중, 첫 번째 참조변수인 `carArr[0]`은 결국 객체 배열의<br>
+첫 번째 객체의 주소값을 저장하고 있기 때문에, `carArr[0]`은 결국, 해당 객체의 주소값인 `0x200`이라고 할 수 있다.<br>
+
+때문에, **최종적으로, `pick`메서드는 `index = 0`에 해당하는 객체배열의 참조변수 `carArr[0]`에 저장되어 있는 객체의 주소값인<br>
+`0x200`을 `Card`타입의 참조변수 `c`에게 리턴하게 된다.**<br>
 
 
 
