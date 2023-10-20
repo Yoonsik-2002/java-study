@@ -511,9 +511,13 @@ cardArr[i] = new M_Card(i + 1); // number의 값이 1 ~ 5인 M_Card객체가 순
 
 위 예시코드에서 만든 객체배열 `cardArr`을 그림으로 표현해 보도록 하겠다.<br>
 
-![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/285029de-09dc-4060-9f36-39e01062f142)
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/285029de-09dc-4060-9f36-39e01062f142)<br>
+<br>
 
-
+위 그림을 보면, 알 수 있듯이, `carArr`은 5개의 참조변수(`carArr[0] ~ carArr[4]`)을 저장할 수 있는 배열공간을 가리키는(해당 배열<br>
+공간의 주소값을 저장하는) 참조변수이고, 해당 배열 공간에 저장되어 있는 참조변수 `carArr[0] ~ carArr[4]`는 `M_Card`클래스의 객체<br>
+자체를 저장하는 것이 아니라, **`M_Card`클래스의 객체의 주소값을 저장하는 것을 알 수 있다.**<br>
+<br>
 
 
 
