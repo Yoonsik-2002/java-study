@@ -444,7 +444,6 @@ class Point {
 
 ### 📑 `pick()`메서드의 동작과 객체배열 `cardArr`
 > `pick()`메서드는 `Card`객체배열 `cardArr`에서 `Card`객체 하나를 뽑아, 리턴한다.
-<br>
 
 #### `Card` 객체배열(`cardArr`)
 객체배열이란, 각 인스턴스를 가리키는 참조변수를 묶어놓은 배열이다. 때문에, 해당 배열에 실제로 저장되는 것은 객체가 아니라, 해당<br>
@@ -488,6 +487,25 @@ class Ex07_05_MiniDeckTest {
     }
 }
 ```
+<br>
+
+main()의 `M_Deck d = new M_Deck();`가 실행되어, `M_Deck`클래스의 인스턴스 `d`가 생성되면
+
+먼저, `M_Card[] carArr = new M_Card[CARD_MAX];`를 통해 5개의 `M_Card`타입의 첨조변수가 들어갈 수 있는 객체배열 공간이 만들<br>
+어지고, `M_Deck()`생성자를 통해 해당 인스턴스의 멤버인 객체배열 `cardArr`의 초기화가 이루어진다.<br>
+
+이때, 객체배열 `cardArr`을 이루는 참조변수 `cardArr[0]`, `cardArr[1]`, ... `cardArr[4]`는 for문이 돌 때마다, new 연산자를<br>
+통해, `M_Card`객체를 생성하고, 해당 객체의 주소값을 저장한다.<br>
+
+```java
+// ...
+cardArr[i] = new M_Card(i + 1); // number의 값이 1 ~ 5인 M_Card객체가 순차적으로 생성되어, 해당 주소값이 저장됨
+```
+
+그리고, 인스턴스 `d`의 메서드인 `show()`는 이렇게 초기화 된, 객체배열 `cardArr`에 저장되어 있는 `M_Card`객체들의 멤버인<br>
+`number`의 값을 차례대로 출력 해준다.<br>
+
+이러한 `cardArr`과 같은 객체배열은 
 
 
 
