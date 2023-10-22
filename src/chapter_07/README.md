@@ -565,8 +565,8 @@ return cardArr[index];
 
 해당 메서드에 대한 설명은 다음과 같다. 
 
-> **`toString()`메서드는 객체(객체가 가지고 있는 값이나 정보)를 문자열로 표현하여<br>
-> 반환한다.**
+> **`toString()`메서드는 일반적으로, 객체를 '문자로 표현한' 문자열을 반환한다.<br>
+> 이러한 `toString()`메서드의 결과는 사람이 읽고 이해하기 쉬운, 간결하지만, 유익한(정보를 제공하는) 표시여야 한다.**
 
 
 이러한 `toString()`메서드에는 하나의 특징이 있는데, 바로, 클래스 간의 상속계층도에 최상위에 위치한 클래스인 `Object`클래스의<br>
@@ -580,6 +580,50 @@ return cardArr[index];
 (자바의 모든 클래스들이 상속받기 때문에, 정의하지 않고도, 그대로 사용하는 것이 가능!)<br>
 
 그러면 한번, 이 `toString()`메서드를 사용하면 어떠한 결과가 나타나는지 알아보도록 하겠다.<br>
+
+```java
+package chapter_07;
+
+class M_Card {
+  int number;
+
+  M_Card(int number) {
+    this.number = number;
+  }
+}
+
+class M_Deck {
+  final static int CARD_MAX = 5;
+  M_Card[] cardArr = new M_Card[CARD_MAX];
+
+  M_Deck() {
+    for (int i = 0; i < CARD_MAX; i++) {
+      cardArr[i] = new M_Card(i + 1);
+    }
+  }
+
+  void show() {
+    for (int i = 0; i < cardArr.length; i++) {
+      System.out.println(cardArr[i].toString());
+    }
+  }
+}
+
+class Ex07_05_MiniDeckTest {
+    public static void main(String[] args) {
+        M_Deck d = new M_Deck();
+        
+        d.show();
+    }
+}
+```
+<br>
+
+해당 코드의 실행결과는 다음과 같다.<br>
+
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/eb6220f4-76c6-4a30-a84d-05b2eef7e592)<br>
+<br>
+
 
 
 
