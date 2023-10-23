@@ -561,7 +561,6 @@ return cardArr[index];
 <br><br>
 
 ### 📑 `Card`클래스의 `toString()`메서드의 구현과 `Object`클래스, `toString()`메서드에 대한 이해.
-<br>
 
 ### `toString()`메서드
 먼저, `toString()`메서드는 무엇인가? 해당 메서드에 대한 설명은 다음과 같다.<br>
@@ -607,7 +606,9 @@ return cardArr[index];
 > **`show()`메서드를 이용하여 `cardArr`에 담긴 `M_Card`객체를 출력 할 때, `System.out.println()`메서드만을 사용하여<br>
 > 출력했을 때와, `toString()`메서드까지 적용했을 때 출력되는 결과에 어떤 차이가 존재하는지 확인해보도록 하겠다.**
 
+<br>
 
+자, 그럼 이제 `Ex07_05_MiniDeckTest.java`프로그램의 코드를 한번 보도록 하자.<br>
 
 ```java
 package chapter_07;
@@ -632,7 +633,9 @@ class M_Deck {
 
   void show() {
     for (int i = 0; i < cardArr.length; i++) {
-      System.out.println(cardArr[i].toString());
+      System.out.println("System.out.println() : " + cardArr[i]);
+      System.out.println("Apply the toString() method : " + cardArr[i].toString());
+      System.out.println("");
     }
   }
 }
@@ -647,9 +650,23 @@ class Ex07_05_MiniDeckTest {
 ```
 <br>
 
-해당 코드의 실행결과는 다음과 같다.<br>
+`M_Deck`클래스의 `void show()`메서드를 보면 알 수 있듯이, `void show()`메서드를 통해 객체 배열 `cardArr`에 저장되어 있는 객체들의<br>
+정보를 다음 두 가지 방법으로 출력해 보았다.<br>
 
-![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/eb6220f4-76c6-4a30-a84d-05b2eef7e592)<br>
+```java
+// ...
+System.out.println("System.out.println() : " + cardArr[i]); // 1) 그냥 System.out.println()메서드를 이용하여 cardArr[i]객체만 출력
+System.out.println("Apply the toString() method : " + cardArr[i].toString()); // 2) cardArr[i]객체에 toString()메서드를 적용하여 출력
+// ...
+```
+<br>
+
+추가로, 출력된 결과 중, 무엇이 첫 번째 방법의 결과이고, 무엇이 두 번째 방법의 결과인지 구분하기 위해, `System.out.println() : `과<br>
+`Apply the toString() method : `이라는 문자열을 각각 출력값 앞에 표시해 두었다.<br>
+
+자, 이제 결과를 한번 봐 보자. 해당 프로그램의 결과는 다음과 같다.<br>
+
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/385971d1-11bd-45af-9975-1688e16855c0)<br>
 <br>
 
 해당 실행결과를 보니, '이것이 정녕 공식문서에 나와있는 간결하면서 사람이 읽기 쉬운 유익한 정보인가..?'라는 의문이 들었다.<br>
