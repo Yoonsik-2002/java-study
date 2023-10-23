@@ -702,21 +702,29 @@ System.out.println("Apply the toString() method : " + cardArr[i].toString()); //
 에서 찾아보면, 다음과 같다.<br>
 <br>
 
-#### `toString()`메서드는 정확히 어떠한 결과값을 리턴해 주는가?
-> **`Object`클래스의 `toString()`메서드는, 전달받은 객체가 인스턴스로서 존재하는 클래스의 이름과 기호문자 `@`, 그리고 객체의<br>
-> 부호 없는 16진수 해쉬코드표기로 구성된 문자열을 반환한다.** <br>
+- #### `toString()`메서드는 정확히 어떠한 결과값을 리턴해 주는가?
+  > **`Object`클래스의 `toString()`메서드는, 전달받은 객체가 인스턴스로서 존재하는 클래스의 이름과 기호문자 `@`, 그리고 객체의<br>
+  > 부호 없는 16진수 해쉬코드표기로 구성된 문자열을 반환한다.(이때, 해시코드란, 객체를 식별하는 하나의 정수값을 의미한다.** <br>
 
 <br>
 
-#### `Object`클래스에서 `toString()`메서드는 어떻게 정의되어 있는가?
-```java
-public String toString() {
-  return getClass().getName() + '@' + Integer.toHexString(hashcode());
-}
-```
+- #### `Object`클래스에서 `toString()`메서드는 어떻게 정의되어 있는가?
+  ```java
+  public String toString() {
+    return getClass().getName() + '@' + Integer.toHexString(hashcode());
+    // 현재 참조하고 있는 클래스를 확인하여, 해당 클래스의 이름을 반환 + @ + 해당 객체의 부호없는 16진수 해시코드 값.
+  }
+  ```
 <br>
 
-아래 간단한 코드와 결과를 보고, 
+아래 간단한 코드와 그 결과를 한번 보도록 하자.<br>
+
+`ExCard`클래스의 `card`객체를 생성한 뒤, `PrintStream`클래스의 메서드 중 하나인 `println()`메서드로 해당 `card`객체를<br>
+출력하는 간단한 코드이다.<br>
+
+우리가 공부한 대로라면, `PrintStream`클래스의 출력 관련메서드(`println()`)에 객체(`ExCard`클래스의 `card` 객체)를 전달<br>
+하였으니, 내부적으로 자바 컴파일러가 `toString()`메서드를 호출하여, `card`객체의 정보를 문자열로 출력해 줄 것이다.<br>
+(나의 예상 결과 값 : `chapter_07.ExCard@부호없는 16진수 해시코드값`)<br>
 
 ```java
 package chapter_07;
@@ -736,22 +744,11 @@ class Ex07_06_toStringExCode {
     System.out.println(card);
   }
 }
-
-// 결과 : chapter_07.M_Card@28d93b30
 ```
 <br>
 
 가
 
-
-
-**`인자로 전달받은 객체가 인스턴스로서 존재하는 클래스의 이름@객체의 부호없는 16진수 해쉬코드표기`**
-
-```java
-public String toString() {
-  getClass().getName() + '@' + Integer.toHexString(hashCode());
-}
-```
 
 
 
