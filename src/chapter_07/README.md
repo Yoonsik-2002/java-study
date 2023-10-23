@@ -681,12 +681,14 @@ System.out.println("Apply the toString() method : " + cardArr[i].toString()); //
 
 그렇다. 동일하다.<br>
 
-기본적으로 `PrintStrim`클래스의 출력 관련 메서드(`printf()`, `println()` 등)를 통해 **객체**를 출력하도록 명령하면, **자바 컴파일러는<br>
+기본적으로 `PrintStream`클래스의 출력 관련 메서드(`printf()`, `println()` 등)를 통해 **객체**를 출력하도록 명령하면, **자바 컴파일러는<br>
 내부적으로 (객체의 문자로된 표현을 리턴하는)`toString()`메서드를 호출한다.** <br>
 
 즉, `printf()`, `println()` 메서드를 사용하여 객체를 출력하도록 명령하면, 그냥 기본적으로 자바 컴파일러가 `toString()`메서드를<br>
 호출 해주기 때문에, 같은 결과 값이 나오게 된 것이고, 굳이 **`객체.toString()`의 형태를 가질 필요가 없게 된다.**<br>
-(기본적으로 자바 컴파일러가 `toString()`메서드를 호출해 주기 때문!)<br>
+
+(기본적으로 자바 컴파일러가 `toString()`메서드를 호출해 주기 때문! `PrintStream`클래스의 출력관련 메서드에 참조변수(Object)를<br>
+넣으면, 자바 컴파일러에 의해 `toString()`메서드가 자동으로 호출된다.)<br>
 
 
 
