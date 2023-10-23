@@ -16,7 +16,7 @@ class M_Deck {
     for (int i = 0; i < CARD_MAX; i++) {
       cardArr[i] = new M_Card(i + 1);
     }
-  }
+  }   
 
   void show() {
     for (int i = 0; i < cardArr.length; i++) {
