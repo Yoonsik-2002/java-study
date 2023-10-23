@@ -20,8 +20,8 @@ class M_Deck {
 
   void show() {
     for (int i = 0; i < cardArr.length; i++) {
-      System.out.println(cardArr[i]);
-      System.out.println(cardArr[i].toString());
+      System.out.println("System.out.println() : " + cardArr[i]);
+      System.out.println("Apply the toString() method : " + cardArr[i].toString());
       System.out.println("");
     }
   }
