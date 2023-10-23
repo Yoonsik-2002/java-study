@@ -560,7 +560,7 @@ return cardArr[index];
 ![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/8bf0792d-e574-4fe0-933e-f0e01023b1a6)
 <br><br>
 
-### 📑 `Card`클래스의 `toString()`메서드의 구현과 `Object`클래스, `toString()`메서드에 대한 이해.
+### 📑 `java.lang`패키지의 `Object`클래스. 그리고 `Object`클래스의 멤버, `toString()`메서드에 대한 이해.
 
 ### `toString()`메서드
 먼저, `toString()`메서드는 무엇인가? 해당 메서드에 대한 설명은 다음과 같다.<br>
@@ -604,7 +604,7 @@ return cardArr[index];
 이때, `show()`메서드를 통해 확인해 볼 내용은 다음과 같다.<br>
 
 > **`show()`메서드를 이용하여 `cardArr`에 담긴 `M_Card`객체를 출력 할 때, `System.out.println()`메서드만을 사용하여<br>
-> 출력했을 때와, `toString()`메서드까지 적용했을 때 출력되는 결과에 어떤 차이가 존재하는지 확인해보도록 하겠다.**
+> 출력했을 때와, 해당 객체에 `toString()`메서드까지 적용했을 때 출력되는 결과에 어떤 차이가 존재하는지 확인해보도록 하겠다.**
 
 <br>
 
@@ -670,7 +670,7 @@ System.out.println("Apply the toString() method : " + cardArr[i].toString()); //
 ![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/385971d1-11bd-45af-9975-1688e16855c0)<br>
 <br>
 
-### `PrintStrim`클래스의 출력 관련 메서드를 통한 객체 출력 시, 자바 컴파일러가 자동으로 `toString()`메서드를 호출한다.
+### `PrintStream`클래스의 출력 관련 메서드를 통한 객체 출력 시, 자바 컴파일러가 자동으로 `toString()`메서드를 호출한다.
 
 `Ex07_05_MiniDeckTest`프로그램의 결과를 보면 알 수 있듯이,<br>
 
@@ -685,14 +685,60 @@ System.out.println("Apply the toString() method : " + cardArr[i].toString()); //
 내부적으로 (객체의 문자로된 표현을 리턴하는)`toString()`메서드를 호출한다.** <br>
 
 즉, `printf()`, `println()` 메서드를 사용하여 객체를 출력하도록 명령하면, 그냥 기본적으로 자바 컴파일러가 `toString()`메서드를<br>
-호출 해주기 때문에, 같은 결과 값이 나오게 된 것이고, 굳이 **`객체.toString()`의 형태를 가질 필요가 없게 된다.**<br>
+자동 호출 해주기 때문에, 결국, 같은 결과 값이 나오게 된 것이고, 굳이 **`객체.toString()`의 형태를 가질 필요가 없게 된다.**<br>
 
 (기본적으로 자바 컴파일러가 `toString()`메서드를 호출해 주기 때문! `PrintStream`클래스의 출력관련 메서드에 참조변수(Object)를<br>
 넣으면, 자바 컴파일러에 의해 `toString()`메서드가 자동으로 호출된다.)<br>
+<br>
+
+이러한 **`toString()`메서드가 정확히 어떠한 결과값을 리턴해주고**, **`Object`클래스에서는 어떻게 정의되어 있는지** [Java 공식문서](https://docs.oracle.com/javase/8/docs/api/)<br>
+에서 찾아보면, 다음과 같다.<br>
+<br>
+
+#### `toString()`메서드는 정확히 어떠한 결과값을 리턴해 주는가?
+> **`Object`클래스의 `toString()`메서드는, 전달받은 객체가 인스턴스로서 존재하는 클래스의 이름과 기호문자 `@`, 그리고 객체의<br>
+> 부호 없는 16진수 해쉬코드표기로 구성된 문자열을 반환한다.** <br>
+
+<br>
+
+#### `Object`클래스에서 `toString()`메서드는 어떻게 정의되어 있는가?
+```java
+public String toString() {
+  return getClass().getName() + '@' + Integer.toHexString(hashcode());
+}
+```
+<br>
+
+아래 간단한 코드와 결과를 보고, 
+
+```java
+package chapter_07;
+
+class ExCard {
+  int cardNum;
+
+  ExCard(int cardNum) {
+    this.cardNum = cardNum;
+  }
+}
+
+class Ex07_06_toStringExCode {
+  public static void main(String[] args) {
+    ExCard card = new ExCard(14);
+
+    System.out.println(card);
+  }
+}
+
+// 결과 : chapter_07.M_Card@28d93b30
+```
+<br>
+
+가
 
 
 
-이러한 `toString()`메서드가 `Object`클래스에서 어떻게 정의되어 있는지 찾아보면, 다음과 같다.<br>
+**`인자로 전달받은 객체가 인스턴스로서 존재하는 클래스의 이름@객체의 부호없는 16진수 해쉬코드표기`**
 
 ```java
 public String toString() {
