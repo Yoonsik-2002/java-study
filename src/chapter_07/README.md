@@ -748,7 +748,15 @@ class Ex07_06_toStringExCode {
 ```
 <br>
 
-가
+다음은 해당 코드의 결과 값이다.<br>
+
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/c2018a34-3043-49e1-8790-f13eeb25407b)<br>
+<br>
+
+허허, 내 예상이 맞았다. 객체(`card`)가 인스턴스로 있는 클래스의 이름(패키지경로 포함) `chapter_07.ExCard` + 기호문자 `@` + <br>
+`card 객체의 부호없는 16진수 해시코드 값` ➡ `chapter_07.ExCard@28d93b30` 이 결과 값으로 출력되었다.<br>
+
+
 
 
 
