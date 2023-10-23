@@ -671,16 +671,17 @@ System.out.println("Apply the toString() method : " + cardArr[i].toString()); //
 <br>
 
 ### `PrintStrim`클래스의 출력 관련 메서드를 통한 객체 출력 시, 자바 컴파일러가 자동으로 `toString()`메서드를 호출한다.
+
 `Ex07_05_MiniDeckTest`프로그램의 결과를 보면 알 수 있듯이,<br>
 
 `System.out.prtinln()`메서드를 이용하여 객체(`cardArr[i]`)만을 출력했을 때와, 객체(`cardArr[i]`)에 `toString()`메서드를 적용하여<br>
 출력했을때의 결과는 같았었다.<br>
 
-이렇게 결과값이 같다는 것은, **객체만 출력한 것과 객체에 `toString()`메서드를 적용하여 출력한 것이 결국 동일하다는 의미가 될 수 있을까?<br>
+이렇게 결과값이 같다는 것은, **객체만 출력한 것과 객체에 `toString()`메서드를 적용하여 출력한 것이 결국 동일하다는 의미가 될 수 있을까?** <br>
 
 그렇다. 동일하다.<br>
 
-기본적으로 `PrintStrim`클래스의 출력 관련 메서드(printf(), println() 등)를 통해 **객체**를 출력하도록 명령하면, **자바 컴파일러가<br>
+기본적으로 `PrintStrim`클래스의 출력 관련 메서드(`printf()`, `println()` 등)를 통해 **객체**를 출력하도록 명령하면, **자바 컴파일러는<br>
 내부적으로 (객체의 문자로된 표현을 리턴하는)`toString()`메서드를 호출한다.** <br>
 
 즉, `printf()`, `println()` 메서드를 사용하여 객체를 출력하도록 명령하면, 그냥 기본적으로 자바 컴파일러가 `toString()`메서드를<br>
