@@ -753,8 +753,26 @@ class Ex07_06_toStringExCode {
 ![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/c2018a34-3043-49e1-8790-f13eeb25407b)<br>
 <br>
 
-허허, 내 예상이 맞았다. 객체(`card`)가 인스턴스로 있는 클래스의 이름(패키지경로 포함) `chapter_07.ExCard` + 기호문자 `@` + <br>
+허허, 내 예상이 맞았다.<br>
+
+객체(`card`)가 인스턴스로 있는 클래스의 이름(패키지경로 포함) `chapter_07.ExCard` + 기호문자 `@` + <br>
 `card 객체의 부호없는 16진수 해시코드 값` ➡ `chapter_07.ExCard@28d93b30` 이 결과 값으로 출력되었다.<br>
+
+이렇게, `toString()`메서드는 무엇이고, `Objcet`클래스에 어떻게 정의되어 있으며, 객체를 인자로 전달 했을 시, 어떠한 값을<br>
+리턴해 주는지 공부해 보았다.<br>
+
+이때, `toString()`메서드가 `클래스이름@부호없는 16진수 해시코드`형식의 리턴값 말고, 우리가 원하는 객체의 값을 출력하게<br>
+할 수는 없는걸까?<br>
+
+해당 질문에 대한 내용은 `java.lang.Object`클래스의 멤버인 `toString()`메서드를 `Ex07_04_DeckTest`프로그램의 `Card`클래스의<br>
+멤버로 있는 메서드에 재정의(overriding)하며 다뤄보도록 하겠다.<br>
+<br>
+
+### `Object`클래스의 멤버인 `toString()`메서드를 `Ex07_04_DeckTest`예제의 `Card`클래스에서 오버라이딩(overriding) 하기
+
+
+
+
 
 
 
