@@ -76,4 +76,24 @@ class Card {
     Card() {
         this(SPADE, 1);
     }
-}
+    
+    public String toString() {
+        String[] kinds = {"", "SPADE", "DIAMOND", "HEART", "CLOVER"};
+        String numbers = "0123456789XJQK";
+        
+        return "Kind : " + kinds[this.kind] + ", Number : " + numbers.charAt(this.number);
+    }
+} // Card 클래스의 끝
+
+    class Ex07_04_DeckTest {
+        public static void main(String[] args) {
+            Deck d = new Deck(); // 카드 덱 생성
+            Card c = d.cardArr[0]; // 덱 안의 첫 번째 카드를 Card객체 c에 저장
+            
+            System.out.println(c); // 해당 카드 출력
+            
+            d.shuffle(); // 덱 안의 카드 섞기
+            c = d.cardArr[0]; // 섞고 난 뒤의 덱 안의 첫 번째 카드를 Card객체 c에 저장
+            System.out.println(c); // 해당 카드 출력
+        }
+    }
