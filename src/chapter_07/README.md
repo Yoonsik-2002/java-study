@@ -1079,8 +1079,41 @@ class Card extends Object {
 
 오버라이딩에 간단한 예시로, 다음 코드를 한번 보도록 하자.<br>
 
+```java
+class Point {
+  int x;
+  int y;
 
+  String getLocation() {
+    return "x : " + x + ", y : " + y;
+  }
+}
 
+class Point3D extends Point {
+  int z;
+
+  Strin getLocation() { // 오버라이딩
+    return "x : " + x + ", y : " + y + ", z : " + z;  
+  }
+}
+```
+<br>
+
+해당 예시코드의 `Point`클래스는 2차원 좌표계의 한 점을 표현하기 위한 클래스이고, `Ponit3D`클래스는 3차원 좌표계의 한 점을<br>
+표현하기 위한 클래스이다.<br>
+
+`Point`클래스로부터 상속을 받는 `Point3D`클래스의 경우, `Point`클래스의 멤버로서 정의되어 있는 메서드 `getLocation()`을<br>
+상속받게 된다.<br>
+
+하지만, 2차원 좌표계의 한 점을 표현해주는 `Point`클래스의 `getLocation()`메서드는, x축, y축에 해당하는 좌표값만 반영하는<br>
+것이 가능하다.<br>
+
+즉, 3차원 좌표계의 한 점(x축, y축, z축 좌표값 반영)을 표현해야 하는 `Point3D`클래스에게는 맞지 않다고 할 수 있다.<br>
+때문에, 우리는 `Point`클래스로 부터 상속받은 메서드  `getLocation()`을 `Point3D`클래스에 맞도록 변경(오버라이딩)해 주어야<br>
+한다. 
+
+**이렇게, 조상 클래스로부터 상속받은 메서드를 자손클래스가 자신에게 맞게 변경하는 작업을 가리켜 메서드 오버라이딩(method overriding)<br>
+이라고 한다!**
 
 
 
