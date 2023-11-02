@@ -1195,12 +1195,42 @@ class Child {
 > 3) 인스턴스 메서드를 static메서드로, static메서드를 인스턴스 메서드로 변경할 수 없다.
 <br>
 
+### 오버로딩 VS 오버라이딩
+이름이 비슷한 두 개념, 메서드 오버로딩과 오버라이딩의 차이점을 한번 정리해 보도록 하겠다.<br>
 
+**오버로딩**은 메서드의 이름은 같지만, 매개변수(매개변수의 개수 or 매개변수의 타입)가 다른, 기존에 없는 새로운 메서드를 추가하는 개념 <br>
+이라 할 수 있다. (`new`)<br>
 
+반면, **오버라이딩**의 경우, 조상 클래스로부터 상속받은 메서드의 내용을 변경하는 것이라 할 수 있다. (`change`, `modify`)<br>
 
+즉, **새롭게 만들어 내느냐**, 아니면 기존에 조상 클래스에 존재하는 메서드를 상속받아, 해당 메서드의 내용을 **변경하느냐**의 차이가 있다.<br>
 
+```java
+class Parent {
+  void parentMethod()  {}
+}
 
+class Child extends Parent {
+  void parentMethod()  {}
+  // 오버라이딩 : 조상 클래스 Parent의 메서드 parentMethod를 상속받고, 해당 메서드의 선언부는 그대로 두고, 내용을 변경.
 
+  void parentMethod(int n) {}
+  /* 오버로딩 : 조상 클래스 Parent의 멤버인 parentMethod메서드는 자손 클래스 Child에 상속되어, 해당 클래스의 멤버로 추가된다.
+     이렇게 추가된 parentMethod메서드와 메서드 이름은 같지만, 매개변수 int n이 추가된 새로운 메서드 parentMethod(int n)이
+     메서드 오버로딩을 통해 추가되었다. 
+  */
+
+  void childMethod()  {}
+
+  void childMethod(int n) {}
+  /* 오버로딩 : 기존 childMethod와 이름은 같지만, 매개변수 int n이 추가된 새로운 메서드 childMethod(int n)이 메서드 오버로딩을
+     통해 추가되었다. 
+  */
+
+  void childMehtod()  {}
+  // 메서드의 중복 정의 : 에러발생(already defined in Child)
+}
+```
 
     
 
