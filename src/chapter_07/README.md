@@ -1231,6 +1231,9 @@ class Child extends Parent {
   // 메서드의 중복 정의 : 에러발생(already defined in Child)
 }
 ```
+<br><br>
+
+
 
     
 
