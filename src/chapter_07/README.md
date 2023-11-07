@@ -1271,9 +1271,89 @@ static메서드는 인스턴스와 관련이 없다. (클래스의 인스턴스�
 **인스턴스 메서드에는 자신이 속한 인스턴스의 주소값이 지역변수로 저장되고, 이것이 `super`와 `this`의 값이 되는 것이다!** <br>
 <br>
     
+#### 💻 참조변수 `super`와 `this` 예시코드
 
-  
+##### example code 01
+```java
+class Parent {
+  int x = 10;
+}
 
+class Child {
+  void method() {
+    System.out.println("x : " + x);
+    System.out.println("this.x : " + this.x);
+    System.out.println("super.x : " + super.x);
+  }
+}
+
+class TestSuper {
+  public static void main(String[] args) {
+    Child c = new Child();
+    c.method();
+  }
+}
+```
+```java
+[실행결과]
+x : 10
+this.x : 10
+super.x : 10
+```
+<br>
+
+위 코드를 보면, 조상 클래스 `Parent`의 멤버변수 `x`를 자손 클래스 `Child`가 상속받은 상황임을 알 수 있다.<br>
+이때, `Parent`의 멤버변수 `x`는 `Parent`의 멤버변수이기도 하며, `Child`가 상속을 받았기 때문에, `x`는 `Child`의 멤버변수<br>
+라고도 할 수 있다.<br>
+
+그리고, `Child`에 조상 클래스로부터 상속받은 멤버변수 `x`와 이름이 같은 멤버변수가 존재하지 않기 때문에 `x`, `this.x`, `super.x`<br>
+모두 같은 변수를 의미한다.<br><br>
+
+##### example code 02
+```java
+class Parent {
+  int x = 10;
+}
+
+class Child {
+  int x = 20;
+
+  void method() {
+    System.out.println("x : " + x);
+    System.out.println("this.x : " + this.x);
+    System.out.println("super.x : " + super.x);
+  }
+}
+
+class SuperTest02 {
+  public static void main(String[] args) {
+    Child c = new Child();
+    c.method();
+  }
+}
+```
+```java
+[실행결과]
+x : 20
+this.x : 20
+super.x : 10
+```
+<br>
+
+해당 코드를 보면, `example code 01`과는 다른 조건이 존재한다. 바로, `Child`클래스에 조상 클래스`Parent`의 멤버변수 `x`와 이름이<br>
+같은 멤버변수 `x`가 중복되어 정의되어 있다는 것이다.<br>
+
+자손 클래스인 `Child`는 조상 클래스`Parent`의 멤버인 `x`를 상속받아, 해당 멤버도 자신의 멤버로 추가하게 될 텐데, 이미 `Child`엔<br>
+똑같은 이름의 멤버변수 `x`가 중복되어 선언되어 있는 상황이다.
+
+이렇게 **조상 클래스의 멤버와 자손 클래스 자신의 멤버의 이름이 같은 경우, `super`와 `this`는 각각 참조하는 변수가 달라지게 된다.**
+
+결과값을 보면, `this.x`의 경우, `Child`클래스 자신의 멤버변수, 20을 저장하고 있는 `x`를 의미하게 되고,<br>
+`super.x`의 경우, 조상 클래스인 `Parent`클래스의 멤버변수, 10을 저장하고 있는 `x`를 의미하게 됨을 알 수 있다.<br>
+
+이렇게 java에서는 조상 클래스의 멤버를 가리키는 참조변수 `super`와 객체 자신을 가리키는 참조변수 `this`가 존재하기 때문에,<br>
+**조상클래스에 선언되어 있는 멤버와 같은 이름의 멤버를 자손 클래스에서 중복 정의 하는 것이 가능하다.** <br>
+`super`와 `this`를 통해 이들을 구별하는 것이 가능하기 때문이다!<br>
     
   
 
