@@ -83,5 +83,5 @@
 - ### [오버라이딩(overriding)](https://github.com/Yoonsik-2002/java-study/tree/main/src/chapter_07#%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9overriding)
   - ### [오버라이딩(overriding)의 조건](https://github.com/Yoonsik-2002/java-study/tree/main/src/chapter_07#%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9overriding%EC%9D%98-%EC%A1%B0%EA%B1%B4)
   - ### [오버라이딩과 오버로딩의 차이](https://github.com/Yoonsik-2002/java-study/tree/main/src/chapter_07#%EC%98%A4%EB%B2%84%EB%A1%9C%EB%94%A9-vs-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9)
-- ### [super]
+- ### [조상 클래스의 멤버를 가리키는 참조변수 - super](https://github.com/Yoonsik-2002/java-study/blob/main/src/chapter_07/README.md#%EC%A1%B0%EC%83%81-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EB%A9%A4%EB%B2%84%EB%A5%BC-%EA%B0%80%EB%A6%AC%ED%82%A4%EB%8A%94-%EC%B0%B8%EC%A1%B0%EB%B3%80%EC%88%98---super)
 <br><br>
