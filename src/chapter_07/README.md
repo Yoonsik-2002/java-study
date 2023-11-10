@@ -1458,15 +1458,78 @@ class Point3D extends Point {
 를 호출해주지 않을 시, 자동으로 조상 클래스의 기본 생성자를 호출하게 되는 것이다.<br>
 
 자, 이제 `super()`의 개념을 이해해 보았으니, 다음 예시코드를 완성해 보도록 하겠다.<br>
-[`super`를 활용한 메서드 오버라이딩 예시 코드(1)](
-
+[`super`를 활용한 메서드 오버라이딩 예시 코드(1)](https://github.com/Yoonsik-2002/java-study/blob/main/src/chapter_07/README.md#-super%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%A9%94%EC%84%9C%EB%93%9C-%EC%98%A4%EB%B2%84%EB%9D%BC%EC%9D%B4%EB%94%A9-%EC%98%88%EC%8B%9C-%EC%BD%94%EB%93%9C1)
 <br>
 
-#### 💻 `super`를 활용한 메서드 오버라이딩 예시 코드(2)
+#### 💻 `super`를 활용한 메서드 오버라이딩 예시 코드(2)<br>
+<br>
+
+##### `PointTest.java`
 ```java
+class Point {
+  int x, y;
 
+  Point(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
 
-  
+  String getLocation() {
+    return "x : " + x + ", y : " + y;
+  }
+}
+
+class Point3D extends Point {
+  int z;
+
+  Point3D(int x, int y, int z) { // 에러 발생
+    this.x = x;
+    this.y = y;
+    this.z = z;
+  }
+
+  String getLOcation() {
+    return "x : " + x + ", y : " + y + ", z : " + z;
+  }
+}
+
+class PointTest {
+  Point3D p3 = new {oint3D(1, 2, 3);
+}
+```
+<br>
+
+해당 코드를 한번 보자. 제대로 동작할까?<br>
+
+아니다. 해당 코드의 실행 시, 컴파일 에러가 발생하게 되는데, 그 이유를 한번 알아보도록 하겠다.<br>
+
+`Point3D`의 생성자 부분을 한번 보도록 하자. `Point3D`클래스는 `Point`클래스를 조상으로 두는, `Point`클래스의 자손 클래스이다.<br>
+그렇기 때문에, `Point3D`클래스의 인스턴스는 `Point`클래스의 멤버와 자기 자신의 멤버가 모두 합쳐진 하나의 인스턴스가 된다.<br>
+
+이러한 경우, 자손 클래스의 멤버가 조상 클래스로부터 상속받은 멤버를 사용할 수도 있기 때문에, `Point3D`의 생성자의 첫 줄에는 조상<br>
+클래스`Point`의 생성자가 호출되어야 한다.<br>
+
+하지만, `Point3D`생성자의 첫 줄에는 조상 클래스의 생성자나, 자신의 다른 생성자가 호출되어 있지 않다.<br>
+
+이러한 경우, Java컴파일러가 자동으로 `Ponit3D`생성자의 첫 줄에 `super();`를 추가하게 된다.<br>
+`super();`의 뜻이 무엇인가? 바로, `Point3D`클래스의 조상 클래스인 `Point`클래스의 기본 생성자`Point()`의 호출을 의미한다.<br>
+
+여기서 에러가 발생하게 되는데, `Point`클래스에는 이미 `Point(int x, int y)`생성자가 정의되어 있다. 이미 생성자가 정의되어 있는<br>
+`Point`클래스의 경우, 컴파일러가 자동으로 기본생성자를 추가해주지 않는다.<br>
+
+때문에, `Point()`생성자가 `Point`클래스에 정의되어 있지 않아, 컴파일 에러가 발생하는 것이다.<br>
+
+해당 컴파일 에러를 해결하기 위해서는, 생성자 `Point3D(int x, int y, int z)`의 첫 줄에 `Point`클래스의 생성자<br>
+`Point(int x, int y)`를 호출해 주어야 하는데, 해당 작업은 아래와 같이 `super()`를 이용하면 된다.<br>
+
+```java
+Point3D(int z) {
+  super(x, y); // super()를 통해 조상 클래스의 생성자(Point(int x, int y)를 호출.
+  this.z = z;
+}
+```
+<br>
+
 
   
   
