@@ -1571,6 +1571,14 @@ class PointTest {
   }
 }
 ```
+<br>
+
+위 코드의 동작 흐름을 나타내면 다음과 같다.<br>
+
+- 1) `Point3D()` - this(100, 200, 300);`<br>
+- 2) `Point3D(int x, int y, int z)` - `super(x, y);`<br>
+- 3) `Point(int x, int y)`- `super();`<br>
+- 4) `Object()`<br>
 
   
   
