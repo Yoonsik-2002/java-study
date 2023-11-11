@@ -1539,7 +1539,7 @@ Point3D(int z) {
 ##### `PointTest2.java`
 ```java
 class Point {
-  int x = 30;
+  int x = 10;
   int y = 20;
 
   Point(int x, int y) {
@@ -1549,7 +1549,7 @@ class Point {
 }
 
 class Point3D extends Point {
-  int  z = 50;
+  int z = 30;
 
   Point3D(int x, int y, int z) {
     super(x, y);
@@ -1557,17 +1557,17 @@ class Point3D extends Point {
   }
 
   Point3D() {
-    this(100, 200, 300);
+   this(100, 200, 300);
   }
 }
 
-class PointTest2 {
+class PointTest {
   public static void main(String[] args) {
-    Point3D p3 = new Point3D();
+    Point3D 3p = new Point3D();
 
-    System.out.println("x : " + p3.x);
-    System.out.println("y : " + p3.y);
-    System.out.println("z : " + p3.z);
+    System.out.println("x : " + 3p.x);
+    System.out.println("y : " + 3p.y);
+    System.out.println("z : " + 3p.z);
   }
 }
 ```
