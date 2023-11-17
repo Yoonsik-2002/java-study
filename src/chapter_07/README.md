@@ -1716,6 +1716,19 @@ import문은 package문과는 달리, 한 소스파일 내에 여러번 선언�
 ```
 <br>
 
+### java.lang 패키지
+지금까지 `String`과 `System`같은 `java.lang`패키지의 크래스들은 패키지명 없이(full name을 사용하지 않고) 사용할 수 있었던<br>
+이유는 모든 소스파일에는 묵시적으로 다음과 같은 import문이 선언되어 있기 때문이다.<br>
+
+```java
+import java.lang.*; // java.lang패키지의 모든 클래스들을 패키지명 없이 사용하겠다!
+```
+<br>
+
+`java.lang`패키지는 매우 빈번히 사용되는 중요한 클래스들이 속한 패키지이기 때문에, 따로 import문으로 지정하지 않아도 되도록 한<br>
+것이다.<br>
+
+
 
 
 
