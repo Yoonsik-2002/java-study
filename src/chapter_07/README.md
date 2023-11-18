@@ -1727,6 +1727,43 @@ import java.lang.*; // java.lang패키지의 모든 클래스들을 패키지명
 
 `java.lang`패키지는 매우 빈번히 사용되는 중요한 클래스들이 속한 패키지이기 때문에, 따로 import문으로 지정하지 않아도 되도록 한<br>
 것이다.<br>
+<br>
+
+### 🔌 static import문
+import문을 사용하면 클래스의 패키지명을 생략하여 사용할 수 있었던 것과 같이, static import문을 사용하는 경우에는 static멤버를<br>
+호출할 때 클래스명을 생략하는 것이 가능하다.<br>
+
+이러한 static import문은 특정 클래스의 자주 사용하는 static멤버를 호출할 때 적용시 편리하며, 코드가 간결해진다는 장점이 있다.<br>
+
+예를 들어보면, `Math.random()`메서드는 아래와 같이,  `java.lang`패키지의 `Math`클래스에 static으로 선언되어 있는 static<br>
+멤버이다.<br>
+
+```java
+public static double random()
+```
+<br>
+
+소스코드에 아래와 같이 static import문을 이용하여 미리 선언을 해주면, `random()`메서드앞에 클래스명인 `Math`를 붙이는 것을<br>
+생략하여 `random()`메서드를 호출하는 것이 가능해진다.<br>
+
+```java
+static import java.lang.Math.random;
+/*
+메서드 이름 뒤에 괄호를 붙이지 않은 형태로 선언해 준다.
+
+java.lang 패키지의 Math클래스에 static으로 선언되어 있는 random()메서드를
+클래스이름(Math)를 붙이지 않고 사용이 가능해진다.
+*/
+
+// ...
+
+System.out.println(random()); // System.out.println(Math.random());
+```
+<br>
+
+---
+<br>
+
 
 
 
