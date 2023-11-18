@@ -1729,7 +1729,7 @@ import java.lang.*; // java.lang패키지의 모든 클래스들을 패키지명
 것이다.<br>
 <br>
 
-### 🔌 static import문
+### static import문
 import문을 사용하면 클래스의 패키지명을 생략하여 사용할 수 있었던 것과 같이, static import문을 사용하는 경우에는 static멤버를<br>
 호출할 때 클래스명을 생략하는 것이 가능하다.<br>
 
@@ -1759,7 +1759,6 @@ java.lang 패키지의 Math클래스에 static으로 선언되어 있는 random(
 
 System.out.println(random()); // System.out.println(Math.random());
 ```
-<br>
 
 ---
 <br>
