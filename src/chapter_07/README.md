@@ -1871,6 +1871,85 @@ n3 : 10 */
 
 그렇기 때문에, 카드 인스턴스의 값을 변경하기 보다는 카드의 순서를 바꾸는 것이 더 안전한 방법이라 할 수 있다. 이때, 카드 인스턴스의 값(종류와 숫자)을 나타내는 멤버변수를 final 인스턴스 멤버변수로 선언해 주면, 인스턴스 별로 다른 값을 저장하면서, 변경할 수 없게 만들어 줄 수 있다.<br>
 
+다음은 매개변수가 있는 생성자를 통해 초기화한 final 인스턴스 변수를 사용하여 작성한 트럼프 카드 프로그램으로, 52장의 카드 객체를 객체배열에 저장하고, 저장된 카드 객체의 final 인스턴스 변수인`KIND`와 `NUMBER`, static 멤버 변수인 `width`와 `height`의 값을 출력해준다.<br>
+
+```java
+import java.util.Scanner;
+
+class FinalCard {
+    /* 상수지만 선언과 함꼐 초기화 하지 않고, 매개변수를 가지는 생성자를 통해, 인스턴스가 생성될 때 딱 한 번 초기화가 이루어짐.
+    이후에 초기화는 불가능함 */
+    final int NUMBER; 
+    final String KIND;
+    
+    /* 카드의 크기(가로, 세로)는 모든 카드(인스턴스)가 같아야 하므로, 해당 클래스로부터
+    생성되는 모든 인스턴스들이 공유하여, 모든 인스턴스가 같은 값을 가지게 되는 static 멤버변수로
+    선언해 주었다. */
+    
+    static int width = 100;
+    static int height = 250;
+    
+    FinalCard(int num, String kind) {
+        NUMBER = num;
+        KIND = kind;
+    }
+    
+    FinalCard() { // 기본 생성자를 통하여 인스턴스를 생성하는 경우, 해당 인스턴스의 final 인스턴스 변수는 각각 1, king으로 초기화 됨
+        this(1, "king");
+    }
+}
+
+class Ex07_09_FinalCardTest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        FinalCard[] cardArr = new FinalCard[52];
+        
+        int i; 
+        int j;
+        int temp = 0;
+        
+        for (i = 0; i < 4; i++) {
+            String kind;
+            
+            System.out.println("Enter the kind of card");
+            kind = scanner.nextLine();
+            
+            for (j = temp; j < (temp + 13); j++) {
+                cardArr[j] = new FinalCard((j - i * 13) + 1, kind);
+            }
+            temp += 13;
+        }
+        
+        for (int index = 0; index < 52; index++) {
+            System.out.println("Kind : " + cardArr[index].KIND + ", Number : " + cardArr[index].NUMBER + ", width : " + cardArr[index].width + ", height : " + cardArr[index].height);
+        }
+    }
+}
+
+/* 실행결과
+Kind : spade, Number : 3, width : 100, height : 250
+Kind : spade, Number : 4, width : 100, height : 250
+Kind : spade, Number : 5, width : 100, height : 250
+Kind : spade, Number : 6, width : 100, height : 250
+Kind : spade, Number : 7, width : 100, height : 250
+Kind : spade, Number : 8, width : 100, height : 250
+Kind : spade, Number : 9, width : 100, height : 250
+Kind : spade, Number : 10, width : 100, height : 250
+Kind : spade, Number : 11, width : 100, height : 250
+Kind : spade, Number : 12, width : 100, height : 250
+Kind : spade, Number : 13, width : 100, height : 250
+Kind : diamond, Number : 1, width : 100, height : 250
+Kind : diamond, Number : 2, width : 100, height : 250
+
+...
+
+Kind : heart, Number : 10, width : 100, height : 250
+Kind : heart, Number : 11, width : 100, height : 250
+Kind : heart, Number : 12, width : 100, height : 250
+Kind : heart, Number : 13, width : 100, height : 250 */
+```
+ 
 
 
 
