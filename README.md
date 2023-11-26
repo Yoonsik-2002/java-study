@@ -69,7 +69,7 @@
   - ### [초기화의 순서](https://github.com/Yoonsik-2002/java-study/tree/main/src/chapter_06#%EC%B4%88%EA%B8%B0%ED%99%94%EC%9D%98-%EC%88%9C%EC%84%9C)
 <br><br>
 
-### 객체지향 프로그래밍(Object-Oriented Programming) II
+## 객체지향 프로그래밍(Object-Oriented Programming) II
 - ### [클래스 간의 관계 I - 상속(inheritance)](https://github.com/Yoonsik-2002/java-study/tree/main/src/chapter_07#%EC%83%81%EC%86%8Dinheritance)
   - ### [상속의 구현](https://github.com/Yoonsik-2002/java-study/tree/main/src/chapter_07#%EC%83%81%EC%86%8D%EC%9D%98-%EA%B5%AC%ED%98%84)
   - ### [클래스간의 상속관계](https://github.com/Yoonsik-2002/java-study/tree/main/src/chapter_07#%ED%81%B4%EB%9E%98%EC%8A%A4-%EA%B0%84%EC%9D%98-%EC%83%81%EC%86%8D%EA%B4%80%EA%B3%84)
