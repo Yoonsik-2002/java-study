@@ -1819,7 +1819,44 @@ System.out.println(random()); // System.out.println(Math.random());
 
 - ##### final 제어자가 붙은 변수(멤버변수, 지역변수)의 특징
   - 값을 변경할 수 없는 상수가 된다. 
-   
+<br>
+
+### 생성자를 이용한 final 멤버변수의 초기화
+final 제어자가 변수 앞에 붙은 경우, 해당 변수는 값을 변경할 수 없는 상수가 된다. 이러한 상수는 일반적으로, 선언과 초기화를 동시에 한다. 하지만, final이 붙은 인스턴스 변수의 경우, 값을 변경할 수 없는 상수임에도, 생성자에서 초기화 되도록 하는 것이 가능하다.<br>
+
+클래스 내에서 매개변수를 가지는 생성자를 선언하여, 해당 클래스의 인스턴스가 생성될 때, final 인스턴스 변수를 초기화는데 필요한 값을 생성자의 매개변수로부터 제공받아, final 인스턴스 변수를 초기화 하는 것이다.<br>
+
+이러한 생성자를 이용한 final 인스턴스 변수의 초기화를 통해, 하나의 클래스로부터 생성된 인스턴스들의 final 인스턴스 변수가 각기 다른 값을 저장하게 하는 것이 가능하다.<br>
+
+클래스를 작성하면서 final 인스턴스 변수를 선언 및 초기화 할 때, 일반적인 상수의 초기화 방식(선언과 동시에 초기화)으로 초기화를 해버리면, 해당 클래스의 인스턴스들의 final 인스턴스 변수는 클래스를 작성하면서 선언과 동시에 초기화 해준 모두 같은 값을 가지게 될 수 밖에 없다.<br>
+```java
+class Number{
+    final int NUMBER = 10; // 상수의 일반적인 초기화 방식 - 선언과 동시에 초기화
+    
+    void getNumber() {
+        System.out.println(NUMBER);
+    }
+}
+
+class Ex07_08_FinalTest {
+    public static void main(String[] args) {
+        Number n1 = new Number();
+        System.out.println("n1 : " + n1.NUMBER);
+        
+        Number n2 = new Number();
+        System.out.println("n2 : " + n2.NUMBER);
+        
+        Number n3 = new Number();
+        System.out.println("n3 : " + n3.NUMBER);
+    }
+}
+
+/* 실행결과
+n1 : 10
+n2 : 10
+n3 : 10 */
+```
+<br>
 
 
 
