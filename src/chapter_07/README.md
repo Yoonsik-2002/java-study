@@ -2052,25 +2052,47 @@ class Time {
 ```
 <br>
 
-이렇게, 접근 제어자`private`을 이용한 캡슐화를 통하여, 외부에서 `Time`클래스의 멤버에 직접 접근하지 못하게 하였다. 이제 `Time`클래스 내에서만 해당 멤버변수들에 접근하는 것이 가능하다.<br>
+이렇게, 접근 제어자`private`을 이용한 캡슐화를 통하여, 외부에서 `Time`클래스의 멤버에 직접 접근하지 못하게 하였다. **이제 `Time`클래스 내에서만 해당 멤버변수들에 접근하는 것이 가능하다.** <br>
 
-`Time`클래스 내에서 `private`멤버변수들에 접근하여 값을 초기화 하고, 읽어오기 위해 다음과 같은 함수를 만들어 보았다. 앞에 `get`이 붙어있는 함수는 멤버변수의 값을 불러오는 함수이고, `set`이 붙어있는 함수는 값을 초기화 해주는 함수이다.<br>
+`Time`클래스 내에서 `private`멤버변수들에 접근하여 값을 초기화 하고, 읽어오기 위해, 다음과 같은 함수를 만들어 보았다. 앞에 `get`이 붙어있는 함수는 멤버변수의 값을 불러오는 함수이고, `set`이 붙어있는 함수는 값을 초기화 해주는 함수이다.<br>
+<br>
+
+해당 메서드들을 통해,  클래스 내에서 `private`멤버변수들에 간접적으로 접근하는 것이다.<br>
+
 ```java
 class Time {
-  /* private - 같은 클래스 내에서만 접근 가능(클래스 외부에서 접근 불가) */
+  /* private - 같은 클래스 내에서만 접근 가능(클래스 외부에서 접근 불가)
+     private 접근 제어자가 붙은 아래 변수들에는 해당 클래스 내에서만 접근이 가능하다. */
   private int hour;
   private int minute;
   private int second;
 
-  /* public - 전체 범위에서 제한없이 접근 가능 */
+  /* public - 전체 범위에서 제한없이 접근 가능
+     Time 클래스 내의 private 멤버변수들에 접근하여 값을 읽어오고, 초기화 해주는 get~, set~ 함수에는
+     public 접근 제어자가 붙어, 어디서든 제한 없이 접근이 가능하다.*/
   public int getHour() { return hour };
   public void setHour(int hour) {
-    if(00 <= hour < 24) {
-      this.hour = hour; // 같은 클래스에 정의되어 있는 함수를 통해서만 접근
-    }
+    if(hour < 0 || hour > 23)
+      return;
+    this.hour = hour;
   }
-  // ...
+
+  public int getMinute() { return minute };
+  public void setMinute(int minute) {
+    if(minute < 0 || miniute > 59)
+      return;
+    this.minute = minute;
+  }
+
+  public int getSecond() { return second };
+  public void setSecond(int second) {
+    if(second < 0 || second > 59)
+      return;
+    this.second = second;
+  }
 }
+```
 <br>
+
 
 
