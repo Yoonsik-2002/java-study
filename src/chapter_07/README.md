@@ -2070,21 +2070,21 @@ class Time {
   /* public - 전체 범위에서 제한없이 접근 가능
      Time 클래스 내의 private 멤버변수들에 접근하여 값을 읽어오고, 초기화 해주는 get~, set~ 함수에는
      public 접근 제어자가 붙어, 어디서든 제한 없이 접근이 가능하다.*/
-  public int getHour() { return hour };
+  public int getHour() { return hour; }
   public void setHour(int hour) {
     if(hour < 0 || hour > 23)
       return;
     this.hour = hour;
   }
 
-  public int getMinute() { return minute };
+  public int getMinute() { return minute; }
   public void setMinute(int minute) {
     if(minute < 0 || miniute > 59)
       return;
     this.minute = minute;
   }
 
-  public int getSecond() { return second };
+  public int getSecond() { return second; }
   public void setSecond(int second) {
     if(second < 0 || second > 59)
       return;
