@@ -2189,6 +2189,36 @@ private static Singleton s = new Singleton();
 
 그래서, 클래스 앞에 제어자 `final`을 추가하여, 상속이 불가능한 클래스임을 표시해 두는 것이 좋다. '마지막의, 변경할 수 없는' 이라는 의미를 가지는 `final`제어자가 클래스 앞에 붙으면, 해당 클래스는 상속을 통해 확장될 수 없는 클래스가 된다.<br>
 
+아래는 생성자가 `private`인 클래스를 활용한 예시코드이다. 생성자가 `private`인 클래스의 경우, 다른 클래스의 조상 클래스가 될 수 없기에(상속을 통해 확장될 수 없기 때문에), 이를 명시하기 위해 `final`제어자가 붙은 것을 알 수 있다.<br>
+```java
+package chapter_07;
+
+final class Singleton {
+    private static Singleton s = new Singleton();
+    
+    private Singleton() {
+        // ...
+    }
+    
+    public static getInstance() {
+        if(s == null) 
+            s = new Singleton();
+        
+        return s;
+    }
+}
+
+class Ex07_11_SingletonTest {
+    public static void main(String[] args) {
+        // Singleton s = new Singletion(); 
+        
+        Singleton s = Singleton.getInstance(); // public static 메서드이므로, 외부에서 클래스 이름을 통해 인스턴스를 생성하지 않아도 호출 가능
+    }
+}
+```
+<br>
+
+
 
 
 
