@@ -2404,6 +2404,49 @@ CaptionTv c = new Tv();
 
 <br>
 
+참조변수의 형 변환을 이해하기 위해, 아래 간단한 코드를 작성해 보았다.<br>
+
+```java
+class Car {
+  String color;
+  int door;
+  void drive() {
+    System.out.println("start drive");
+  }
+  void stop() {
+    System.out.pritnln("stop");
+  }
+}
+
+class FireEngine extends Car {
+  void waterTank() {
+    System.out.println("extinguish the fire");
+  }
+}
+
+class Ambulance extends Car {
+  void siren() {
+    System.out.println("operate the siren");
+  }
+}
+```
+<br>
+
+위 코드에 정의되어 있는 클래스들은 `Car`, `FireEngine`, `Ambulance` 이렇게 3개로, `FireEngine`, `Ambulance`클래스는 모두 `Car`클래스를 조상 클래스 두는 상속관계를 가지고 있다. 이러한 관계를 그림으로 나타내면 아래와 같이 표현이 가능하다.<br>
+
+```java
+
+
+// ppt 그림 첨부
+
+
+```
+<br>
+
+이러한 상속관계를 가지는 위 클래스들을 가지고, 참조변수의 형변환을 진행해 보도록 하겠다. 아래 코드를 한번 보도록 하자.<br>
+
+
+
 
 
 
