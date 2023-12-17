@@ -2631,6 +2631,8 @@ c2.waterTank(); // 컴파일 에러 발생! Car클래스 타입의 참조변수�
 존재하지 않는 멤버를 사용하게될 가능성이 생기기 때문이다. 참조하고 있는 인스턴스에는 존재하지 않는 멤버를 참조변수가 사용하려 하는 것은 분명히 문제가 되는 상황이다.<br>
 
 이러한 이유로, 해당 상황이 발생하는 것을 방지하기 위해, 참조변수의 형 변환 시, 현재 참조변수가 참조하고 있는 인스턴스의 실제 타입을 미리 알아보는 것이 중요한데, 해당 작업을 수행하는데 사용되는 연산자가 바로, 이 `instanceof`연산자 이다.<br>
+
+참조변수의 형 변환 전에는 반드시, `instanceof`연산자로 형 변환이 가능한지 확인해 보아야 한다!<br>
 <br>
 
 ### `instanceof`연산자의 사용방식
@@ -2645,6 +2647,25 @@ c2.waterTank(); // 컴파일 에러 발생! Car클래스 타입의 참조변수�
 
 ![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/2fbf9d47-fb3e-4447-a682-74cbb85b758c)<br>
 <br>
+
+자, 그럼 다음 코드를 봐 보자. 이전에 사용하였던 `Car`클래스와 `FireEngine`클래스, `Ambulance`클래스를 활용한 코드이다. `FireEngine`클래스와 `Ambulance`클래스는 모두 `Car`클래스의 자손클래스들이다.<br>
+
+```java
+void doWork(Car c) {
+  if(c instanceof FireEngine) {  // FireEngine클래스 타입으로 형 변환이 가능한가?
+    FireEngine f = (FireEngine)c;
+    f.waterTank();
+  } else if (c instanceof Ambulance) {  // Ambulance클래스 타입으로 형 변환이 가능한가?
+      Ambulance a = (Ambulance)c;
+      a.siren();
+      // ...
+  }
+  // ...
+}
+```
+<br>
+
+
 
 
 
