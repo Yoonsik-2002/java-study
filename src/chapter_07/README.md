@@ -2541,7 +2541,8 @@ FireEngine f2 = (FireEngine)c;
 이러한 차이점이 생기는 이유에 대해 정리해 보도록 하겠다.<br>
 <br>
 
-### Up-casting 시, 
+### Up-casting 시, 형 변환을 생략할 수 있는 이유
+
 
 
 
