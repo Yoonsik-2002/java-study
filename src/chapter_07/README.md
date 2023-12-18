@@ -2798,9 +2798,39 @@ java의 상속 개념에 기반하여, 자손 클래스의 인스턴스는 조�
 
 아래 코드를 보면 이해가 더 쉽게 될 것이다.<br>
 
+```java
+class BindingTest {
+  public static void main(String[] args) {
+    Parnet p = new Child();
+    System.out.println("p.x = " + p.x);
+    p.method();
 
+    Child c = new Child();
+    System.out.println("c.x = " + c.x);
+    c.method();
+  }
+}
 
+class Parent {
+  int x = 100;
 
+  void method() {
+    System.out.println("Parent method");
+  }
+}
+
+class Child {
+  int x = 200;
+
+  void method() {
+    System.out.println("Child method");
+  }
+}
+```
+<br>
+
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/b5a6732c-55d4-4711-85a3-b5ce402e8d00)<br>
+<br>
 
 
 
