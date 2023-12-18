@@ -2717,6 +2717,62 @@ void doWork(Car c) {
 이렇게 조상 클래스 타입의 참조변수가 자손 클래스의 인스턴스를 참조하는 경우, 해당 참조변수로는 자손 클래스의 인스턴스가 가지는 모든 멤버를 사용할 수 없기 때문에, 실제 참조하고 있는 인스턴스와 같은 타입의 클래스로 형 변환 해주어야 인스턴스의 모든 멤버들을 사용하는 것이 가능하다.<br>
 <br>
 
+### `instanceof`연산자에 대한 최종 정리
+인스턴스를 참조하는 참조변수는 자신의 타입과 일치하는 클래스의 인스턴스는 물론이고, 자손 클래스의 인스턴스를 참조하는 것 또한 가능하다. 때문에, 참조변수가 어떠한 인스턴스를 참조하고 있는지 모르는 상태에서 참조변수의 형변환을 바로 하는 것이 아니라,<br>
+
+`instanceof`연산자를 통해 해당 클래스 타입으로 참조변수를 형 변환 하는것이 가능한지 먼저 검사해 본 뒤에 참조변수의 형변환을 수행하는 것이 바람직하다.<br>
+
+이러한 `instanceof`연산자는 주로 조건문에서 사용되며, 연산자 기준, 오른쪽에 위치하는 참조변수가 가리키고 있는 인스턴스의 타입을 기준으로, 왼쪽에 피연산자로 위치하는 클래스 타입으로 참조변수의 형 변환이 가능한지 판별하여 `true`나 `false`값을 반환해준다.<br>
+
+**오른쪽 참조변수가 가리키는 인스턴스의 타입이 왼쪽 피연산자로 위치하는 클래스와 일치하는 경우, 오른쪽 참조변수가 가리키는 인스턴스의 타입이 왼쪽 피연산자로 위치하는 클래스의 자손 클래스인 경우** 참조변수의 형 변환이 가능하다.<br>
+
+`intstnaceof`연산자는 이러한 참조변수의 형 변환이 가능한 조건에 해당하는지를 따져, `true`나 `false`를 반환해 주는 것이다.<br>
+
+그럼, 마지막으로 아래 코드를 한번 봐 보자.<br>
+
+```java
+package chapter_07;
+
+class Ex07_12_InstanceofTest {
+    public static void main(String[] args) {
+        FireEngine fe = new FireEngine();
+        
+        if(fe instanceof FireEngine) { // 참조변수 fe가 가리키는 인스턴스가 FireEngine클래스의 인스턴스인가?
+            System.out.println("This is a FireEngine insatance.");
+        }
+        
+        if(fe instanceof Car) { // 참조변수 fe가 가리키는 인스턴스가 Car클래스의 인스턴스인가?(fe가 가리키는 인스턴스가 Car 클래스의 자손 클래스의 인스턴스 인가?)
+            System.out.pritnln("This is a Car instance.");
+        }
+        
+        if(fe instanceof Object) { // 참조변수 fe가 가리키는 인스턴스가 Object클래스의 인스턴스인가?(fe가 가리키는 인스턴스가 Object 클래스의 자손 클래스의 인스턴스 인가?)
+            System.out.println("This is an Object instance");
+        }
+        
+        fe.getClass().getName(); // 참조변수 fe가 가리키고 있는 인스턴스의 클래스 이름을 문자열로 반환.
+    }
+}
+
+class Car {}
+class FireEngine extends Car {}
+```
+<br>
+
+![스크린샷(5)](https://github.com/Yoonsik-2002/java-study/assets/83572199/0303d9fa-8c90-4036-8462-8a666004d06b)<br>
+<br>
+
+해당 코드의 실행결과를 보면, 생성된 인스턴스는 `FireEngine`타입인데도 `Car`클래스와 `Object`클래스를 대상으로 한 `instanceof`연산에서 모두 `true`가 반환된 것을 알 수 있다.<br>
+
+그 이유는, `FireEngine`클래스가 `Car`클래스와 `Object`클래스의 자손클래스 이므로, 해당 조상 클래스의 멤버들을 상속받았기 때문에, **`FireEngine`클래스의 인스턴스는 `Car`클래스의 인스턴스와 `Object`클래스의 인스턴스를 포함하고 있는 개념이라 할 수 있기 때문이다.<br>**
+<br>
+
+![스크린샷(7)](https://github.com/Yoonsik-2002/java-study/assets/83572199/7e97a53c-9b09-4260-92e1-6c09a491c30d)<br>
+<br>
+
+이러한 이유로, 참조변수가 가리키는 인스턴스의 실제 타입과 같은 타입의 `instanceof`연산 외에, 조상 타입의 `instanceof`연산에도 `true`를 결과로 얻을 수 있으며, 이렇게 **`intanceof`연산의 결과가 `ture`인 것은 모두 해당 클래스 타입으로 참조변수로 형 변환이 가능하다는 뜻이다.<br>**
+
+
+
 
 
 
