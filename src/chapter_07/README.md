@@ -2894,10 +2894,34 @@ class Buyer {
 ```
 <br>
 
+위 코드를 보면 알 수 있듯이, `Product`클래스는 `Tv`, `Computer`, `Audio`클래스의 조상이며, `Buyer`클래스는 제품을 구입하는 사람을 클래스로 표현한 것이다.<br>
 
+자, 그럼 이제, `Buyer`클래스에서 물건을 구매하는 기능을 담당하는 `buy`메서드를 한번 추가해 보도록 하겠다. 해당 메서드는 메서드에 전달된 제품 인스턴스의 가격과 보너스 포인트 만큼 `Buyer`의 인스터스가 가지는 `money`와 `bonusPoint`값을 변경해주는 기능을 가진다.<br>
 
+#### 다형적 매개변수의 이해 1) `Buyer`클래스의 `buy`메서드 구현 - 메서드 오버로딩을 활용하기 
+먼저, `buy`메서드를 기존에 공부하였던 개념인 메서드의 오버로딩을 통해 구현해 보도록 하겠다.<br>
 
+같은 이름의 메서드라도, 해당 메서드의 매개변수의 개수나, 타입이 다르다면, 이러한 메서드 여러개를 하나의 클래스에서 정의하는 것이 가능하다. 이러한 메서드 오버로딩을 활용하면, 다음과 같은 메서드들을 `Buyer`클래스에 정의해주면 될 것 이다.<br>
 
+```java
+void buy(Tv t) {
+  money = money - t.price;
+  bonusPoint = bonusPoint + t.bonusPoint;
+}
+```
+<br>
 
+```java
+void buy(Computer c) {
+  money = money - t.price;
+  bonusPoint = bonusPoint + t.bonusPoint;
+}
+```
+<br>
 
-
+```java
+void buy(Tv t) {
+  money = money - t.price;
+  bonusPoint = bonusPoint + t.bonusPoint;
+}
+```
