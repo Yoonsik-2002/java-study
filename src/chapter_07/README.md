@@ -2758,6 +2758,7 @@ class FireEngine extends Car {}
 ```
 <br>
 
+##### [실행결과]
 ![스크린샷(5)](https://github.com/Yoonsik-2002/java-study/assets/83572199/0303d9fa-8c90-4036-8462-8a666004d06b)<br>
 <br>
 
@@ -2827,6 +2828,23 @@ class Child {
   }
 }
 ```
+<br>
+
+##### [실행결과]
+![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/eeb6ac80-0abe-499d-a390-ea81751a3bde)<br>
+<br>
+
+`Parent`클래스 타입의 참조변수 `p`와 `Child`클래스 타입의 참조변수 `c`가 `Parent`클래스의 자손 클래스인 `Child`클래스의 인스턴스를 참조하고 있는 상황이다.<br>
+
+이때, `Child`인스턴스에는 `Parent`클래스와 `Child`클래스에서 중복 정의된 멤버변수 `x`와 메서드 `method()`가 존재한다. 이러한 상황에서 해당 코드의 실행결과를 보면 알 수 있듯이,<br>
+<br>
+
+중복 정의된 멤버변수 `x`의 경우, `Parent`와 `Child` 중 어떤 클래스 타입의 참조변수로 사용하느냐에 따라서 그 값이 달라졌었다.<br>
+
+하지만, 중복 정의된 메서드 `method()`의 경우, 어떤 타입의 참조변수를 통해 사용하느냐에 관계없이, 실제 참조하고 있는 인스턴스의 타입인 `Child`클래스에 정의된 메서드가 호출 되었었다.<br>
+<br>
+
+아래 그림을 보면 더욱 이해가 수월할 것이다.<br>
 <br>
 
 ![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/b5a6732c-55d4-4711-85a3-b5ce402e8d00)<br>
