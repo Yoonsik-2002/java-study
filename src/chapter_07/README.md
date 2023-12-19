@@ -2872,6 +2872,27 @@ class Child {
 ### 다형적 매개변수란 무엇인가?
 참조변수의 다형적인 특징은 메서드의 매개변수에도 적용된다. 매개변수가 참조형일 경우, 메서드의 호출 시, 매개변수 자신과 **같은 타입의 인스턴스나**, **자손 타입의 인스턴스**를 넘겨줄 수 있다.<br>
 
+이러한 다형성의 장점 중 하나인, 다형적 매개변수를 아래 코드와 같이 이해하며 정리해 보도록 하겠다.<br>
+
+```java
+class Product {
+  int price;  // 제품 가격
+  int bonusPoint;  // 해당 제품을 구매하였을 시, 제공 받는 보너스 포인트
+}
+
+class Tv extends Product {}
+class Computer extends Product {}
+class Audio extends Product {}
+
+class Buyer {
+  int money = 1000;  // 구매자의 보유금액(물건 구매 시, 차감)
+  int bonusPoint = 0;  // 구매자의 보유 보너스 포인트(물건 구매 시, 제품에 해당하는 보너스 포인트 만큼 증가)
+
+  /* 물건을 구매하는데 필요한 buy 메서드 */
+
+}
+```
+<br>
 
 
 
