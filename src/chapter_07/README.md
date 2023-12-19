@@ -2847,10 +2847,10 @@ class Child {
 아래 그림을 보면 더욱 이해가 수월할 것이다.<br>
 <br>
 
-![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/b5a6732c-55d4-4711-85a3-b5ce402e8d00)<br>
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/8f5db32a-f25f-4d69-9439-27b56c66593c)<br>
 <br>
 
-
+이렇게 참조변수의 타입에 따라 결과가 달라지는 경우는 조상 클래스에 정의된 멤버변수와 같은 이름의 멤버변수를 자손 클래스에 중복 정의한 경우 뿐이다.<br>
 
 
 
