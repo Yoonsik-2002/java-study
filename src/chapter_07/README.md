@@ -3000,7 +3000,7 @@ pARr[2] = new Computer();
 ```
 <br>
 
-![스크린샷(5)](https://github.com/Yoonsik-2002/java-study/assets/83572199/43ba2bdb-3020-463d-8d00-c08ad35f955f)<br>
+![스크린샷(6)](https://github.com/Yoonsik-2002/java-study/assets/83572199/8237c5a2-156a-4b55-b6ba-f95dab7b49e4)<br>
 <br>
 
 이처럼 조상 클래스 타입의 참조변수 배열을 이용하면, 공통 조상을 가진 자손 클래스 타입의 객체들을 하나의 배열로 묶어서(저장하여) 다루는 것이 가능하다.<br>
