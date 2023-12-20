@@ -2987,7 +2987,7 @@ Product p3 = new Computer();
 ![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/ed6d1abd-0469-4bba-9ee8-18c2fac6ec68)
 
 
-![스크린샷(4)](https://github.com/Yoonsik-2002/java-study/assets/83572199/b8aaf0ad-d32d-4329-a96a-2817a09813f7)<br>
+![스크린샷(8)](https://github.com/Yoonsik-2002/java-study/assets/83572199/c26f92f7-b3e4-4a26-9e25-13ae819c14f2)<br>
 <br>
 
 위의 코드를 `Product`클래스 타입의 참조변수 배열로 나타내면 다음과 같이 나타낼 수 있을 것이다.<br>
