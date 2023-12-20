@@ -3000,7 +3000,7 @@ pARr[2] = new Computer();
 ```
 <br>
 
-![스크린샷(6)](https://github.com/Yoonsik-2002/java-study/assets/83572199/8237c5a2-156a-4b55-b6ba-f95dab7b49e4)<br>
+![스크린샷(9)](https://github.com/Yoonsik-2002/java-study/assets/83572199/9e9d3a88-42b3-4519-976f-d22bebeaeb9d)<br>
 <br>
 
 위 그림들을 보면 알 수 있듯이, 조상 클래스 타입의 참조변수 배열(객체배열)을 이용하니, 다형성에 의해, 따로 따로 생성된 각기 다른 자손 클래스의 인스턴스들을 하나로 묶어 다루는 것이 가능해졌다.<br>
