@@ -3213,7 +3213,7 @@ abstract class Unit {
 
 이제, `Marine`, `Tank`, `DropShip`클래스는 추상 클래스 `Unit`을 상속받아, 작성되게 된다. 아래와 같이 말이다.<br>
 ```java
-abstract class Unit {  // 해당 클래스는 추상 클래스로, 추상 메서드를 포함하고 있으니, 상속을 통해 구현되어야 함을 알림
+abstract class Unit {  // 해당 클래스는 추상 클래스로, 추상 메서드를 포함하고 있으니, 자손 클래스로의 상속을 통해 구현되어야 함을 알림
   int x, y;
   abstract void move(int x, int y);  // 해당 메서드는 추상 메서드로, 앞으로 Unit 클래스를 상속받아 작성되는 클래스는 move메서드를 자신에게 맞게 반드시 구현해야 함을 알림
   void stop() {/* 현재 위치에 정지 */}
