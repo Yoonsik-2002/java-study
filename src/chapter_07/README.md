@@ -3457,7 +3457,7 @@ class 클래스이름 implement 인터페이스이름 {
 
 그럼 이제, 다음 인터페이스 구현 예시코드를 한번 보도록 하자.<br>
 
-###### 1) 인터페이스 작성
+###### 인터페이스 작성
 ```java
 interface Fightable {
   void move (int x, int y);
@@ -3466,7 +3466,7 @@ interface Fightable {
 ```
 <br>
 
-###### 2) 인터페이스를 구현해줄 클래스를 작성
+###### 인터페이스를 구현해줄 클래스를 작성
 ```java
 class Fighter implements Fightable {
   void move (int x, int y) {
@@ -3495,4 +3495,13 @@ abstract class Fighter implemtnes Fightable {
 
 위 코드를 보면 알 수 있듯이, `Fighter`클래스는 `implements`키워드를 통해 지정한 인터페이스,`Fightable`이 가지고 있는 모든 추상메서드를 구현하지 않았다.<br>
 
-`Fightable`인터페이스의 추상 메서드인 `move`와 `attack`중, `move`만 구현해 놓은 상태인 것이다. 
+`Fightable`인터페이스의 추상 메서드인 `move`와 `attack`중, `move`만 구현해 놓은 상태인 것이다. 이 경우, 구현되지 않은 추상 메서드 `attack`은 그대로 `Fighter`클래스에 남아있게 된다.<br>
+
+완성되지 않은 메서드인 추상 메서드를 멤버로 가지는 추상 클래스 앞에는 `abstract`키워드를 붙여주어야 한다.<br>
+<br>
+
+이처럼, 클래스가 구현하고자 하는 인터페이스의 추상 메서드 중, 일부만 구현하게 되는 경우, 해당 클래스는 추상 메서드를 포함하는 추상 클래스가 되므로, `abstract`를 붙여, 추상 클래스로 선언해 주어야 한다.<br>
+
+
+
+
