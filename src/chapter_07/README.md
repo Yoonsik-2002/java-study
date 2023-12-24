@@ -3539,4 +3539,10 @@ class Fighter extends Unit implements Fightable {
 아니다. `Fighter`클래스에서는 `Unit`클래스의 추상 메서드, `move`를 오버라이딩 하여 구현하고, 이렇게 구현된 `move`메서드는 동시에, `Fightable`인터페이스의 추상 메서드 `move`를 구현한 것으로 간주된다.<br>
 
 **이렇게 두개의 추상 메서드의 구현을 동시에 만족시키는 것을 가리켜, "다중 구현" 이라고 한다.<br>**
+<br>
+
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/35e541c8-af61-4fe5-b226-a73bd5a5f667)<br>
+<br>
+
+이러한 다중 구현이 가능한 이유는, `move`와 같은 추상 메서드에는 메서드의 구현부가 존재하지 않아, **메서드간 충돌이 발생하지 않기 때문이라 할 수 있다.<br>**
 
