@@ -3384,3 +3384,21 @@ interface 인터페이스이름 {
 <br>
 
 이처럼 인터페이스에 정의된 모든 멤버에 예외없이 적용되는 사항이기 때문에, 제어자를 생략하는 것이 가능하며, 생략된 제어자는 컴파일 시, 컴파일러가 자동으로 추가해준다.<br>
+
+자, 이제 인터페이스를 한번 직접 작성해 보도록 하겠다. 인터페이스는 간단히 말해, 추상 메서드의 집합, 추상 메서드를 쭉 나열해 놓은 것이라 할 수 있으며, 멤버로는 추상 메서드와 상수를 가진다. 해당 멤버들의 접근 제어자는 모두 `public`이다.<br>
+(인터페이스의 모든 멤버들에는 접근 제어자 `public`이 붙음)
+
+```java
+interface PlayingCard {
+  public static final int HEART = 1;  
+  static int CLOVER = 2;  // public static final int CLOVER = 2;
+  final int SPADE = 3;  // public static final int SPADE = 3;
+  int DIAMOND = 4;  // public static final int DIAMOND = 4;
+
+  public abstract String getCardNumber();
+  String getCardKind();  // public abstract String getCardKind();
+}
+```
+<br>
+
+##### |참고| 원래는 인터페이스의 모든 메서드는 추상 메서드여야 하는데, JDK1.8 부터 인터페이스에 static메서드와 (default)메서드의 추가를 허용하는 방향으로 변경되었다. 실무에서는 아직 JDK1.8을 사용하지 않는 곳이 많기 때문에, JDK1.8이전 규칙과 이후의 규칙을 모두 알고 있어야 한다! 
