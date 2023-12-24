@@ -3482,6 +3482,11 @@ class Fighter implements Fightable {
 ### 인터페이스의 추상 메서드를 모두 구현하지 않고, 일부만 구현한 경우
 그럼, 아래 케이스를 한번 보자.<br>
 ```java
+interface Fightable {
+  void int move (int x, int y);
+  void int attack (Unit u);
+}
+
 abstract class Fighter implemtnes Fightable {
   void move (int x, int y) {
     /* 메서드 구현 */
@@ -3503,7 +3508,7 @@ abstract class Fighter implemtnes Fightable {
 ### 상속과 구현을 동시에 (ft.다중 구현)
 마지막으로, 아래 코드와 같이, 상속과 구현을 동시에 하는 것도 가능하다.<br>
 ```java
-abstract Unit {
+abstract class Unit {
   int x, y;
   abstract void move (int x, int y);
   void stop() {
@@ -3529,6 +3534,9 @@ class Fighter extends Unit implements Fightable {
 
 위 코드를 보면, `Fighter`클래스는 `Unit`클래스를 상속받고, `Fightable`클래스를 구현한다. 이때, 추상 클래스 `Unit`과 인터페이스 `Fightable`에는 똑같은 추상 메서드 `move`가 존재한다.<br>
 
+이러한 경우, `Fighter`클래스는 `Unit`클래스의 추상 메서드 `move`와 `Fightable`인터페이스의 추상 메서드 `move`를 따로따로 구현해 주어야 할까?<br>
 
+아니다. `Fighter`클래스에서는 `Unit`클래스의 추상 메서드, `move`를 오버라이딩 하여 구현하고, 이렇게 구현된 `move`메서드는 동시에, `Fightable`인터페이스의 추상 메서드 `move`를 구현한 것으로 간주된다.<br>
 
+**이렇게 두개의 추상 메서드의 구현을 동시에 만족시키는 것을 가리켜, "다중 구현" 이라고 한다.<br>**
 
