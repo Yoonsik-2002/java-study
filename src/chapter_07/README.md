@@ -3456,18 +3456,15 @@ class 클래스이름 implement 인터페이스이름 {
 위 코드의 형태와 같이, `implement`키워드를 통해 지정한 인터페이스에 정의되어 있는 추상 메서드를 해당 클래스에서 구현해 줌으로써, 인터페이스의 구현이 이루어지는 것이다.<br>
 
 그럼 이제, 다음 인터페이스 구현 예시코드를 한번 보도록 하자.<br>
+<br>
 
-###### 인터페이스 작성
+### 인터페이스의 모든 추상 메서드를 구현한 경우
 ```java
 interface Fightable {
   void move (int x, int y);
   void attack (Unit u);
 }
-```
-<br>
 
-###### 인터페이스를 구현해줄 클래스를 작성
-```java
 class Fighter implements Fightable {
   void move (int x, int y) {
     /* 메서드 구현 */
@@ -3480,10 +3477,10 @@ class Fighter implements Fightable {
 <br>
 
 `Fighter`클래스는 `implements`키워드를 통해 지정한 인터페이스 `Fightable`에 존재하는 모든 추상 메서드(`move`, `attack`)를 구현해주었기 때문에, 인터페이스의 구현에 성공하였다고 할 수 있다.<br>
+<br>
 
-그럼, 다음 케이스를 한번 보자.<br>
-
-###### 인터페이스의 추상 메서드를 모두 구현하지 않고, 일부만 구현한 경우
+### 인터페이스의 추상 메서드를 모두 구현하지 않고, 일부만 구현한 경우
+그럼, 아래 케이스를 한번 보자.<br>
 ```java
 abstract class Fighter implemtnes Fightable {
   void move (int x, int y) {
@@ -3501,6 +3498,36 @@ abstract class Fighter implemtnes Fightable {
 <br>
 
 이처럼, 클래스가 구현하고자 하는 인터페이스의 추상 메서드 중, 일부만 구현하게 되는 경우, 해당 클래스는 추상 메서드를 포함하는 추상 클래스가 되므로, `abstract`를 붙여, 추상 클래스로 선언해 주어야 한다.<br>
+<br>
+
+### 상속과 구현을 동시에 (ft.다중 구현)
+마지막으로, 아래 코드와 같이, 상속과 구현을 동시에 하는 것도 가능하다.<br>
+```java
+abstract Unit {
+  int x, y;
+  abstract void move (int x, int y);
+  void stop() {
+    /* 현재 위치에 정지 */
+  }
+}
+
+interface Fightable {
+  void move (int x, int y);
+  void attack (Unit u);
+}
+
+class Fighter extends Unit implements Fightable {
+  void move (int x, int y) {
+    /* 메서드 구현 */
+  }
+  void attack (Unit u) {
+    /* 메서드 구현 */
+  }
+}
+```
+<br>
+
+위 코드를 보면, `Fighter`클래스는 `Unit`클래스를 상속받고, `Fightable`클래스를 구현한다. 이때, 추상 클래스 `Unit`과 인터페이스 `Fightable`에는 똑같은 추상 메서드 `move`가 존재한다.<br>
 
 
 
