@@ -3632,7 +3632,7 @@ class Fighter extends Unit implements Fightable {
 
 이때, 인터페이스 `Fightabel`을 보면, 해당 인터페이스에 정의되어 있는 추상 클래스 `move`와 `attack`에는 아무런 접근제어자가 붙어있지 않다. 이는, 보이는 그대로 해당 추상 클래스들의 접근제어자가 `(default)`라는 의미가 아니라, `public abstract`가 생략된 것이다.<br>
 
-인터페이스의 모든 추상 메서드 앞에는 예외없이 `public abstract`가 붙기 때문에, 이를 생략해 주는 것이 가능하다.(생략된 `public abstract`는 컴파일 시, 컴파일러가 자동으로 추가해줌)<br>
+인터페이스의 모든 추상 메서드 앞에는 예외없이 `public abstract`가 붙기 때문에, 이를 생략해 주는 것이 가능하다. (생략된 `public abstract`는 컴파일 시, 컴파일러가 자동으로 추가해줌)<br>
 
 결국, `Fightable`인터페이스가 `Fighter`클래스에게 상속 시켜준 추상 메서드,`move`와 `attack`의 접근제어자는 `public`이므로, 이들을 오버라이딩 하여 구현해준 `Fighter`클래스의 `move`, `attack`메서드의 접근제어자는 모두 `public`이어야 한다.<br>
 <br>
@@ -3662,4 +3662,16 @@ Fightable f = new Fighter();  // Up-casting이므로, 형 변환 생략 가능.
 <br>
 
 ### 인터페이스가 메서드의 매개변수의 타입으로 사용되는 경우
+인터페이스를 이용한 다형성에 의해, 인터페이스가 메서드의 매개변수의 타입으로 사용되는 것도 가능하다. 이러한 인터페이스 타입의 매개변수가 가지는 의미는 무엇일까?<br>
 
+바로, 해당 매개변수에는 그 매개변수 타입의 인터페이스를 구현한 클래스의 인스턴스를 넘겨주어야 한다는 것을 의미한다.<br>
+```java
+class Fighter extends Unit implements Fightable {
+  public void move(int x, int y) {/* 내용 생략 */}
+  public viod attack(Fightable f) {/* 내용 생략 */}
+```
+<br>
+
+위 코드의 경우, `attack`메서드를 보면 인터페이스인 `Fightable`타입의 매개변수 `f`가 존재하는 것을 볼 수 있다. <br>
+
+이러한 `attack`메서드의 호출 시, 매개변수 `f`에는 `Fightable`인터페이스를 구현한 `Fighter`클래스의 인스턴스만 넘겨주는 것이 가능하다.<br>
