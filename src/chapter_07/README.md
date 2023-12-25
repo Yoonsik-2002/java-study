@@ -3546,3 +3546,69 @@ class Fighter extends Unit implements Fightable {
 
 이러한 다중 구현이 가능한 이유는, `move`와 같은 추상 메서드에는 메서드의 구현부가 존재하지 않아, **메서드간 충돌이 발생하지 않기 때문이라 할 수 있다.<br>**
 
+마지막으로, 다음 예시코드를 한번 보도록 하자.<br>
+```java
+package chapter_07;
+
+interface Movable {
+    void move(int x, int y); // public abstract void move (int x, int y);
+}
+
+interface Attackable {
+    void attack(Unit u); // public abstract void attack (int x, int y);
+}
+
+interface Fightable extends Movable, Attackable {} 
+/* Mobeable 인터페이스와 Attackable 인터페이스를 다중 상속받아,
+해당 인터페이스들이 가지고 있는 주상 메서드, move와 attack을 포함하고 있음.*/
+
+class Unit {
+    int currentHP;
+    int x, y;
+}
+
+class Fighter extends Unit implements Fightable {
+    public void move(int x, int y) {/* 내용 생략 */}
+    public void attack(Unit u) {/* 내용 생략 */}
+}
+
+class Ex07_17_FighterTest {
+    public static void main(String[] args) {
+        Fighter f = new Fighter();
+        
+        if(f instanceof Unit) {
+            System.out.println("f는 Unit의 자손이다.");
+        }
+        
+        if(f instanceof Movable) {
+            System.out.println("f는 Movable 인터페이스를 구현하였다.");
+        }
+        
+        if(f instanceof Attackable) {
+            System.out.println("f는 Attackable 인터페이스를 구현하였다.");
+        }
+        
+        if(f instanceof Fightable) {
+            System.out.println("f는 Fightable 인터페이스를 구현하였다.");
+        }
+        
+        if(f instanceof Object) {
+            System.out.println("f는 Object 클래스의 자손이다.");
+        }
+    }
+}
+```
+<br>
+
+해당 코드에 사용된 클래스와 인스턴스의 관계를 그림으로 나타내보면, 다음과 같이 표현이 가능하다.<br>
+<br>
+
+![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/885867ef-e410-4fd9-86d2-7c00d248bd29)<br>
+<br>
+
+실제로, `Fighter`클래스는 `Unit`클래스로부터 상속받고, `Fightable`인터페이스만을 구현 하였지만, `Unit`클래스는 `Objact`클래스의 자손이고, 다중상속이 가능한 인터페이스인 `Fightable`은 `Movable`과 `Attackable`의 자손이다.<br>
+
+그러므로, `Fighter`클래스는 이 모든 클래스와 인터페이스의 자손이 되는 셈이다.<br>
+<br>
+
+
