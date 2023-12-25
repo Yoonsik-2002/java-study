@@ -3633,7 +3633,6 @@ class Fighter extends Unit implements Fightable {
 이때, 인터페이스 `Fightabel`을 보면, 해당 인터페이스에 정의되어 있는 추상 클래스 `move`와 `attack`에는 아무런 접근제어자가 붙어있지 않다. 이는, 보이는 그대로 해당 추상 클래스들의 접근제어자가 `(default)`라는 의미가 아니라, `public abstract`가 생략된 것이다.<br>
 
 인터페이스의 모든 추상 메서드 앞에는 예외없이 `public abstract`가 붙기 때문에, 이를 생략해 주는 것이 가능하다.(생략된 `public abstract`는 컴파일 시, 컴파일러가 자동으로 추가해줌)<br>
-<br>
 
 결국, `Fightable`인터페이스가 `Fighter`클래스에게 상속 시켜준 추상 메서드,`move`와 `attack`의 접근제어자는 `public`이므로, 이들을 오버라이딩 하여 구현해준 `Fighter`클래스의 `move`, `attack`메서드의 접근제어자는 모두 `public`이어야 한다.<br>
 <br>
