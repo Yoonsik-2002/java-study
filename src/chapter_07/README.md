@@ -3712,9 +3712,92 @@ Fightable method() {
 이처럼 Windows라는 인터페이스를 사용하게되는 경우, 우리는 컴퓨터(하드웨어)와 직접 소통하지 않고, 컴퓨터와 사람의 연결과 소통을 돕는, 중간 역할인 Windows와 직접적인 관계를 가지며 소통한다. 그리고, 컴퓨터와는 Windows를 통하여 간접적으로 소통하게된다.<br> 
 
 이러한 경우, 컴퓨터(하드웨어)를 다른 것으로 바꾸어도, 직접 관계를 가지며 소통하던 인터페이스인, Windows를 통해 그대로 사용하는 것이 가능하다! Java에서의 인터페이스도 마찬가지로 이러한 특성을 가진다.<br>
+
+자, 이제, 인터페이스의 4가지 장점에 대해 정리해 보도록 하겠다.<br>
 <br>
 
-이제, 인터페이스의 4가지 장점에 대해 정리해 보도록 하겠다.<br>
+### 인터페이스의 장점 1. - 독립적인 프로그래밍이 가능하여, 변경에 유리한, 유연한 코드를 작성하는 것이 가능하다. 
+인터페이스의 장점을 확실히 이해하기 위해, 인터페이스를 사용하였을 때와 사용하지 않았을 때를 비교하여 정리해 보도록 하겠다.<br>
 <br>
 
-### 
+### 인터페이스를 사용하지 않은 경우 
+```java
+class A {
+  public void methodA(B b) {
+    b.methodB();
+  }
+}
+
+class B {
+  public void methodB() {
+    System.out.println("methodB()");
+  }
+}
+
+class InterfaceTest {
+  public static void main(String[] args) {
+    A a = new A();
+    a.methodA(new B());
+  }
+}
+```
+<br>
+
+위 상황을 그림으로 나타내면 다음과 같이 표현하는 것이 가능하다.<br> 
+<br>
+
+```java
+// ppt 그림 삽입
+```
+<br>
+
+위 그림을 보면 알 수 있듯이, 클래스 `A`가 클래스 `B`를 사용하고 있다. 이와 같은 관계를 가리켜, **'클래스 `A`가 클래스 `B`에 의존하고 있다.'** 라고 표현하는 것이 가능하다.<br>
+
+이때, 위 상황의 경우, 인터페이스를 사용하고 있지 않고, 클래스 `A`와 클래스 `B`가 서로 직접적인 관계를 가지고 있는 상황이라 할 수 있다. 이러한 상황에서, 클래스 `A`가 기존에 사용하던 클래스 `B`대신, 새로운 클래스 `C`를 사용하려면 클래스 `A`의 코드 또한 변경해 주어야 한다.<br>
+
+이처럼, 두 클래스가 서로 직접적인 관계를 가져, 강한 결합을 이루고 있는 경우, 변경에 불리한 코드가 만들어지게 된다.<br>
+<br>
+
+### 인터페이스를 사용하는 경우 
+```java
+class A {
+  public void methodA(I i) {
+    i.methodB();
+  }
+}
+
+interface I {
+  public abstract void methodB();
+}
+
+class B implements {
+  public void methodB() {
+    System.out.println("methodB()");
+  }
+}
+
+/*class C implements {
+  public void methodB() {
+    System.out.println("methodC()");
+  }
+}*/
+
+class InterfaceTest {
+  public static void main(String[] args) {
+    A a = new A();
+    a.methodA(new B());
+    /*a.methodA(new C());*/
+  }
+}
+```
+<br>
+
+위 상황을 그림으로 나타내면 다음과 같이 표현하는 것이 가능하다.<br>
+<br>
+
+```java
+// ppt그림 삽입
+```
+<br>
+
+이처럼 인터페이스를 사용하는 경우, 클래스의 선언(설계)와 구현을 분리시키는 것이 가능하다. 이러한 경우, 클래스와 클래스간의 직접적인 관계를 인터페이스를 사이로 둔, 간접적인 관계로 만드는 것이 가능하다.<br>
