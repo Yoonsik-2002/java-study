@@ -3974,3 +3974,6 @@ repair(Repairable r) {
 
 앞으로 새로운 기계화 유닛 클래스가 추가될 때, 해당 클래스가 `Repairable`인터페이스를 구현하도록 하면, 이 클래스 또한 `repair`메서드를 통해 수리가 가능하게 될 것이다.<br>
 
+다음은 해당 내용을 구현한 기계화 유닛 수리 프로그램이다.<br>
+**[Ex07_19_RepairableTest.java](https://github.com/Yoonsik-2002/java-study/blob/main/src/chapter_07/Ex07_19_RepairableTest.java)**<br>
+<br>
