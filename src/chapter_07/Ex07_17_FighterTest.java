@@ -5,28 +5,28 @@ interface Movable {
 }
 
 interface Attackable {
-    void attack(Unit u); // public abstract void attack (int x, int y);
+    void attack(Unit1 u); // public abstract void attack (int x, int y);
 }
 
 interface Fightable extends Movable, Attackable {} 
 /* Mobeable 인터페이스와 Attackable 인터페이스를 다중 상속받아,
 해당 인터페이스들이 가지고 있는 주상 메서드, move와 attack을 포함하고 있음.*/
 
-class Unit {
+class Unit1 {
     int currentHP;
     int x, y;
 }
 
-class Fighter extends Unit implements Fightable {
+class Fighter extends Unit1 implements Fightable {
     public void move(int x, int y) {/* 내용 생략 */}
-    public void attack(Unit u) {/* 내용 생략 */}
+    public void attack(Unit1 u) {/* 내용 생략 */}
 }
 
 class Ex07_17_FighterTest {
     public static void main(String[] args) {
         Fighter f = new Fighter();
         
-        if(f instanceof Unit) {
+        if(f instanceof Unit1) {
             System.out.println("f는 Unit의 자손이다.");
         }
         
