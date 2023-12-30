@@ -3936,4 +3936,41 @@ void repair(AirUnit au) {
 자, 이제 인터페이스를 사용하여, 서로 관계가 없던 기계화 유닛들의 새로운 관계를 맺어주도록 하겠다.<br>
 
 인터페이스를 사용하여, 서로 관계가 없던 기계화 유닛들의 새로운 관계를 맺어주기 위해, 다음과 같이 `Repairable`이라는 인터페이스를 생성하고, 해당 인터페이스를 수리가 가능한 기계화 유닛 클래스들이 구현하도록 하였다.<br>
+```java
+interface Repairable {}
+
+class Tank extneds GroundUnit implements Repairable() {
+  // ...
+}
+
+class SCV extends GourndUnit implements Repairable() {
+  // ...
+}
+
+class DropShip extends AirUnit implements Repairable() {
+  // ...
+}
+```
+<br>
+
+이렇게, 3개의 기계화 유닛이 모두 `Repairalbe`인터페이스를 구현함으로써, 해당 기계화 유닛 클래스들은 `Repairable`인터페이스를 구현한 클래스라는 공통점이 생겼다. 즉, 아래와 같은 하나의 새로운 관계가 맺어진 것이다.<br>
+<br>
+
+![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/c3c6fe56-69c9-4e88-977c-ebcc60ad80c4)<br>
+<br>
+
+`Repairable` 인터페이스에 정의된 것은 아무것도 없으며, 단지, 해당 인터페이스를 구현한 클래스의 인스턴스의 타입체크에 사용될 뿐이다.<br>
+<br>
+
+또, 아래와 같이`repair`메서드의 매개변수 타입을 `Repairable`인터페이스 타입으로 지정해 주는 경우, 인터페이스를 이용한 다형성에 의해, 해당 매개변수로 `Repairable`인터페이스를 구현한 모든 기계화 유닛 클래스의 인스턴스를 넘겨주는 것이 가능해진다.<br>
+```java
+repair(Repairable r) {
+ // 매개변수로 넘겨받은 기계화 유닛을 수리한다.
+}
+```
+<br>
+
+이로 인해, `repair`메서드 하나로, (`Repairable`인스턴스를 구현한)모든 기계화 유닛을 수리하는 것이 가능하게 된다.<br>
+
+앞으로 새로운 기계화 유닛 클래스가 추가될 때, 해당 클래스가 `Repairable`인터페이스를 구현하도록 하면, 이 클래스 또한 `repair`메서드를 통해 수리가 가능하게 될 것이다.<br>
 
