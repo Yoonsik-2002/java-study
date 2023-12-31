@@ -4077,11 +4077,15 @@ class Factory extends Building implements Liftable {
 ```
 <br>
 
+![스크린샷(3)](https://github.com/Yoonsik-2002/java-study/assets/83572199/a4eb26b0-ec9f-4900-bce4-8195c3f0a406)<br>
+<br>
+
 위와 같은 인터페이스를 활용한 방식을 통해, `Liftable`인터페이스의 추상메서드들을 구현하는 같은 내용의 코드를 `Barrack`클래스와 `Factory`클래스에 각각 작성하지 않고, 
 `LiftableImpl`클래스 한 곳에서 관리하는 것이 가능해졌다.(중복 제거)<br>
 
 그리고, 이렇게 작성된 `Liftable`인터페이스와 `LiftableImpl`클래스는 후에 다시 재사용될 수 있다.<br>
 <br>
+
 
 
 
