@@ -4028,6 +4028,7 @@ void land() { /* 내용 생략 */ }
 이러한 문제를 해결하기 위해서는 `Liftable` 인터페이스를 작성하고, 해당 인터페이스를 구현하는 클래스인 `LiftableImpl`을 따로 작성해 둔 뒤, 해당 클래스를 `Liftable`인터페이스를 구현하는 `Barrack`클래스와 `Factory`클래스에 포함시켜,<br>
 
 내부적으로 호출하여 사용하도록 하게 하는 방법이 있다. 아래 과정을 잘 보도록 하자.<br>
+<br>
 
 ###### `Liftable` 인터페이스 작성
 ```java
@@ -4056,7 +4057,7 @@ class LiftableImpl implements Liftable {
 class Barrack extends Building implements Liftable {
   LiftableImpl l = new LiftableImpl();  // LiftableImpl 클래스를 Barrack클래스에 포함시킴
 
-  // 
+  /* Liftable 인터페이스를 구현한 LiftableImpl 클래스의 메서드들을 내부적으로 호출 */
   public void liftOff() {l.liftOff();}
   public void move(int x, int y) {l.move(x, y);}
   public void stop() {l.stop();}
@@ -4067,6 +4068,7 @@ class Barrack extends Building implements Liftable {
 class Factory extends Building implements Liftable {
   LiftableImpl l = new LiftableImpl();  // LiftableImpl 클래스를 Factory클래스에 포함시킴
 
+  /* Liftable 인터페이스를 구현한 LiftableImpl 클래스의 메서드들을 내부적으로 호출 */
   public void liftOff() {l.liftOff();}
   public void move(int x, int y) {l.move(x, y);}
   public void stop() {l.stop();}
@@ -4074,5 +4076,12 @@ class Factory extends Building implements Liftable {
 }
 ```
 <br>
+
+위와 같은 인터페이스를 활용한 방식을 통해, `Liftable`인터페이스의 추상메서드들을 구현하는 같은 내용의 코드를 `Barrack`클래스와 `Factory`클래스에 각각 작성하지 않고, 
+`LiftableImpl`클래스 한 곳에서 관리하는 것이 가능해졌다.(중복 제거)<br>
+
+그리고, 이렇게 작성된 `Liftable`인터페이스와 `LiftableImpl`클래스는 후에 다시 재사용될 수 있다.<br>
+<br>
+
 
 
