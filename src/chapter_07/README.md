@@ -3977,3 +3977,30 @@ repair(Repairable r) {
 다음은 해당 내용을 구현한 기계화 유닛 수리 프로그램이다.<br>
 **[Ex07_19_RepairableTest.java](https://github.com/Yoonsik-2002/java-study/blob/main/src/chapter_07/Ex07_19_RepairableTest.java)**<br>
 <br>
+
+### 인터페이스의 장점 최종 정리
+인터페이스의 장점에 대해 마지막으로 최종적으로 정리해보기 위해, 아래 예시를 들어보도록 하겠다.<br>
+<br>
+
+![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/46b94d51-2520-4b15-adaa-a87ea79f89d3)<br>
+<br>
+
+건물을 표현하는 클래스 `Academy`, `Bunker`, `Barrack`, `Factory`가 있고, 이들의 공통조상인 `Building`이 있다. 이때, `Barrack`클래스와 `Factory`클래스에 아래와 같은 건물을 이동시킬 수 있는 새로운 메서드들을 추가하고자 하는 상황이다.<br>
+
+```java
+void liftOff() { /* 내용 생략 */}
+void move(int x, int y) { /* 내용 생략 */ }
+void stop() { /* 내용 생략 */ }
+void land() { /* 내용 생략 */ }
+```
+<br>
+
+해당 상황에서 주어진 메서드들을 `Barrack`클래스와 `Factory`클래스에 추가할 수 있는 방법으로는 어떤 것들이 있을까?<br>
+<br>
+
+#### worst case
+먼저, 가장 단순하게 생각해 볼 수 있는 방법으로는 해당 메서드들을 `Barrack`클래스와 `Factory`클래스에 따로따로 추가해 주는 방법이 있을 것이다.<br>
+
+하지만, 해당 방법을 사용하는 경우, 똑같은 코드의 중복이 일어난다는 문제가 발생하게 된다. 그렇다고 해서, 코드의 중복을 없애기 위해, 건물을 표현하는 클래스들의 공통 조상인 `Building`클래스에 해당 메서드를 멤버로 추가하여, 자손 클래스들이 이를 상속받게 하는 경우,<br>
+
+코드의 중복은 없앨 수 있지만, 원하지 않는 클래스인 `Academy`와 `Bunker`클래스에도 해당 메서드들이 상속되어버리게 된다. 따라서, 해당 두 가지 방법으로는 요구사항을 100% 충족시키지는 못한다는 것을 알 수 있다.<br>
