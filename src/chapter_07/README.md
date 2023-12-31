@@ -3998,9 +3998,81 @@ void land() { /* 내용 생략 */ }
 해당 상황에서 주어진 메서드들을 `Barrack`클래스와 `Factory`클래스에 추가할 수 있는 방법으로는 어떤 것들이 있을까?<br>
 <br>
 
-#### worst case
+### worst case
 먼저, 가장 단순하게 생각해 볼 수 있는 방법으로는 해당 메서드들을 `Barrack`클래스와 `Factory`클래스에 따로따로 추가해 주는 방법이 있을 것이다.<br>
 
 하지만, 해당 방법을 사용하는 경우, 똑같은 코드의 중복이 일어난다는 문제가 발생하게 된다. 그렇다고 해서, 코드의 중복을 없애기 위해, 건물을 표현하는 클래스들의 공통 조상인 `Building`클래스에 해당 메서드를 멤버로 추가하여, 자손 클래스들이 이를 상속받게 하는 경우,<br>
 
 코드의 중복은 없앨 수 있지만, 원하지 않는 클래스인 `Academy`와 `Bunker`클래스에도 해당 메서드들이 상속되어버리게 된다. 따라서, 해당 두 가지 방법으로는 요구사항을 100% 충족시키지는 못한다는 것을 알 수 있다.<br>
+<br>
+
+### best case
+현재 상황에서는 위 메서드들을 추가하고자 하는 `Barrack`클래스와 `Factory`클래스, 이 두 클래스만의 새로운 관계를 맺어주는 것이 필요한 상황이다.<br>
+
+물론, 이 두 클래스에는 `Building`클래스의 공통자손이라는 관계가 존재하지만, 해당 관계에는 우리가 필요로 하지 않는 `Academy`와 `Bunker`클래스가 포함되어 있다.<br>
+
+이러한 상황에서, 서로 관계없는 클래스들의 새로운 관계를 맺어줄 수 있는 인터페이스를 사용할 수 있다.<br>
+
+`Liftable`이라는 새로운 인터페이스를 생성하여, 주어진 메서드를 해당 인터페이스에 추상 메서드로 추가해주고, `Burrack`클래스와 `Factory`클래스가 이를 구현하게 하면 아래와 같은 새로운 관계가 형성되게 된다.<br>
+<br>
+
+![스크린샷(2)](https://github.com/Yoonsik-2002/java-study/assets/83572199/c99d4cd7-a0db-4aca-9920-1ea59ee96ce6)<br>
+<br>
+
+이때, `Liftable`인터페이스에 존재하는 추상 메서드들을 `Barrack`클래스와 `Factory`클래스에 각각 다른 내용으로 구현해야 하는 경우에는 그렇게 두 클래스에 각기 다른 내용으로 `Liftable`인터페이스의 추상 메서드들을 구현해주면 된다.<br>
+
+하지만, `Barrack`클래스와 `Factory`클래스에 서로 같은 내용으로 `Lifable`인터페이스의 추상 메서드들을 구현해 주어도 되는 경우, 실제 `Barrack`클래스와 `Factory`클래스에 각각 같은 내용으로 `Liftable`인터페이스의 추상메서드를 구현하는 것은 오히려,<br>
+
+같은 내용의 코드를 중복시키는 꼴이 되어버린다. 선언부와 구현부가 동일한 메서드들이 두 개의 서로 다른 클래스에 정의되어 있는 형태이기 때문이다.<br>
+
+이러한 문제를 해결하기 위해서는 `Liftable` 인터페이스를 작성하고, 해당 인터페이스를 구현하는 클래스인 `LiftableImpl`을 따로 작성해 둔 뒤, 해당 클래스를 `Liftable`인터페이스를 구현하는 `Barrack`클래스와 `Factory`클래스에 포함시켜,<br>
+
+내부적으로 호출하여 사용하도록 하게 하는 방법이 있다. 아래 과정을 잘 보도록 하자.<br>
+
+###### `Liftable` 인터페이스 작성
+```java
+interface Liftable {
+  void liftOff();
+  void move(int x, int y);
+  void stop();
+  void land();
+```
+<br>
+
+###### `Liftable`인터페이스를 구현하는 클래스, `LiftableImpl` 작성
+```java
+class LiftableImpl implements Liftable {
+  public void liftOff() { /* 내용 생략 */ }
+  public void move(int x, int y) { /* 내용 생략 */ }
+  public void stop() { /* 내용 생략 */ }
+  public void land() { /* 내용 생략 */ }
+}
+```
+<br>
+
+###### `LiftableImpl`을 `Liftable`인터페이스를 구현하는 `Barrack`클래스와 `Factory`클래스에 포함시켜, 내부적으로 호출하여 사용
+```java
+/* Barrack 클래스 */
+class Barrack extends Building implements Liftable {
+  LiftableImpl l = new LiftableImpl();  // LiftableImpl 클래스를 Barrack클래스에 포함시킴
+
+  // 
+  public void liftOff() {l.liftOff();}
+  public void move(int x, int y) {l.move(x, y);}
+  public void stop() {l.stop();}
+  public void land() {l.land();}
+}
+
+/* Factory 클래스 */
+class Factory extends Building implements Liftable {
+  LiftableImpl l = new LiftableImpl();  // LiftableImpl 클래스를 Factory클래스에 포함시킴
+
+  public void liftOff() {l.liftOff();}
+  public void move(int x, int y) {l.move(x, y);}
+  public void stop() {l.stop();}
+  puvlic void land() {l.land();}
+}
+```
+<br>
+
+
