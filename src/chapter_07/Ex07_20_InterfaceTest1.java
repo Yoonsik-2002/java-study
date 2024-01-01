@@ -4,7 +4,7 @@
 package chapter_07;
 
 class A1 {
-    void autoPlay(I1 i) {
+    void autoPlay(I1 i) {  // I1인터페이스를 구현한 클래스의 인스턴스를 매개변수를 통해 동적으로 제공받음.
         i.play();
     }
 }
