@@ -4158,6 +4158,9 @@ class B implements I {
 ```
 <br>
 
+![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/7a17961c-c281-40d2-8ad2-3d575cdac9bd)<br>
+<br>
+
 
 
 
