@@ -4218,3 +4218,7 @@ class B implements I {
 
 이에 대한 가장 대표적인 것으로는, `java.util.Collection`인터페이스가 있다. 해당 인터페이스와 관련된 `static`메서드들은 모두 `Collections`라는 클래스에 따로 정의되어 있다. 만약에, 인터페이스에 `static`메서드를 추가할 수 있었다면, `Collections`클래스는 존재하지 않았을 것이다.<br>
 <br>
+
+JDK1.8 부터는, 이러한 `staic`메서드를 인터페이스에 포함하는 것이 가능해졌다. 이때, 인터페이스 내의 모든 `static`메서드 역시 마찬가지로, 접근 제어자 `public`이 붙으며, 이는 생략 가능하다.<br>
+<br>
+
