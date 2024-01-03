@@ -4270,4 +4270,10 @@ JDK1.8 부터는, 이러한 `staic`메서드를 인터페이스에 포함하는 
 
 <br>
 
+![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/cfa0e26d-696c-4dbe-a0af-bfd43ebf24b0)<br>
+<br>
 
+관련 예시코드는 다음과 같다.<br>
+##### [디폴트 메서드의 충돌 예시코드](https://github.com/Yoonsik-2002/java-study/commit/fd7666de89006af1e9c3f0d9e7db9e471b192953)
+
+<br>
