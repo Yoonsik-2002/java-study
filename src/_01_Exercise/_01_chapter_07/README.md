@@ -172,5 +172,41 @@ class Exercise7_2 {
 ![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/345af631-126c-4ef0-93b8-c6ab43f1d097)<br>
 <br>
 
-###
+### 📑 Review
+- ### toString()메서드를 오버라이딩한 클래스의 객체를 `PrintStream`클래스의 출력 관련 메서드로 출력하는 경우
+  Object클래스의 toString()메서드는 객체의 문자로 된 표현을 문자열 형태로 리턴해준다.<br>
+    
+  PrintStream 클래스의 출력 관련 메서드(print, printf, println ...)를 통해 어떠한 클래스의 객체를 출력해주는 경우, 내부적으로 컴파일러에 의해 자동으로 호출된다.<br>
+  
+  아래 코드와 같이 PrintStream 클래스의 출력 관련 메서드로 SutdaCard1 클래스의 객체를 출력하는 경우를 한번 보도록 하자.<br>
 
+  ```java
+  class SutdaCard1 {
+    // ...
+    public String toString() {
+        return num + (isKwang ? "K" : ""); 
+    }
+  }
+
+  class SutdaDeck1 {
+  // ...
+      void showCards() {
+        for (int i = 0; i < cards.length; i++) {
+            System.out.print(cards[i] + ", ");
+        }
+    }
+  ```
+  <br>
+    
+ 
+  
+  SutdaCard1 클래스에는 toString()메서드가 오버라이딩을 통해 해당 클래스에 맞게 재정의되어 있다.<br>
+
+  SutdaCard1 클래스에서 toString()메서드를 오버라이딩 하였기 때문에, SutdaCard1클래스의 객체(`cards[i]`)를 출력할 때는, SutdaCar1클래스에서 오버라이딩하여 정의된 toString() 메서드가 호출되게 된다.<br>
+    
+  이처럼, 어떠한 클래스에서 toString()메서드를 오버라이딩하여 재정의 한 경우, 해당 클래스의 객체를 PrintStream 클래스의 출력 관련 메서드로 출력하면 **해당 클래스에서 오버라이딩한 toString() 메서드가** 컴파일러에 의해 내부적으로 호출되게 된다.<br>
+<br>
+
+---
+
+<br><br>
