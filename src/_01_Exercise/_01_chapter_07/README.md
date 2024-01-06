@@ -191,7 +191,7 @@ class Exercise7_2 {
   // ...
       void showCards() {
         for (int i = 0; i < cards.length; i++) {
-            System.out.print(cards[i] + ", ");
+            System.out.print(cards[i] + ", ");  // cards[i] - 객체 배열 cards의 i 번째 인덱스에 저장되어 있는 SutdaCard1 클래스의 객체.
         }
     }
   ```
