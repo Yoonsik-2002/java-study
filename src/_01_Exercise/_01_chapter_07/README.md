@@ -68,6 +68,10 @@ class Exercise7_1 {
 
 ###### [실행결과]
 ![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/172565a7-375a-414b-a911-4ab5039a232f)<br>
+<br>
+
+---
+
 <br><br>
 
 ### 💻 7-2
@@ -167,4 +171,6 @@ class Exercise7_2 {
 ###### [실행 결과]
 ![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/345af631-126c-4ef0-93b8-c6ab43f1d097)<br>
 <br>
+
+###
 
