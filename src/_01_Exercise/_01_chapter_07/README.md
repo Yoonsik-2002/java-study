@@ -68,7 +68,6 @@ class Exercise7_1 {
 
 ###### [실행결과]
 ![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/172565a7-375a-414b-a911-4ab5039a232f)<br>
-<br>
 
 ---
 
@@ -205,7 +204,6 @@ class Exercise7_2 {
   SutdaCard1 클래스에서 toString()메서드를 오버라이딩 하였기 때문에, SutdaCard1클래스의 객체(`cards[i]`)를 출력할 때는, SutdaCar1클래스에서 오버라이딩하여 정의된 toString() 메서드가 호출되게 된다.<br>
     
   이처럼, 어떠한 클래스에서 toString()메서드를 오버라이딩하여 재정의 한 경우, 해당 클래스의 객체를 PrintStream 클래스의 출력 관련 메서드로 출력하면 **해당 클래스에서 오버라이딩한 toString() 메서드가** 컴파일러에 의해 내부적으로 호출되게 된다.<br>
-<br>
 
 ---
 
