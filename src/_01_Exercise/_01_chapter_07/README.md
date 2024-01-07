@@ -196,8 +196,6 @@ class Exercise7_2 {
     }
   ```
   <br>
-    
- 
   
   SutdaCard1 클래스에는 toString()메서드가 오버라이딩을 통해 해당 클래스에 맞게 재정의되어 있다.<br>
 
