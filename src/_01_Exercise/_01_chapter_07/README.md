@@ -365,10 +365,107 @@ class Exercise7_7 {
 
   따라서 해당 코드의 결과값은 `x = 200`이 되겠다.<br>
 
-  ---
+---
 
+<br><br>
   
+### 💻 7-10
+```java
+package _01_Exercise._01_chapter_07;
 
-  
+class MyTv2 {
+    private boolean isPowerOn;
+    private int channel;
+    private int volume;
+    
+    final int MAX_CHANNEL = 100;
+    final int MIN_CHANNEL = 0;
+    final int MAX_VOLUME = 100;
+    final int MIN_VOLUME = 0;
+    
+    public void Power() {
+        isPowerOn = !isPowerOn;
+    }
+    
+    public void setChannel(int n) {
+        if(isPowerOn == true) {
+            if(MIN_CHANNEL <= n && n <= MAX_CHANNEL){
+                channel = n;
+            }
+            else {
+                System.out.println("You entered an incorrect value.");
+            }
+        }
+        else {
+            return;  // 함수의 반환형이 void이기 때문에, return;을 통해 함수를 종료시킬 수 있다.
+        }
+    }
+    
+    public int getChannel() {
+        if(isPowerOn == true) {
+            return channel;
+        }
+        else {
+            System.out.println("Tv is powered off.");
+            return -1;  // 반환형이 있는 함수에서는 모든 분기에서 반환문을 포함해 주어야 한다. (반환문 누락 시, 에러 발생)
+        }
+    }
+    
+    public void setVolume(int n ) {
+        if(isPowerOn == true) {
+            if(MIN_VOLUME <= n && n <= MAX_VOLUME) {
+                volume = n;
+            }
+            else {
+                System.out.println("You entered an incorrect value.");
+            }
+        }else {
+            return;  // 함수의 반환형이 void이기 때문에, return;을 통해 함수를 종료시킬 수 있다.
+        }
+    }
+    
+    public int getVolume() {
+        if(isPowerOn == true) {
+            return volume;
+        }
+        else {
+            System.out.println("Tv is powered off.");
+            return -1;  // 반환형이 있는 함수에서는 모든 분기에서 반환문을 포함해 주어야 한다. (반환문 누락 시, 에러 발생)
+        }
+    }
+}
 
-  
+class Exercise7_10 {
+    public static void main(String[] args) {
+        MyTv2 tv = new MyTv2() {};
+        
+        tv.Power();
+        
+        /* MyTv2 클래스의 멤버변수 channel은 private로 정의되어 있기 때문에, 외부에서 직접 접근하는 것은 불가능하다. 
+        외부에서는 오직 MyTv2 클래스에 public으로 정의되어 있는 메서드를 통해 값을 변경하고 가져올 수 있다. */
+        tv.setChannel(10);
+        System.out.println("current channel : " + tv.getChannel());
+        
+        /* MyTv2 클래스의 멤버변수 volume은 private로 정의되어 있기 때문에, 외부에서 직접 접근하는 것은 불가능하다. 
+        외부에서는 오직 MyTv2 클래스에 public으로 정의되어 있는 메서드를 통해 값을 변경하고 가져올 수 있다. */
+        tv.setVolume(20);
+        System.out.println("current volume : " + tv.getVolume());
+    }
+}
+```
+<br>
+
+### 📑 Review
+- ### 접근 제어자를 이용한 캡슐화
+  위 코드를 보면, `MyTV2`클래스의 멤버변수인 `isPowerOn`과 `channel`, `volume`은 모두 `private`로 선언되어 있는 것을 알 수 있다.<br>
+
+  접근 제어자 `private`가 허용하는 접근 범위는 `private`멤버가 선언되어 있는 클래스 이내이기 때문에, 외부에서 `MyTv2`클래스의 `private`멤버들에게 직접 접근하는 것은 불가능하다.<br>
+
+  오직, `MyTv2`클래스 내부에 존재하는 멤버들만이, 해당 `private`멤버들에게 직접 접근하는 것이 가능하다.<br>
+
+  이렇게 클래스 내부의 멤버변수를 `private`로 지정하여 외부의 접근을 제한하면, 외부에서 멤버변수의 값을 무분별하게 바꿔버리는 일을 사전에 차단해 주는 것이 가능하다.<br>
+  <br>
+
+  예를들어, 
+
+
