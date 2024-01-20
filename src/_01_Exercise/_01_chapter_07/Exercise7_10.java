@@ -5,6 +5,10 @@ class MyTv2 {
     private int channel;
     private int volume;
     
+    private int[] prevChannel = new int[100];
+    private int pci = 0; 
+    private int fpci = 0;
+    
     final int MAX_CHANNEL = 100;
     final int MIN_CHANNEL = 0;
     final int MAX_VOLUME = 100;
@@ -18,6 +22,8 @@ class MyTv2 {
         if(isPowerOn == true) {
             if(MIN_CHANNEL <= n && n <= MAX_CHANNEL){
                 channel = n;
+                prevChannel[pci] = channel;
+                pci++;
             }
             else {
                 System.out.println("You entered an incorrect value.");
@@ -60,6 +66,11 @@ class MyTv2 {
             return -1;  // 반환형이 있는 함수에서는 모든 분기에서 반환문을 포함해 주어야 한다. (반환문 누락 시, 에러 발생)
         }
     }
+    
+    public void gotoPrevChannel() {
+        channel = prevChannel[fpci];
+        fpci++;
+    }
 }
 
 class Exercise7_10 {
@@ -75,7 +86,19 @@ class Exercise7_10 {
         
         /* MyTv2 클래스의 멤버변수 volume은 private로 정의되어 있기 때문에, 외부에서 직접 접근하는 것은 불가능하다. 
         외부에서는 오직 MyTv2 클래스에 public으로 정의되어 있는 메서드를 통해 값을 변경하고 가져올 수 있다. */
-        tv.setVolume(20);
-        System.out.println("current volume : " + tv.getVolume());
+        tv.setChannel(20);
+        System.out.println("current channel : " + tv.getChannel());
+        
+        tv.gotoPrevChannel();
+        System.out.println("current channel : " + tv.getChannel());
+        
+        tv.gotoPrevChannel();
+        System.out.println("current channel : " + tv.getChannel());
+        
+        tv.setChannel(30);
+        System.out.println("current channel : " + tv.getChannel());
+        
+        tv.gotoPrevChannel();
+        System.out.println("current channel : " + tv.getChannel());
     }
 }    
