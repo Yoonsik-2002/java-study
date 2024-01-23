@@ -534,6 +534,8 @@ class Exercise7_10 {
 
 ---
 
+<br><br>
+
 ### 💻 7-13
 
 ### 📑 Review
@@ -566,4 +568,55 @@ class Exercise7_10 {
 ---
 
 <br><br>
-  
+
+### 💻 7-17
+```java
+class Unit {
+  int x, y;
+
+  void move(int x, int y) { /* 지정된 위치로 이동 */ }
+  void stop() { /* 현재 위치에 정지*/ }
+
+  Unit() {
+    this(0, 0);
+  }
+
+  Unit(int x, int y) {
+    this x = x;
+    this y = y;
+  }
+}
+
+class Marine extends Unit {
+  void stimPack() { /*스팀팩을 사용한다.*/ }
+
+  Marine {
+    super(50, 2);
+  }
+}
+
+class Tank extends Unit {
+  void changeMode() { /* 모드 변경 */ }
+}
+
+class DropShip extends Unit {
+  void load() { /*선택된 대상을 태운다.*/ }
+  void unload() { /*선택된 대상을 내란다.*/ }
+}
+```
+<br>
+
+### 📑 Review
+Java에서 생성자가 호출될 때는, 기본적으로 조상 클래스의 기본 생성자를 자동으로 호출해준다. 이때, 이러한 자동호출이 이루어지기 위해서는 다음과 같은 조건이 존재한다.<br>
+
+- 1) 조상 클래스에 아무런 생성자도 존재하지 않아야 한다.
+- 2) 기본 생성자가 명시적으로 정의되어 있어야 한다.<br>
+  (이땐, 다른 매개변수가 존재하는 생성자가 조상 클래스 내에 존재해도 상관 없음)
+
+먼저, `Marine`클래스와 `Tank`클래스, `DropShip`클래스의 조상 클래스인 `Unit`클래스를 보면, 매개변수가 존재하는 생성자가 존재하긴 하지만, **기본 생성자가 명시적으로 정의되어 있는 것을 알 수 있다.**<br>
+
+즉, 이는 `Unit`클래스의 자손 클래스의 생성자가 호출되면, `Unit`클래스의 기본 생성자가 자동으로 호출된다는 것을 의미하기도 한다.<br>
+<br>
+
+###### `Marine`클래스의 객체를 생성하는 경우 
+`Marine`클래스의 경우, 
