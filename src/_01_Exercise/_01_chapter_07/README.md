@@ -633,3 +633,157 @@ Java에서 생성자가 호출될 때는, 기본적으로 조상 클래스의 �
 
 `Unit` 클래스에서 명시적으로 정의된 기본 생성자에서는 `this`를 통해 매개변수가 존재하는 생성자의 매개변수 `x`, `y`에 각각 `0`을 전달하여 내부적으로 호출해준다.<br>
 
+---
+
+<br><br>
+
+### 💻 7-18
+```java
+package _01_Exercise._01_chapter_07;
+
+class Robot {}
+
+class DanceRobot extends Robot {
+    void dance() {
+        System.out.println("start dance");
+    }
+}
+
+class SingRobot extends Robot {
+    void sing() {
+        System.out.println("start sing");
+    }
+}
+
+
+class DrawRobot extends Robot {
+    void draw() {
+        System.out.println("start draw");
+    }
+}
+
+class Exercise7_11 {
+    static void action(Robot r) {
+        if(r instanceof DanceRobot) {  // 참조변수 r의 타입을 DanceRobot 타입으로 형변환 할 수 있는지 검사
+            ((DanceRobot) r).dance();  // r의 타입을 Robot 에서 DanceRobot 타입으로 형변환(down-casting)
+        }
+        
+        if(r instanceof SingRobot) {
+            ((SingRobot) r).sing();
+        }
+        
+        if(r instanceof DrawRobot) {
+            ((DrawRobot) r).draw();
+        }
+    }
+    
+    public static void main(String[] args) {
+        Robot[] array = {new DanceRobot(), new SingRobot(), new DrawRobot()};
+        
+        /* 
+        Robot[] array = new Robot[3];
+        array[0] = new DanceRobot();
+        array[1] = new SingRobot();
+        array[2] = new DrawRobot();
+        */
+        
+        for(int i = 0; i < array.length; i++) {
+            action(array[i]);
+            /*
+            static 메서드인 main메서드에서의 직접적인 호출. 만약 action메서드가 인스턴스 메서드인 경우, 
+            main메서드 첫 줄에서 Exercise7_11 클래스의 인스턴스를 생성해 주어야 한다. 
+            */
+        }
+    }
+}
+```
+<br>
+
+### 📑 Review
+- ###### 메서드에서의 다형성의 활용
+  아래 코드를 한번 봐 보자.<br>
+  
+  ```java
+  static void action(Robot r) {
+    // ...
+  }
+  ```
+  메서드 `action`의 매개변수 `r`의 타입을 `DanceRobot`, `SingRobot`, `DrawRobot`클래스의 조상 클래스인 `Robot`클래스 타입으로 지정해 주었다.<br>
+
+  이를 통해 `action`메서드 하나로 해당 세 클래스의 객체를 처리할 수 있도록 하였다. 만약, 이러한 다형성을 활용하지 않았다면, 각 세 클래스의 객체를 처리해주는 메서드를 따로따로 작성해 주어야 했을 것이다.<br>
+<br>
+
+- ###### `instanceof` 연산자
+  `instanceof` 연산자는 본인 기준 오른쪽에 위치하는 클래스 타입(피연산자)으로 형변환이 가능한지, 불가능한지 `true` / `false` 값으로 나타내준다. (주로 형 변환 전에 해당 클래스 타입으로 형변환이 가능한지 미리 검사하여, 에러발생을 방지하는 용도로 사용)<br>
+
+  이러한 `instanceof`연산자가 `true`를 반환해주는 경우는 다음과 같다. `객체 instanceof 클래스`(객체를 중심으로 생각하면 편하다.<br>
+  <br>
+
+  ###### `instanceof`연산자가 `true`를 반환해주는 경우
+  1) 객체가 형변환 하고자 하는 클래스의 인스턴스인 경우
+  2) 객체가 형변환 하고자 하는 클래스의 자손 클래스의 인스턴스인 경우
+  3) 객체가 형변환 하고자 하는 인터페이스를 구현한 클래스의 인스턴스인 경우
+<br>
+
+- ###### 어떠한 경우에 static(정적) 메서드를 사용하고, 인스턴스 메서드를 사용할까?
+  ```java
+  public static void main(String[] args) {
+    Robot[] arr = {new DanceRobot(), new SingRobot(), new DrawRobot()};
+
+    for(int i = 0; i < arr.length; i++) {
+      action(arr[i]);
+    }
+  }
+  ```
+  위 코드의 경우, static메서드인 `main`메서드에서 `action`이라는 메서드를 호출하여, 사용하고 있다. 이러한 `action`메서드는 정적(static)메서드로 정의해 주는 것이 좋을까? 아니면, 인스턴스 메서드로 정의해 주는 것이 좋을까?<br>
+
+  먼저, `static`메서드와 인스턴스 메서드에 대한 개념을 복습할 겸, 다시 한번 정리해 보도록 하겠다.<br>
+  <br>
+
+    ###### 인스턴스 메서드
+    1) 해당 인스턴스 메서드가 멤버로서 존재하는 클래스의 인스턴스가 생성된 뒤에 호출이 가능하다.<br>
+
+    2) 클래스 명을 통해 static메서드를 직접 호출하는 것이 가능하다.<br>
+
+    3) **특정 객체**의 상태와 동작(필드와 메서드)에 접근하고, 수정하기 위해 사용된다.<br>
+  <br>
+
+    ###### static(정적) 메서드
+    1) 인스턴스를 생성하지 않아도 클래스 명을 통해 호출이 가능하다.<br>
+
+    2) 클래스 수준에서 존재하며, 객체(인스턴스)와는 독립적으로 실행된다.<br>
+
+    3) 인스턴스 메서드를 직접 호출할 수 없다.<br>
+
+    4) 정적 메서드는 특정한 클래스의 인스턴스와 관련없이, 여러 클래스에 공통적으로 사용되는 유틸리티 기능이나 독립적인 연산을 수행하기 위해 사용된다.<br>
+  <br>
+
+  자, 그럼 답을 내려 보도록 하겠다. `action`메서드는 static(정적)메서드로 정의해 주어야 적합하다고 할 수 있다. 이유는 아래와 같다.<br>
+
+  `action`메서드는 `Robot`타입의 매개변수를 통해 전달받은, 하위 클래스인 `DanceRobot`혹은 `SingRobot`, 아니면 `DrawRobot`클래스의 객체가 `Robot`타입에서 해당 클래스 타입으로 형변환이 가능한지 검사한 뒤, 각 클래스에 정의되어 있는 메서드를 호출해주는 메서드이다.<br>
+
+  결국, 이 `action`메서드는 특정한 클래스의 객체의 상태와 동작(필드와 메서드)에 접근하고, 수정하기 위해 사용되기 보다는, `DanceRobot`클래스, `SingRobot`클래스, `DrawRobot`클래스에 공통적으로 사용되는 기능을 제공하기 위해 사용되는 메서드라 할 수 있다.<br>
+
+  때문에, `static`메서드로 정의되는것이 바람직하다.<br>
+  <br>
+
+  추가적으로, 이처럼 `Robot` -> `DanceRobot` or `SingRobot` or `DrawRobot` 타입으로 형변환 해주어야 하는 이유는 다음과 같다.<br>
+
+  위 코드의 경우, 일단은 `action` 메서드 하나로 `DanceRobot`클래스와 `SingRobot`클래스, `DrawRobot`클래스의 객체를 처리해주기 위해, 이들의 조상 클래스인 `Robot`클래스 타입의 매개변수 `r`로, 해당 세 클래스의 객체를 전달받았다.<br>
+  
+  하지만, `Robot`클래스 타입의 참조변수인 `r`로, 해당 하위 클래스의 객체를 가리키고 있는 경우, 해당 하위 클래스가 가지고 있는 메서드를 사용하는 것이 불가능하다.<br>
+  
+  `Robot`클래스 타입의 참조변수 `r`로는 오직 `Robot`클래스에 선언되어, 해당 세 클래스로 상속된 멤버만 사용하는 것이 가능하기 때문이다.<br>
+
+  하지만, `Robot`은 내용이 비어있는 클래스 이므로, 해당 클래스 타입의 참조변수 `r`로는 세 클래스의 어떠한 멤버도 사용할 수 없다.<br>
+
+  해당 상황에서 세 하위 클래스의 멤버를 사용하기 위해서는 해당 클래스의 객체를 참조하고 있는 참조변수의 타입을 사용하고자 하는 하위 클래스 타입으로 형변환 해주는 수 밖에 없다.<br>
+
+---
+
+<br><br>
+
+  
+  
+
+  
