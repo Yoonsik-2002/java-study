@@ -783,7 +783,63 @@ class Exercise7_11 {
 
 <br><br>
 
-  
-  
+### 💻 7-20
+```java
+package _01_Exercise._01_chapter_07;
 
+class Parent {
+    int x = 100;
+    
+    void method() {
+        System.out.println("Parent Method");
+    }
+}
+
+class Child extends Parent {
+    int x = 200;
+    
+    void method() {
+        System.out.println("Child Mehtod");
+    }
+}
+
+class Exercise7_20 {
+    public static void main(String[] args) {
+        Parent p = new Child();
+        Child c = new Child();
+        
+        System.out.println("p.x : " + p.x);
+        p.method();
+        
+        System.out.println("c.x : " + c.x);
+        c.method();
+    }
+}
+```
+<br>
+
+### 📑 Review
+위 코드를 보면, 서로 상속관계에 있는 두 클래스 `Parnet`, `Child`클래스의 멤버들의 이름이 같은 것을 알 수 있다.<br>
+
+해당 경우, 자손 클래스는 조상 클래스로부터 이름이 같은 멤버들을 상속받아, 해당 자손 클래스에는 이름이 같은 조상 클래스의 멤버들이 포함되게 된다.<br>
+
+이때, 해당 멤버 중 메서드인 `method()`의 경우, 조상 클래스 `Parent`의 메서드와 선언문은 같지만, 내용이 다르므로, 해당 메서드는 `Child`클래스에서 오버라이딩 되었다고 할 수 있다.<br>
+
+이러한 상황에서, 조상 클래스 타입의 참조변수 `p`로 자손 클래스의 인스턴스를 사용할 때, 멤버변수와 메서드 모두 어떠한 값이 호출되느냐가 해당 문제의 요지가 된다.<br>
+<br>
+
+- ###### 이름이 같은 멤버(필드, 메서드)를 가진 조상 클래스(`Parent`)타입의 참조변수로 자손 클래스(Child)타입의 인스턴스를 사용하는 경우
+  위 경우, `p.x`는 `Parent`클래스의 멤버변수인 `x(100 저장)`을 의미하며, `p.method()`는 `Child`클래스에서 오버라이딩된 `method()`메서드를 의미한다.<br>
+
+  따라서, 위 코드의 결과는 다음과 같은 결과가 나오게 된다.<br>
+
+  ![스크린샷(1)](https://github.com/Yoonsik-2002/java-study/assets/83572199/7c6bd315-4e58-4ea2-80ec-5fba0369d309)<br>
+
+  이처럼 상속관계에 있는 두 클래스의 멤버들(필드, 메서드)의 이름이 같은 경우, 자손 클래스의 인스턴스를 조상 클래스의 참조변수로 사용할 때 멤버변수는 조상 클래스의 멤버변수가 호출된다.<br>
+
+  그리고, 메서드는 자손 클래스에 오버라이딩된 메서드가 호출되게 된다. 즉, 자손 클래스의 메서드가 호출되게 되는 것이다. 이는 객체의 다형성에서 나오는 특징 중 하나이다.<br>
+
+---
+
+<br><br>
   
