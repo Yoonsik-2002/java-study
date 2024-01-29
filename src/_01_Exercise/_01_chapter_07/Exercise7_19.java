@@ -13,6 +13,7 @@ class Buyer {
         }
         else {
             System.out.println("the balance is unsufficient");
+            System.exit(0);    
         }
     }
     
@@ -111,8 +112,13 @@ class Exercise7_19 {
     public static void main(String[] args) {
         Buyer b = new Buyer();
         
-
+        b.buy(new Computer());
         b.buy(new Audio());
         b.buy(new Tv());
+        b.buy(new Phone());
+        // b.buy(new Phone());
+        // b.buy(new Computer());
+        
+        b.summary();        
     }
 }
