@@ -37,7 +37,7 @@ abstract class Shape {  // 추상 클래스 - 해당 클래스의 자손클래�
         return p;
     }
     
-    void setPosition() {
+    void setPosition(Point p) {
         this.p = p;
     }
 }
@@ -46,7 +46,7 @@ class Circle extends Shape {
     double r;
     
     Circle() {
-        Super(new Point());
+        super(new Point());
         
         Scanner scanner = new Scanner(System.in);
         
@@ -54,7 +54,7 @@ class Circle extends Shape {
         this.r = scanner.nextDouble();
         
         scanner.close();
-    }
+    }    
     
     double calcArea() {  // 상속받은 추상 클래스의 추상 메서드 구현
         return r * r * 3.14;
@@ -66,7 +66,7 @@ class Rectangle extends Shape {
     double height;
     
     Rectangle() {
-        Super(new Point());
+        super(new Point());
         
         Scanner scanner = new Scanner(System.in);
         
