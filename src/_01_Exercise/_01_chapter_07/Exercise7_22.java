@@ -1,37 +1,40 @@
 package _01_Exercise._01_chapter_07;
 
-import java.util.Scanner;
-
-/* 도형의 x, y 좌표위치를 나타내는 Point 클래스 */
 class Point {
-    int x; 
+    int x;
     int y;
     
     Point() {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("enter value of x");
-        this.x = scanner.nextInt();
-        System.out.prinlnt("enter value of y");
-        this.y = scanner.nextInt();
-        
-        scanner.close();
+        this(0, 0);
+    }
+    
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
     
     public String toString() {
-        return "x: " + x + "y: " + y;
+        return "x : " + x + "y : " + y;
     }
 }
 
-/* 도형을 나타내는 Shape 클래스 (Point 클래스와 포함관계) */
-abstract class Shape {  // 추상 클래스 - 해당 클래스의 자손클래스는 반드시 해당 클래스의 추상 메서드를 구현해주어야 한다.(abstract는 이 점을 개발자에게 강조해주기 위해 사용됨)
-    Point p;
+abstract class Shape {
+    Point p;  // Point 클래스를 멤버변수로 포함하며, 클래스 간의 포함 관계를 형성. 
     
-    Shape(Point p) {  // x, y 좌표값을 원하는 값을 초기화 하여 Shape객체 생성
+    Shape() {
+        this(new Point(0, 0));
+    }
+    
+    Shape(Point p) {
         this.p = p;
     }
     
-    abstract double calcArea();  // 추상 메서드
+    abstract double calcArea();
+    /* 추상 메서드 calcArea() - 
+    메서드의 선언문만 정의한 미완성 메서드. 
+    
+    해당 추상 클래스를 상속받아, clacArea() 메서드를 구현하는 도형 클래스의 넓이를 구하는 공식이
+    도형별로 다르기 때문에, 각 클래스에서 자신에게 맞게 해당 추상 메서드의 구현부를 구현해 주어야 한다. */
     
     Point getPosition() {
         return p;
@@ -45,18 +48,17 @@ abstract class Shape {  // 추상 클래스 - 해당 클래스의 자손클래�
 class Circle extends Shape {
     double r;
     
-    Circle() {
-        super(new Point());
-        
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("enter value of radius");
-        this.r = scanner.nextDouble();
-        
-        scanner.close();
-    }    
+    Circle () {
+        this(10);
+    }
     
-    double calcArea() {  // 상속받은 추상 클래스의 추상 메서드 구현
+    Circle (double r) {
+        super(new Point(4, 8));
+        
+        this.r = r;
+    }
+    
+    double calcArea() {
         return r * r * 3.14;
     }
 }
@@ -66,27 +68,45 @@ class Rectangle extends Shape {
     double height;
     
     Rectangle() {
-        super(new Point());
-        
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("enter value of width");
-        this.width = scanner.nextDouble();
-        
-        System.out.println("enter value of height");
-        this.height = scanner.nextDouble();
-        
-        scanner.close();
+        this(10, 10);
     }
     
-    double calcArea() {  // 상속받은 추상 클래스의 추상 메서드 구현
+    Rectangle(double width, double height) {
+        super(new Point(12, 16));
+        
+        this.width = width;
+        this.height = height;
+    }
+    
+    double calcArea() {
         return width * height;
     }
     
     boolean isSquare() {
         if(width == height)
             return true;
-        else 
+        else
             return false;
+    }
+}
+
+class Exercise7_22 {
+    static double sumArea(Shape[] arr) {
+        double sum = 0;
+        
+        for(int i = 0; i < arr.length; i++) {
+            sum = sum + arr[i].calcArea();
+            System.out.println("arr[" + i + "] 의 x좌표 : " + arr[i].p.x + "  |  y 좌표 : " + arr[i].p.y);
+        }
+        
+        return sum;
+    }
+    
+    public static void main(String[] args) {
+        Shape[] arr = {new Circle(5.0), new Rectangle(3, 4), new Circle(), new Rectangle()};
+        
+        System.out.println("the sum of areas : " + sumArea(arr));
+        
+        
     }
 }
