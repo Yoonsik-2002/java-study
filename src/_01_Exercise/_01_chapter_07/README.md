@@ -863,6 +863,151 @@ void attack(Movable f) {
 
 이처럼, 인터페이스 또한 클래스와 마찬가지로 다형성을 지원하는 Java의 중요한 개념중 하나이다.<br>
 
-  ---
+---
 
-  <br><br>
+<br><br>
+
+### 💻 7-22
+```java
+package _01_Exercise._01_chapter_07;
+
+class Point {
+    int x;
+    int y;
+    
+    Point() {
+        this(0, 0);
+    }
+    
+    Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    public String toString() {
+        return "x : " + x + "y : " + y;
+    }
+}
+
+abstract class Shape {
+    Point p;  // Point 클래스를 멤버변수로 포함하며, 클래스 간의 포함 관계를 형성. 
+    
+    Shape() {
+        this(new Point(0, 0));
+    }
+    
+    Shape(Point p) {
+        this.p = p;
+    }
+    
+    abstract double calcArea();
+    /* 추상 메서드 calcArea() - 
+    메서드의 선언문만 정의한 미완성 메서드. 
+    
+    해당 추상 클래스를 상속받아, clacArea() 메서드를 구현하는 도형 클래스의 넓이를 구하는 공식이
+    도형별로 다르기 때문에, 각 클래스에서 자신에게 맞게 해당 추상 메서드의 구현부를 구현해 주어야 한다. */
+    
+    Point getPosition() {
+        return p;
+    }
+    
+    void setPosition(Point p) {
+        this.p = p;
+    }
+}
+
+class Circle extends Shape {
+    double r;
+    
+    Circle () {
+        this(10);
+    }
+    
+    Circle (double r) {
+        super(new Point(4, 8));
+        
+        this.r = r;
+    }
+    
+    double calcArea() {
+        return r * r * 3.14;
+    }
+}
+
+class Rectangle extends Shape {
+    double width;
+    double height;
+    
+    Rectangle() {
+        this(10, 10);
+    }
+    
+    Rectangle(double width, double height) {
+        super(new Point(12, 16));
+        
+        this.width = width;
+        this.height = height;
+    }
+    
+    double calcArea() {
+        return width * height;
+    }
+    
+    boolean isSquare() {
+        if(width == height)
+            return true;
+        else
+            return false;
+    }
+}
+
+class Exercise7_22 {
+    static double sumArea(Shape[] arr) {
+        double sum = 0;
+        
+        for(int i = 0; i < arr.length; i++) {
+            sum = sum + arr[i].calcArea();
+            System.out.println("arr[" + i + "] 의 x좌표 : " + arr[i].p.x + "  |  y 좌표 : " + arr[i].p.y);
+        }
+        
+        return sum;
+    }
+    
+    public static void main(String[] args) {
+        Shape[] arr = {new Circle(5.0), new Rectangle(3, 4), new Circle(), new Rectangle()};
+        
+        System.out.println("the sum of areas : " + sumArea(arr));
+        
+        
+    }
+}
+```
+<br>
+
+### 📑 Review
+- ###### 클래스 간의 포함관계
+  클래스 간의 포함관계란, 한 클래스가 다른 클래스를 멤버변수로 포함하는 관계를 의미한다.<br>
+
+  예를 들어, 자동차 클래스와 엔진 클래스가 있다고 해보자. 자동차는 엔진이라는 요소(부품)을 포함하기 때문에, 자동차 클래스를 구현하기 위해서는 엔진 클래스를 멤버변수로 포함해 주어야 한다.<br>
+
+  위 코드를 보면, `Shape`클래스에서 `Point`클래스를 멤버변수로 포함하고 있는 것을 알 수 있다. 이 또한, 도형을 좌표평면 위에 표현하기 위해서는 해당 도형의 x, y좌표가 필요하기 때문에, `Shape`클래스는 `Point`클래스를 멤버변수로 포함한다.<br>
+<br>
+
+- ###### 추상 클래스의 구현
+  위 코드의 `Shape`클래스는 추상 메서드를 포함하고 있는 미완성 설계도, 추상 클래스이다. 이러한 추상 클래스는 자손클래스로의 상속에 의해 비로소 완성된다.<br>
+
+  만약에, 추상 클래스를 구현하는 자손 클래스가 추상 클래스를 통해 상속받은 추상 메서드들을 모두 구현해 주지 않는다면, 해당 자손 클래스에도 미완성 메서드, 추상 메서드가 남아있는 상태가 되기 때문에, 추상 클래스가 되어버린다.<br>
+
+  그렇기 때문에, 추상 클래스의 자손 클래스는 반드시 추상 클래스로 부터 상속받은 추상 메서드를 모두 구현해 주어야 한다. 개발자가 이를 까먹고 넘어가지 않도록, 추상 메서드와 추상 클래스 앞에는 `abstract`를 붙인다.<br>
+  <br>
+
+  위 코드의 추상 메서드인 `abstract double calcArea()`는 도형의 면적을 계산하여 반환해주는 기능을 담당하기 위해 설계된 추상 메서드이다.<br>
+
+  선언문은 해당 `Shape`클래스의 자손 클래스인 도형 클래스(`Circle`, `Rectanagle`)에 동일하게 적용될 수 있지만, 각 도형의 면적을 계산하는 공식이 서로 다르기 때문에, 이는 각각 자손클래스 자신에게 맞게 따로 구현부를 구현해 주어야 한다.<br>
+
+  쉽게 말해, `Shape`는 도형을 만드는데 토대가 되는 미완성 설계도인 것이고, 이를 토대로, `Shape`클래스로 부터 상속받는 도형 클래스들이 자신에게 맞게 설계도를 완성(추상 메서드를 구현)해야 하는 것이다.<br>
+
+---
+
+<br><br>
+
