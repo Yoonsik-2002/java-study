@@ -5,7 +5,7 @@ class Ex07_24_InnerEx02 {  // 외부 클래스
     static class StaticInner {}  // static 내부 클래스
     
     InstanceInner iv = new InstanceInner(); // 인스턴스 멤버가 인스턴스 멤버를 참조.
-    static Staticinner cv = new StaticInner(); // 스태틱 멤버가 스태틱 멤버를 참조.
+    static StaticInner cv = new StaticInner(); // 스태틱 멤버가 스태틱 멤버를 참조.
     
     static void staticMethod() {
         // InstanceInner obj1 = new InstanceInner();  static 멤버가 인스턴스 멤버에 직접 접근하는 것은 불가능하다.
@@ -24,7 +24,7 @@ class Ex07_24_InnerEx02 {  // 외부 클래스
     }
     
     void myMethod() {
-        class LocalInner() {}
+        class LocalInner {}
         LocalInner lv = new LocalInner();
     }
 }
