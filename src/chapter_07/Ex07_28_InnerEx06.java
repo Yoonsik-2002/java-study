@@ -27,7 +27,7 @@ import java.awt.event.*;
 class Ex07_28_InnerEx06 {
     public static void main(String[] args) {
         Button b = new Button("Start");
-        b.addActionListener(new ActionListener() {
+        b.addActionListener(new ActionListener() { // 기존의 EventHandler 클래스를 익명 클래스로 만들어주기 위해, 해당 클래스가 구현하는 인터페이스인 ActionListener를 사용.
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Actionoccurred.");
             }
